@@ -1,45 +1,56 @@
+using Player;
 using UnityEngine;
-using Zenject;
 
-[RequireComponent(typeof(CharacterMovement))]
-[RequireComponent(typeof(SoundWave))]
 public class GetInput : MonoBehaviour
 {
-    private CharacterMovement _characterMovement;
-
-    private SoundWave _soundWave;
-
-    [Inject]
-    private void Construct(CharacterMovement characterMovement,SoundWave soundWave)
-    {
-        _characterMovement = characterMovement;
-        _soundWave = soundWave;
-    }
+    [SerializeField] private float distanceToGround;
     
+    public float Movement { get; private set; }
+    
+    public Vector3 Fire { get; private set; }
+    
+    public bool Jump { get; private set; }
+    public bool IsGrounded { get; private set; }
+
     private void Update()
     {
-        if (Input.GetKey(KeyCode.A))
-            _characterMovement.Run(Vector3.left);
+        HandleMovementInput();
+        CheckGrounded();
+        HandleJumpInput();
+        HandleFireInput();
+    }
 
-        if (Input.GetKey(KeyCode.D))
-            _characterMovement.Run(Vector3.right);
+    private void HandleMovementInput()
+    {
+        Movement = Input.GetAxis(GlobalAxis.HorizontalAxis);
+    }
+    
+    private void CheckGrounded()
+    {
+        IsGrounded = Physics.Raycast(transform.position, Vector3.down, distanceToGround);
+    }
+    
+    private void HandleJumpInput()
+    {
+        Jump = Input.GetKeyDown(KeyCode.W);
+    }
+    
+    private void HandleFireInput()
+    {
+        Fire = GetFireDirection();
+    }
 
-        if (Input.GetKeyDown(KeyCode.W))
-            _characterMovement.Jump();
-
-        if(_characterMovement.IsGrounded())
-            return;
-        
+    private Vector3 GetFireDirection()
+    {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
-            _soundWave.Flight(Vector3.left);
-
+            return Vector3.left;
         if (Input.GetKeyDown(KeyCode.RightArrow))
-            _soundWave.Flight(Vector3.right);
-        
+            return Vector3.right;
         if (Input.GetKeyDown(KeyCode.DownArrow))
-            _soundWave.Flight(Vector3.down);
-        
+            return Vector3.down;
         if (Input.GetKeyDown(KeyCode.UpArrow))
-            _soundWave.Flight(Vector3.up);
+            return Vector3.up;
+        
+        return Vector3.zero;
     }
 }

@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class SoundWave : MonoBehaviour
 {
-    [SerializeField] private Rigidbody currentRigidbody;
-
     [Header("Ray settings")] [Space(3)]
     
     [SerializeField] private float rayUpDistance;
@@ -26,14 +24,31 @@ public class SoundWave : MonoBehaviour
     private float _currentDistance;
     private Vector3 _hitPoint;
 
-    public void Flight(Vector3 direction)
+    private GetInput _playerInput;
+    private Rigidbody _currentRigidbody;
+    
+    private void Start()
     {
-        if(!Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance))
-            return;
+        _playerInput = GetComponent<GetInput>();
+        _currentRigidbody = GetComponent<Rigidbody>();
+    }
+    
+    private void FixedUpdate()
+    {
+        Flight(_playerInput.Fire);
+    }
 
-        _hitPoint = hit.point;
+    private void Flight(Vector3 direction)
+    {
+        if (_playerInput.Fire != Vector3.zero)
+        {
+            if(!Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance))
+                return;
+
+            _hitPoint = hit.point;
         
-        AddForce();
+            AddForce();
+        }
     }
 
     private Vector3 DirectionForce(Vector3 hitPoint)
@@ -43,8 +58,8 @@ public class SoundWave : MonoBehaviour
 
     private void AddForce()
     {
-        currentRigidbody.velocity = new Vector3(currentRigidbody.velocity.x, 0);
-        currentRigidbody.AddForce(DirectionForce(_hitPoint) * forceWave,ForceMode.Impulse);
+        _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x, 0);
+        _currentRigidbody.AddForce(DirectionForce(_hitPoint) * forceWave,ForceMode.Impulse);
     }
 
     #region Calculate Cos and Sin angle
