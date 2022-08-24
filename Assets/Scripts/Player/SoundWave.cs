@@ -10,7 +10,6 @@ public class SoundWave : MonoBehaviour
     [SerializeField] private float rayDownDistance;
     [SerializeField] private float rayLeftDistance;
     [SerializeField] private float rayRightDistance;
-    [SerializeField] private float forceWave;
     [Range(-1, 1)] [SerializeField] private float angle;
 
     /// <summary>
@@ -32,8 +31,9 @@ public class SoundWave : MonoBehaviour
             return;
 
         _hitPoint = hit.point;
-        
-        AddForce();
+
+        hit.collider.TryGetComponent(out PlatformForce platformForce);
+        AddForce(platformForce.GetForce());
     }
 
     private Vector3 DirectionForce(Vector3 hitPoint)
@@ -41,10 +41,10 @@ public class SoundWave : MonoBehaviour
         return (transform.position - hitPoint).normalized;
     }
 
-    private void AddForce()
+    private void AddForce(float force)
     {
         currentRigidbody.velocity = new Vector3(currentRigidbody.velocity.x, 0);
-        currentRigidbody.AddForce(DirectionForce(_hitPoint) * forceWave,ForceMode.Impulse);
+        currentRigidbody.AddForce(DirectionForce(_hitPoint) * force,ForceMode.Impulse);
     }
 
     #region Calculate Cos and Sin angle
@@ -125,5 +125,4 @@ public class SoundWave : MonoBehaviour
     }
 
     #endregion
-
 }
