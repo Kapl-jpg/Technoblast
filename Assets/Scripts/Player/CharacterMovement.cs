@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(GetInput))]
+
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
@@ -36,7 +37,6 @@ public class CharacterMovement : MonoBehaviour
         _currentRigidbody.AddForce(direction * speed, ForceMode.Force);
         _currentRigidbody.velocity = new Vector3(Mathf.Clamp(_currentRigidbody.velocity.x, -speed, speed),
             _currentRigidbody.velocity.y);
-
     }
 
     private void HandleJump()
