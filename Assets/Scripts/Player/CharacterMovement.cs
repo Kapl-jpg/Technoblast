@@ -29,7 +29,7 @@ public class CharacterMovement : MonoBehaviour
     private void HandleCharacterMovement()
     {
         if(_playerInput.Movement != 0)
-            Run(new Vector3(_playerInput.Movement,transform.position.y));
+            Run(new Vector3(_playerInput.Movement,0));
     }
     
     private void Run(Vector3 direction)

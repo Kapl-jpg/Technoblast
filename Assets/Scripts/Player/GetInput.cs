@@ -4,7 +4,6 @@ using UnityEngine;
 public class GetInput : MonoBehaviour
 {
     [SerializeField] private float distanceToGround;
-    
     public float Movement { get; private set; }
     
     public Vector3 Fire { get; private set; }

@@ -3,26 +3,19 @@ using UnityEngine;
 public class SoundWave : MonoBehaviour
 {
     [Header("Ray settings")] [Space(3)]
-    
     [SerializeField] private float rayUpDistance;
     [SerializeField] private float rayDownDistance;
     [SerializeField] private float rayLeftDistance;
     [SerializeField] private float rayRightDistance;
-    [SerializeField] private float forceWave;
+    
+    [Space(15)]
+    [SerializeField] private Transform startPoint;
     [Range(-1, 1)] [SerializeField] private float angle;
 
-    /// <summary>
-    /// Удалить, если начало луча будет из центра персонажа
-    /// </summary>
-    [SerializeField] private Transform startPoint;
-
     [Header("Draw in scene")] [Space(3)]
-    
     [SerializeField] private bool drawRays = true;
-
-    private Ray _currentRay;
+    
     private float _currentDistance;
-    private Vector3 _hitPoint;
 
     private GetInput _playerInput;
     private Rigidbody _currentRigidbody;
@@ -40,44 +33,51 @@ public class SoundWave : MonoBehaviour
 
     private void Flight(Vector3 direction)
     {
-        if (_playerInput.Fire != Vector3.zero)
+        if (direction != Vector3.zero)
         {
-            if(!Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance))
-                return;
-
-            _hitPoint = hit.point;
-        
-            AddForce();
+            if(Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance))
+            {
+                if (hit.collider.TryGetComponent<IHaveJumpForce>(out var jumpForce))
+                {
+                    AddForce(GetForceDirection(hit.point), jumpForce.GetForce());   
+                }   
+            }
         }
     }
-
-    private Vector3 DirectionForce(Vector3 hitPoint)
+    
+    private Vector3 GetForceDirection(Vector3 hitPoint)
     {
         return (transform.position - hitPoint).normalized;
     }
-
-    private void AddForce()
+    
+    private void AddForce(Vector3 direction,float forceValue)
     {
         _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x, 0);
-        _currentRigidbody.AddForce(DirectionForce(_hitPoint) * forceWave,ForceMode.Impulse);
+        _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
     }
-
-    #region Calculate Cos and Sin angle
-
-    private float CosValue()
-    {
-        return Mathf.Cos(angle);
-    }
-
-    private float SinValue()
-    {
-        return Mathf.Sin(angle);
-    }
-
-    #endregion
 
     #region Get rays
-
+    private Ray CurrentRay(Vector3 direction)
+    {
+        switch (direction)
+        {
+            case var v when v.Equals(Vector3.down):
+                _currentDistance = rayDownDistance;
+                return DownRay();
+            case var v when v.Equals(Vector3.up):
+                _currentDistance = rayUpDistance;
+                return UpRay();
+            case var v when v.Equals(Vector3.left):
+                _currentDistance = rayLeftDistance;
+                return LeftRay();
+            case var v when v.Equals(Vector3.right):
+                _currentDistance = rayRightDistance;
+                return RightRay();
+        }
+        
+        return new Ray(Vector3.zero,Vector3.zero);
+    }
+    
     private Ray RightRay()
     {
         return new Ray(startPoint.position,  new Vector3(CosValue(), SinValue()));
@@ -97,30 +97,18 @@ public class SoundWave : MonoBehaviour
     {
         return new Ray(startPoint.position, Vector3.up);
     }
+    #endregion
+    
+    #region Calculate Cos and Sin angle
 
-    private Ray CurrentRay(Vector3 direction)
+    private float CosValue()
     {
-        switch (direction)
-        {
-            case var v when v.Equals(Vector3.down):
-                _currentRay = DownRay();
-                _currentDistance = rayDownDistance;
-                break;
-            case var v when v.Equals(Vector3.up):
-                _currentRay = UpRay();
-                _currentDistance = rayUpDistance;
-                break;
-            case var v when v.Equals(Vector3.left):
-                _currentDistance = rayLeftDistance;
-                _currentRay = LeftRay();
-                break;
-            case var v when v.Equals(Vector3.right):
-                _currentRay = RightRay();
-                _currentDistance = rayRightDistance;
-                break;
-        }
+        return Mathf.Cos(angle);
+    }
 
-        return _currentRay;
+    private float SinValue()
+    {
+        return Mathf.Sin(angle);
     }
 
     #endregion
