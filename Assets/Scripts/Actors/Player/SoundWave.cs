@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(InputHandler))]
-public class SoundWave : MonoBehaviour
+public class SoundWave : BaseBehaviour
 {
     [Header("Ray settings")] [Space(3)]
     [SerializeField] private float rayUpDistance;
@@ -26,8 +26,8 @@ public class SoundWave : MonoBehaviour
         _playerInput = GetComponent<InputHandler>();
         _currentRigidbody = GetComponent<Rigidbody>();
     }
-    
-    private void FixedUpdate()
+
+    protected override void OnUpdate()
     {
         Flight(_playerInput.Fire);
     }

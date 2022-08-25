@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(InputHandler))]
 
-public class CharacterMovement : MonoBehaviour
+public class CharacterMovement : BaseBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float forceJump;
@@ -20,7 +20,7 @@ public class CharacterMovement : MonoBehaviour
         _currentRigidbody = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    protected override void OnUpdate()
     {
         HandleCharacterMovement();
         HandleJump();
