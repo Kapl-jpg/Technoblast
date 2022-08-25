@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody), typeof(GetInput))]
+[RequireComponent(typeof(Rigidbody), typeof(InputHandler))]
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -12,11 +12,11 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float distanceToGround;
 
     private Rigidbody _currentRigidbody;
-    private GetInput _playerInput;
+    private InputHandler _playerInput;
 
     private void Start()
     {
-        _playerInput = GetComponent<GetInput>();
+        _playerInput = GetComponent<InputHandler>();
         _currentRigidbody = GetComponent<Rigidbody>();
     }
 

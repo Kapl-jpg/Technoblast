@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlatformForce : MonoBehaviour, IHaveJumpForce
+public abstract class JumpableObject : MonoBehaviour, IHaveJumpForce
 {
     [SerializeField] protected ColorForceConfig _colorForceConfig;
     [SerializeField] protected ForceColor _color;
@@ -12,18 +12,13 @@ public class PlatformForce : MonoBehaviour, IHaveJumpForce
         Init();
     }
 
-    protected void Init()
+    protected virtual void Init()
     {
         _force = _colorForceConfig.GetForceByColor(_color);
     }
     
-    public int GetForce()
+    public virtual int GetForce()
     {
         return _force;
     }
-}
-
-public interface IHaveJumpForce
-{
-    public int GetForce();
 }

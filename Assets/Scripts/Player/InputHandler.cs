@@ -1,7 +1,7 @@
 using Player;
 using UnityEngine;
 
-public class GetInput : MonoBehaviour
+public class InputHandler : MonoBehaviour
 {
     [SerializeField] private float distanceToGround;
     public float Movement { get; private set; }

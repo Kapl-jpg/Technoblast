@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(InputHandler))]
 public class SoundWave : MonoBehaviour
 {
     [Header("Ray settings")] [Space(3)]
@@ -17,12 +18,12 @@ public class SoundWave : MonoBehaviour
     
     private float _currentDistance;
 
-    private GetInput _playerInput;
+    private InputHandler _playerInput;
     private Rigidbody _currentRigidbody;
     
     private void Start()
     {
-        _playerInput = GetComponent<GetInput>();
+        _playerInput = GetComponent<InputHandler>();
         _currentRigidbody = GetComponent<Rigidbody>();
     }
     
@@ -33,14 +34,11 @@ public class SoundWave : MonoBehaviour
 
     private void Flight(Vector3 direction)
     {
-        if (direction != Vector3.zero)
+        if (direction != Vector3.zero && Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) )
         {
-            if(Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance))
+            if (hit.collider.TryGetComponent<IHaveJumpForce>(out var jumpForce))
             {
-                if (hit.collider.TryGetComponent<IHaveJumpForce>(out var jumpForce))
-                {
-                    AddForce(GetForceDirection(hit.point), jumpForce.GetForce());   
-                }   
+                AddForce(GetForceDirection(hit.point), jumpForce.GetForce());
             }
         }
     }
