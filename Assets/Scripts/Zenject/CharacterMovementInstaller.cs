@@ -7,5 +7,6 @@ public class CharacterMovementInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<CharacterMovement>().FromInstance(characterMovement).AsSingle().NonLazy();
+        Container.Bind<ICanDie>().FromInstance(characterMovement.gameObject.GetComponent<ICanDie>()).AsSingle().NonLazy();
     }
 }

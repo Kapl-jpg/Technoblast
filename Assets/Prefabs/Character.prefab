@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1351634387258085669}
   - component: {fileID: 283558330174940995}
   - component: {fileID: 8699275032143609062}
-  - component: {fileID: 1887092416647518036}
+  - component: {fileID: 1159189489509377000}
+  - component: {fileID: 4493284845770332706}
   - component: {fileID: 1590990713127633278}
   - component: {fileID: 6614090576512855046}
   m_Layer: 0
@@ -115,7 +116,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 72
   m_CollisionDetection: 0
---- !u!114 &1887092416647518036
+--- !u!114 &1159189489509377000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,10 +125,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6081627357098359499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c7292778af0a44ebc85b56308fabce, type: 3}
+  m_Script: {fileID: 11500000, guid: 4134bed7419fbcc48a0eb9df153c03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundWave: {fileID: 6614090576512855046}
+  distanceToGround: 1
+--- !u!114 &4493284845770332706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6081627357098359499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b7b1bf6a55cf348b59c5e28825265c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1590990713127633278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,11 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1e76f99d0127a4bb47225d83d32578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRigidbody: {fileID: 8699275032143609062}
-  speed: 10
+  speed: 7
   forceJump: 7
-  distanceToGround: 0.7
   drawDistanceBeforeGround: 0
+  distanceToGround: 0.7
 --- !u!114 &6614090576512855046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,12 +169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71236c4b3af6f54190f5ef9894754cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRigidbody: {fileID: 8699275032143609062}
   rayUpDistance: 2
   rayDownDistance: 2
   rayLeftDistance: 3
   rayRightDistance: 3
-  forceWave: 10
-  angle: -0.75
   startPoint: {fileID: 1510674363807352435}
+  angle: -0.74
   drawRays: 1
