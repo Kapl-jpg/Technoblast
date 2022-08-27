@@ -381,7 +381,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 10
+  m_CameraDistance: 12
   m_DeadZoneWidth: 0.1
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -1239,7 +1239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503412807}
   m_LocalRotation: {x: 0.0446656, y: -0, z: -0, w: 0.999002}
-  m_LocalPosition: {x: 0.81, y: 4.6124206, z: -9.9601}
+  m_LocalPosition: {x: 0.81, y: 4.7909045, z: -11.95212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1965292768}
@@ -1330,17 +1330,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1590990713127633278, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: forceJump
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590990713127633278, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: distanceToGround
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590990713127633278, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: drawDistanceBeforeGround
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6081627357098359499, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
     - target: {fileID: 6614090576512855046, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: angle
-      value: -1
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6614090576512855046, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: drawRays
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614090576512855046, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: rayLeftDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614090576512855046, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: rayRightDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1887092416647518036, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
@@ -1979,7 +1999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117079662}
   m_LocalRotation: {x: 0.0446656, y: -0, z: -0, w: 0.999002}
-  m_LocalPosition: {x: 0.81, y: 4.6124206, z: -9.9601}
+  m_LocalPosition: {x: 0.81, y: 4.7909045, z: -11.95212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 183129140}
