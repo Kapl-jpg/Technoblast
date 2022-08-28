@@ -53,7 +53,8 @@ public class SoundWave : BaseBehaviour
     
     private void AddForce(Vector3 direction,float forceValue)
     {
-        _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x, 0);
+        if(direction.x!=0)
+            _currentRigidbody.velocity = new Vector3(0, 0);
         _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
     }
 

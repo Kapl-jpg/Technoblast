@@ -8,9 +8,10 @@ public class InputHandler : MonoBehaviour
     
     public Vector3 Fire { get; private set; }
 
-    public bool MovementIsPressed { get; private set; }
+    public bool MovementIsNonPressed { get; private set; }
 
     public bool Jump { get; private set; }
+    
     public bool IsGrounded { get; private set; }
 
     private void Update()
@@ -24,9 +25,9 @@ public class InputHandler : MonoBehaviour
     private void HandleMovementInput()
     {
         Movement = Input.GetAxisRaw(GlobalAxis.HorizontalAxis);
-        MovementIsPressed = Input.GetKey(KeyCode.D);
+        MovementIsNonPressed = Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D);
     }
-    
+
     private void CheckGrounded()
     {
         IsGrounded = Physics.Raycast(transform.position, Vector3.down, distanceToGround);
