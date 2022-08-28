@@ -16,10 +16,12 @@ public class CharacterMovement : BaseBehaviour
     [SerializeField] private float distanceToGround;
 
     private float _currentTimeAcceleration;
-    private float _currentTimeDeceleration = 10;
+    private float _currentTimeDeceleration;
 
     private Rigidbody _currentRigidbody;
     private InputHandler _playerInput;
+
+    private float _speedDuringPressing;
 
     private void Start()
     {
@@ -50,24 +52,32 @@ public class CharacterMovement : BaseBehaviour
         }
     }
 
+
     private void Run(Vector3 direction)
     {
         AccelerationTime();
-        var slowSpeed = !_playerInput.IsGrounded ? multiplierDecelerationInJump : 1;
+        
         _currentRigidbody.velocity +=
             new Vector3(Mathf.Clamp(
-                CalculateAcceleration() * _currentTimeAcceleration * direction.x / slowSpeed, -maxSpeed,
+                CalculateAcceleration() * _currentTimeAcceleration * direction.x, -maxSpeed,
                 maxSpeed) - _currentRigidbody.velocity.x, 0);
     }
+
 
     private void SlowingDown()
     {
         DecelerationTime();
-        var velocity = _currentRigidbody.velocity;
-        if (_playerInput.IsGrounded)
-            _currentRigidbody.velocity = Vector3.Lerp(_currentRigidbody.velocity,
-                new Vector3(0, _currentRigidbody.velocity.y),
-                (timeToStop - (timeToStop - _currentTimeDeceleration)) / timeToStop);
+        if (_playerInput.MovementIsNonPressed)
+            SaveCurrentSpeed();
+        _currentRigidbody.velocity = new Vector3(
+            Mathf.Lerp(_speedDuringPressing, 0,
+                (timeToStop - (timeToStop - _currentTimeDeceleration)) / timeToStop),
+            _currentRigidbody.velocity.y);
+    }
+
+    private void SaveCurrentSpeed()
+    {
+        _speedDuringPressing = _currentRigidbody.velocity.x;
     }
 
     private void SlowingDownInAir(Vector3 direction)
