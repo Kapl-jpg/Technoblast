@@ -34,6 +34,9 @@ public class SoundWave : BaseBehaviour
 
     private void Flight(Vector3 direction)
     {
+        if(_playerInput.IsGrounded)
+            return;
+        
         if (direction != Vector3.zero && Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) )
         {
             if (hit.collider.TryGetComponent<IHaveJumpForce>(out var jumpForce))

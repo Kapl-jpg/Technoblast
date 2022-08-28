@@ -7,7 +7,9 @@ public class InputHandler : MonoBehaviour
     public float Movement { get; private set; }
     
     public Vector3 Fire { get; private set; }
-    
+
+    public bool MovementIsPressed { get; private set; }
+
     public bool Jump { get; private set; }
     public bool IsGrounded { get; private set; }
 
@@ -21,7 +23,8 @@ public class InputHandler : MonoBehaviour
 
     private void HandleMovementInput()
     {
-        Movement = Input.GetAxis(GlobalAxis.HorizontalAxis);
+        Movement = Input.GetAxisRaw(GlobalAxis.HorizontalAxis);
+        MovementIsPressed = Input.GetKey(KeyCode.D);
     }
     
     private void CheckGrounded()
