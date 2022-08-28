@@ -25,12 +25,12 @@ public class InputHandler : MonoBehaviour
     private void HandleMovementInput()
     {
         Movement = Input.GetAxisRaw(GlobalAxis.HorizontalAxis);
-        MovementIsNonPressed = Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D);
     }
 
     private void CheckGrounded()
     {
-        IsGrounded = Physics.Raycast(transform.position, Vector3.down, distanceToGround);
+        Ray ray = new Ray(transform.position, Vector3.down);
+        IsGrounded = Physics.Raycast(ray, distanceToGround);
     }
     
     private void HandleJumpInput()

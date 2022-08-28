@@ -50,11 +50,21 @@ public class SoundWave : BaseBehaviour
     {
         return (transform.position - hitPoint).normalized;
     }
-    
-    private void AddForce(Vector3 direction,float forceValue)
+
+    private void AddForce(Vector3 direction, float forceValue)
     {
-        if(direction.x!=0)
+        if (forceValue == 0)
+            return;
+
+        if (Mathf.Abs(direction.x) > 1)
+        {
             _currentRigidbody.velocity = new Vector3(0, 0);
+        }
+        else
+        {
+            _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x, 0);
+        }
+
         _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
     }
 

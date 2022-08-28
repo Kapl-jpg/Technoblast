@@ -67,17 +67,10 @@ public class CharacterMovement : BaseBehaviour
     private void SlowingDown()
     {
         DecelerationTime();
-        if (_playerInput.MovementIsNonPressed)
-            SaveCurrentSpeed();
-        _currentRigidbody.velocity = new Vector3(
-            Mathf.Lerp(_speedDuringPressing, 0,
-                (timeToStop - (timeToStop - _currentTimeDeceleration)) / timeToStop),
-            _currentRigidbody.velocity.y);
-    }
-
-    private void SaveCurrentSpeed()
-    {
-        _speedDuringPressing = _currentRigidbody.velocity.x;
+        if (_playerInput.IsGrounded)
+            _currentRigidbody.velocity = Vector3.Lerp(_currentRigidbody.velocity,
+                new Vector3(0, _currentRigidbody.velocity.y),
+                (timeToStop - (timeToStop - _currentTimeDeceleration)) / timeToStop);
     }
 
     private void SlowingDownInAir(Vector3 direction)
