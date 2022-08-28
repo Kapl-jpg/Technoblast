@@ -56,14 +56,10 @@ public class SoundWave : BaseBehaviour
         if (forceValue == 0)
             return;
 
-        if (Mathf.Abs(direction.x) > 1)
-        {
+        if (direction.x != 0)
             _currentRigidbody.velocity = new Vector3(0, 0);
-        }
         else
-        {
             _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x, 0);
-        }
 
         _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
     }
