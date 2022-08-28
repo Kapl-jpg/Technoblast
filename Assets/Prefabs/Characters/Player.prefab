@@ -94,7 +94,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6081627357098359499}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2191b3024f630534aa7ce5f6a70a5a98, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -156,9 +156,9 @@ MonoBehaviour:
   timeToMaximumSpeed: 0.5
   maxSpeed: 7
   timeToStop: 1
-  forceJump: 12
+  forceJump: 15
   multiplierDecelerationInJump: 8
-  drawDistanceBeforeGround: 1
+  drawDistanceBeforeGround: 0
   distanceToGround: 0.52
 --- !u!114 &6614090576512855046
 MonoBehaviour:
