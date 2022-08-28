@@ -76,8 +76,6 @@ public class CharacterMovement : BaseBehaviour
     private void SlowingDownInAir(Vector3 direction)
     {
         _currentRigidbody.AddForce(direction * maxSpeed / SlowSpeed());
-        _currentRigidbody.velocity = new Vector3(Mathf.Clamp(_currentRigidbody.velocity.x, -maxSpeed, maxSpeed),
-            _currentRigidbody.velocity.y);
     }
 
     private float SlowSpeed()
