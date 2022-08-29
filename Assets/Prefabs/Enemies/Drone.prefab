@@ -362,7 +362,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedFlight: 1
-  amplitude: 1
+  amplitude: 0.1
+  offset: 0
   body: {fileID: 2745058309210500472}
 --- !u!114 &3087514605617274584
 MonoBehaviour:
