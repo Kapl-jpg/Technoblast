@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 8685993def188ad46949f339a273418f
+guid: e754e0816c011564ca3ebf726659bfd2
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_color
+    second: {fileID: 2100000, guid: 4981fa45bd21d2c43afa2b2763059ae2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_metal
+    second: {fileID: 2100000, guid: c45c8c5da23d59745b6eceba7a1d1536, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -22,7 +32,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
+    importConstraints: 1
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
