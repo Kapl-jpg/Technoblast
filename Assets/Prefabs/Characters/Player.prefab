@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4493284845770332706}
   - component: {fileID: 1590990713127633278}
   - component: {fileID: 6614090576512855046}
+  - component: {fileID: 1849545154027300407}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -179,3 +180,16 @@ MonoBehaviour:
   startPoint: {fileID: 1510674363807352435}
   angle: -0.75
   drawRays: 0
+--- !u!114 &1849545154027300407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6081627357098359499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac74e27f70bc4d40986322cb98aa1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldownTime: 0.5

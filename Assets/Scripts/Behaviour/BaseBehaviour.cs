@@ -8,6 +8,10 @@ public abstract class BaseBehaviour : MonoBehaviour, IBehaviour
         {
             actor.AddBehaviour(this);
         }
+        else
+        {
+            Debug.LogError("There is no IActor component on " + gameObject.name);
+        }
     }
 
     public void UpdateBehaviour()

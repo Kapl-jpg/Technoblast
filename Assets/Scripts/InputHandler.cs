@@ -13,6 +13,8 @@ public class InputHandler : MonoBehaviour
     public bool Jump { get; private set; }
     
     public bool IsGrounded { get; private set; }
+    
+    public bool Trick { get; private set; }
 
     private void Update()
     {
@@ -20,6 +22,7 @@ public class InputHandler : MonoBehaviour
         CheckGrounded();
         HandleJumpInput();
         HandleFireInput();
+        HandleTrickInput();
     }
 
     private void HandleMovementInput()
@@ -55,5 +58,10 @@ public class InputHandler : MonoBehaviour
             return Vector3.up;
         
         return Vector3.zero;
+    }
+
+    private void HandleTrickInput()
+    {
+        Trick = Input.GetKeyDown(KeyCode.S) && !IsGrounded;
     }
 }
