@@ -1,18 +1,27 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(InputHandler))]
-
 public class CharacterMovement : BaseBehaviour
 {
-    [SerializeField] private float speed;
+    [Header("Speed")] [SerializeField] private float timeToMaximumSpeed;
+    [SerializeField] private float maxSpeed = 7;
+    [SerializeField] private float timeToStop;
+
     [SerializeField] private float forceJump;
-    
-    [Tooltip("Drawn on scene")]
+
+    [SerializeField] private float multiplierDecelerationInJump;
+
     [SerializeField] private bool drawDistanceBeforeGround = true;
+
     [SerializeField] private float distanceToGround;
+
+    private float _currentTimeAcceleration;
+    private float _currentTimeDeceleration;
 
     private Rigidbody _currentRigidbody;
     private InputHandler _playerInput;
+
+    private float _speedDuringPressing;
 
     private void Start()
     {
@@ -28,29 +37,81 @@ public class CharacterMovement : BaseBehaviour
 
     private void HandleCharacterMovement()
     {
-        if(_playerInput.Movement != 0)
-            Run(new Vector3(_playerInput.Movement,0));
+        if (_playerInput.Movement != 0)
+        {
+            if (_playerInput.IsGrounded)
+                Run(new Vector3(_playerInput.Movement, 0));
+
+            if (!_playerInput.IsGrounded)
+                SlowingDownInAir(new Vector3(_playerInput.Movement, 0));
+        }
+        else
+        {
+            if (_playerInput.IsGrounded)
+                SlowingDown();
+        }
     }
-    
+
+
     private void Run(Vector3 direction)
     {
-        _currentRigidbody.AddForce(direction * speed, ForceMode.Force);
-        _currentRigidbody.velocity = new Vector3(Mathf.Clamp(_currentRigidbody.velocity.x, -speed, speed),
-            _currentRigidbody.velocity.y);
+        AccelerationTime();
+        
+        _currentRigidbody.velocity +=
+            new Vector3(Mathf.Clamp(
+                CalculateAcceleration() * _currentTimeAcceleration * direction.x, -maxSpeed,
+                maxSpeed) - _currentRigidbody.velocity.x, 0);
+    }
+
+
+    private void SlowingDown()
+    {
+        DecelerationTime();
+        if (_playerInput.IsGrounded)
+            _currentRigidbody.velocity = Vector3.Lerp(_currentRigidbody.velocity,
+                new Vector3(0, _currentRigidbody.velocity.y),
+                (timeToStop - (timeToStop - _currentTimeDeceleration)) / timeToStop);
+    }
+
+    private void SlowingDownInAir(Vector3 direction)
+    {
+        _currentRigidbody.AddForce(direction * maxSpeed / SlowSpeed());
+    }
+
+    private float SlowSpeed()
+    {
+        return !_playerInput.IsGrounded ? multiplierDecelerationInJump : 1;
     }
 
     private void HandleJump()
     {
-        if(_playerInput.Jump && _playerInput.IsGrounded)
-            _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x,forceJump);
+        if (_playerInput.Jump && _playerInput.IsGrounded)
+            _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x, forceJump);
     }
 
     private void OnDrawGizmos()
     {
-        if(!drawDistanceBeforeGround)
+        if (!drawDistanceBeforeGround)
             return;
         var position = transform.position;
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(position, new Vector3(position.x,position.y - distanceToGround));
+        Gizmos.DrawLine(position, new Vector3(position.x, position.y - distanceToGround));
+    }
+
+    private float CalculateAcceleration()
+    {
+        return maxSpeed / timeToMaximumSpeed;
+    }
+
+    private void AccelerationTime()
+    {
+        _currentTimeDeceleration = 0;
+        _currentTimeAcceleration += Time.deltaTime;
+    }
+
+    private void DecelerationTime()
+    {
+        _currentTimeAcceleration = 0;
+        _currentTimeDeceleration += Time.deltaTime;
     }
 }

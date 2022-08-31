@@ -1,5 +1,5 @@
 
     public enum ForceColor
     {
-        Cian, Grey, Purple, Orange
+        Cyan, Grey, Purple, Orange
     }

@@ -34,6 +34,9 @@ public class SoundWave : BaseBehaviour
 
     private void Flight(Vector3 direction)
     {
+        if(_playerInput.IsGrounded)
+            return;
+        
         if (direction != Vector3.zero && Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) )
         {
             if (hit.collider.TryGetComponent<IHaveJumpForce>(out var jumpForce))
@@ -47,10 +50,17 @@ public class SoundWave : BaseBehaviour
     {
         return (transform.position - hitPoint).normalized;
     }
-    
-    private void AddForce(Vector3 direction,float forceValue)
+
+    private void AddForce(Vector3 direction, float forceValue)
     {
-        _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x, 0);
+        if (forceValue == 0)
+            return;
+
+        if (direction.x != 0)
+            _currentRigidbody.velocity = new Vector3(0, 0);
+        else
+            _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x, 0);
+
         _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
     }
 

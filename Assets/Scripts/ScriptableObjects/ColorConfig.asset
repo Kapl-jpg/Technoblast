@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f626be618c44ed24a818537b5dc1e5ae, type: 3}
   m_Name: ColorConfig
   m_EditorClassIdentifier: 
-  _cianColorForce: 10
-  _greyColorForce: 20
-  _purpleColorForce: 30
-  _orangeColorForce: 40
+  _cyanColorForce: 18
+  _greyColorForce: 0
+  _purpleColorForce: 24
+  _orangeColorForce: 30
+  _cyanColorMaterial: {fileID: 2100000, guid: 93efefba9e7f65341a0fa9da5e5022e1, type: 2}
+  _greyColorMaterial: {fileID: 2100000, guid: 25948f4a016e6c74b8bc176c78878460, type: 2}
+  _purpleColorMaterial: {fileID: 2100000, guid: 2662be485722c5f40b0b9963417de577, type: 2}
+  _orangeColorMaterial: {fileID: 2100000, guid: e09f1c94a5d99de4184efe689427bf4c, type: 2}

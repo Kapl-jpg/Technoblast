@@ -7,8 +7,11 @@ public class InputHandler : MonoBehaviour
     public float Movement { get; private set; }
     
     public Vector3 Fire { get; private set; }
-    
+
+    public bool MovementIsNonPressed { get; private set; }
+
     public bool Jump { get; private set; }
+    
     public bool IsGrounded { get; private set; }
 
     private void Update()
@@ -21,12 +24,13 @@ public class InputHandler : MonoBehaviour
 
     private void HandleMovementInput()
     {
-        Movement = Input.GetAxis(GlobalAxis.HorizontalAxis);
+        Movement = Input.GetAxisRaw(GlobalAxis.HorizontalAxis);
     }
-    
+
     private void CheckGrounded()
     {
-        IsGrounded = Physics.Raycast(transform.position, Vector3.down, distanceToGround);
+        Ray ray = new Ray(transform.position, Vector3.down);
+        IsGrounded = Physics.Raycast(ray, distanceToGround);
     }
     
     private void HandleJumpInput()
