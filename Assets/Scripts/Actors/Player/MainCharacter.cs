@@ -31,7 +31,6 @@ public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
 
     public void Death()
     {
-        if(PossibleToDie)
-            OnDeathEvent?.Invoke();
+        OnDeathEvent?.Invoke();
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43812332, g: 0.48611736, b: 0.56639653, a: 1}
+  m_IndirectSpecularColor: {r: 0.4381236, g: 0.48611784, b: 0.5663972, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2512,25 +2512,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 946620453785675473, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1066355326580159954, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1066355326580159954, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0709045
+      value: 3.3386307
       objectReference: {fileID: 0}
     - target: {fileID: 1066355326580159954, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.95212
+      value: -14.940149
       objectReference: {fileID: 0}
     - target: {fileID: 1066355327073232361, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0709045
+      value: 3.3386307
       objectReference: {fileID: 0}
     - target: {fileID: 1066355327073232361, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.95212
+      value: -14.940149
       objectReference: {fileID: 0}
     - target: {fileID: 1066355327966611448, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
       propertyPath: m_Name
@@ -2580,9 +2584,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1686196745819269029, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
+      propertyPath: _invincibilityTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1790217250700427500, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
       propertyPath: forceJump
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126457706365791636, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
+      propertyPath: drawRays
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
