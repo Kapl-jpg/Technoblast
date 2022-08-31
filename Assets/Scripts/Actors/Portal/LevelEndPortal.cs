@@ -5,15 +5,16 @@ using Zenject;
 
 public class LevelEndPortal : MonoBehaviour, IInteractable
 {
+    [SerializeField] private bool _isActiveAtStart;
     public bool IsActive { get; private set; }
 
     private SceneChanger _sceneChanger;
-
+    
     [Inject]
     private void Construct(SceneChanger sceneChanger)
     {
         _sceneChanger = sceneChanger;
-        IsActive = true;
+        IsActive = _isActiveAtStart;
     }
     
     public void Interact()
