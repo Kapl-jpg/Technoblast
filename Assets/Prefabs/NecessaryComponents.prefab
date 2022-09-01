@@ -837,7 +837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerSoundWave: {fileID: 6126457706365791636}
   _audioSource: {fileID: 5918689123000996456}
-  _onMissHitAudio: {fileID: 8300000, guid: e98b6e12cdf264a4e9192dda02f9bd92, type: 3}
+  _onMissHitAudio: {fileID: 8300000, guid: af17ef466e701db41bfac5e00cf0d370, type: 3}
+  _maxParallelClips: 0
 --- !u!1001 &1066355326530191762
 PrefabInstance:
   m_ObjectHideFlags: 0
