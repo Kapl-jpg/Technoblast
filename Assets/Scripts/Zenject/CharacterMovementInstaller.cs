@@ -7,8 +7,14 @@ public class CharacterMovementInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<CharacterMovement>().FromInstance(characterMovement).AsSingle().NonLazy();
+        
         Container.Bind<InputHandler>().FromInstance(characterMovement.gameObject.GetComponent<InputHandler>())
             .AsSingle().NonLazy();
+        
         Container.Bind<ICanDie>().FromInstance(characterMovement.gameObject.GetComponent<ICanDie>()).AsSingle().NonLazy();
+        
+        Container.Bind<IInventory>().FromInstance(characterMovement.gameObject.GetComponent<IInventory>())
+            .AsSingle()
+            .NonLazy();
     }
 }
