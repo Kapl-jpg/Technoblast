@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SoundPlayer : MonoBehaviour
@@ -42,11 +44,16 @@ public class SoundPlayer : MonoBehaviour
 
     private void SetAudioAndPlay(AudioClip audioClip)
     {
-        if (_currentPlayingClips.Count <= _maxParallelClips)
+        if (_audioSource.clip == audioClip)
         {
-            StartCoroutine(AudioClipCallback(audioClip));
-            _audioSource.PlayOneShot(audioClip,0.5f);   
+            _audioSource.Play();
         }
+        else
+        {
+            _audioSource.PlayOneShot(audioClip);
+            _audioSource.clip = audioClip;
+        }
+        StartCoroutine(AudioClipCallback(audioClip));
     }
 
     private IEnumerator AudioClipCallback(AudioClip audioClip)
