@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using  DG.Tweening;
 
 
 public class DroneMovement : MonoBehaviour
@@ -11,6 +12,10 @@ public class DroneMovement : MonoBehaviour
         
     }
 
+    private void MoveUp()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
