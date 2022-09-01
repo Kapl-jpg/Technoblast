@@ -43,7 +43,8 @@ public class InputHandler : MonoBehaviour
     
     private void HandleFireInput()
     {
-        Fire = GetFireDirection();
+        if(!IsGrounded)
+            Fire = GetFireDirection();
     }
 
     private Vector3 GetFireDirection()
@@ -62,6 +63,7 @@ public class InputHandler : MonoBehaviour
 
     private void HandleTrickInput()
     {
-        Trick = Input.GetKeyDown(KeyCode.S) && !IsGrounded;
+        if (!IsGrounded)
+            Trick = Input.GetKeyDown(KeyCode.S);
     }
 }

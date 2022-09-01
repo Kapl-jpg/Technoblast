@@ -5,15 +5,11 @@ using UnityEngine;
 
 public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
 {
-    public bool PossibleToDie { get; private set; }
+    public bool PossibleToDie { get; private set; } = true;
     
     public event Action OnDeathEvent;
 
     protected override void Init()
-    {
-    }
-
-    protected override void OnUpdate()
     {
     }
 
