@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class SoundPlayer : MonoBehaviour
@@ -13,15 +9,8 @@ public class SoundPlayer : MonoBehaviour
     [Header("Miss Audio Clip"), Space(10)]
     [SerializeField] private AudioClip _onMissHitAudio;
 
-    [Header("Parallel Audio Clips Settings"), Space(10)]
-    [SerializeField] private int _maxParallelClips;
-    
-    private List<AudioClip> _currentPlayingClips;
-
     private void Start()
     {
-        _currentPlayingClips = new List<AudioClip>(_maxParallelClips);
-        
         _playerSoundWave.JumpableObjectHitEvent += PlayJumpableObjectSound;
         _playerSoundWave.JumpableObjectMissEvent += PlayMissHitSound;
     }
@@ -53,13 +42,5 @@ public class SoundPlayer : MonoBehaviour
             _audioSource.PlayOneShot(audioClip);
             _audioSource.clip = audioClip;
         }
-        StartCoroutine(AudioClipCallback(audioClip));
-    }
-
-    private IEnumerator AudioClipCallback(AudioClip audioClip)
-    {
-        _currentPlayingClips.Add(audioClip);
-        yield return new WaitForSeconds(audioClip.length);
-        _currentPlayingClips.Remove(audioClip);
     }
 }
