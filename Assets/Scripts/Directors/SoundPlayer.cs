@@ -42,22 +42,16 @@ public class SoundPlayer : MonoBehaviour
 
     private void SetAudioAndPlay(AudioClip audioClip)
     {
-        if (!_currentPlayingClips.Contains(audioClip))
+        if (_currentPlayingClips.Count <= _maxParallelClips)
         {
             StartCoroutine(AudioClipCallback(audioClip));
-            _audioSource.PlayOneShot(audioClip,0.5f);  
+            _audioSource.PlayOneShot(audioClip,0.5f);   
         }
     }
 
     private IEnumerator AudioClipCallback(AudioClip audioClip)
     {
         _currentPlayingClips.Add(audioClip);
-        
-        foreach (var clips in _currentPlayingClips)
-        {
-            Debug.Log(clips.name);
-        }
-        
         yield return new WaitForSeconds(audioClip.length);
         _currentPlayingClips.Remove(audioClip);
     }
