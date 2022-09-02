@@ -5,14 +5,13 @@ using Zenject;
 
 public class TrickMove : BaseBehaviour
 {
-    [Header("Trick Settings")] [SerializeField]
-    private float _cooldownTime;
-
+    [Header("Trick Settings")] 
+    [SerializeField] private float _cooldownTime;
     [SerializeField] private float _invincibilityTime;
     [SerializeField] private float _radiusOfInteraction;
 
-    [Header("Interactive Objects Layer")] [SerializeField]
-    private LayerMask _layerOfInteraction;
+    [Header("Interactive Objects Layer")] 
+    [SerializeField] private LayerMask _layerOfInteraction;
 
     private bool _isOnCooldown;
     private RaycastHit[] _raycastHits = new RaycastHit[1];
