@@ -197,6 +197,72 @@ Transform:
   m_Father: {fileID: 3266155715886692290}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2181363420617553536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5059068284073556271}
+  - component: {fileID: 5511699977346197617}
+  - component: {fileID: 4194651942870588930}
+  m_Layer: 0
+  m_Name: Parent_drone_body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5059068284073556271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181363420617553536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3266155715886692290}
+  m_Father: {fileID: 3087514605617274585}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5511699977346197617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181363420617553536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d17f34abc5b6014da6db4911b45c280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: {fileID: 8179048503095130202}
+  secondsMove: 2
+  loopAgain: 0
+  stay: 0
+--- !u!114 &4194651942870588930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181363420617553536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e88fe1347387846bfb6e6320be737c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorForceConfig: {fileID: 11400000, guid: 28ce2bc8796c23d4f8fa57c5126c3ccd, type: 2}
+  _color: 3
+  _emissionElementMeshRenderer:
+  - {fileID: 340504385584099982}
+  - {fileID: 8225112686179271925}
 --- !u!1 &2735052539748147479
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +322,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c45c8c5da23d59745b6eceba7a1d1536, type: 2}
+  - {fileID: 2100000, guid: 245a4a1b80e8d9f429dc9e407d0447a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -292,6 +358,7 @@ GameObject:
   - component: {fileID: 8142992557961299368}
   - component: {fileID: 3590436952344992424}
   - component: {fileID: 3931201707442186542}
+  - component: {fileID: 1285940485664044084}
   m_Layer: 0
   m_Name: Drone_body
   m_TagString: Untagged
@@ -315,7 +382,7 @@ Transform:
   - {fileID: 7590904595079245957}
   - {fileID: 5074176008842522296}
   - {fileID: 3920556671097445586}
-  m_Father: {fileID: 3087514605617274585}
+  m_Father: {fileID: 5059068284073556271}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!136 &7397758485625752366
@@ -326,12 +393,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745058309210500472}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.06
+  m_Radius: 0.059914503
   m_Height: 0.33
   m_Direction: 1
-  m_Center: {x: 0, y: 0.000503242, z: 0}
+  m_Center: {x: 0, y: 0.0005032418, z: 0.016272798}
 --- !u!136 &3362707192635691779
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -342,10 +409,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.06
+  m_Radius: 0.059914503
   m_Height: 0.33
   m_Direction: 1
-  m_Center: {x: 0, y: 0.000503242, z: 0}
+  m_Center: {x: 0, y: 0.0005032418, z: 0.016272798}
 --- !u!114 &8142992557961299368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,7 +459,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsFlight: 1
   amplitude: 1
-  offset: 0
+--- !u!114 &1285940485664044084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745058309210500472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d09062c878bc5439652c0f1b5c828d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3087514605617274587
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +480,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3087514605617274585}
-  - component: {fileID: 3087514605617274584}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -421,28 +498,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3266155715886692290}
   - {fileID: 2724651517452181073}
+  - {fileID: 5059068284073556271}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3087514605617274584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3087514605617274587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e88fe1347387846bfb6e6320be737c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _colorForceConfig: {fileID: 11400000, guid: 28ce2bc8796c23d4f8fa57c5126c3ccd, type: 2}
-  _color: 3
-  _emissionElementMeshRenderer:
-  - {fileID: 340504385584099982}
-  - {fileID: 8225112686179271925}
 --- !u!1 &4051750167289455801
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +643,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c45c8c5da23d59745b6eceba7a1d1536, type: 2}
+  - {fileID: 2100000, guid: 245a4a1b80e8d9f429dc9e407d0447a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -826,7 +886,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c45c8c5da23d59745b6eceba7a1d1536, type: 2}
+  - {fileID: 2100000, guid: 245a4a1b80e8d9f429dc9e407d0447a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1071,7 +1131,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3087514605617274585}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8432559869285798101
 GameObject:
@@ -1246,7 +1306,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c45c8c5da23d59745b6eceba7a1d1536, type: 2}
+  - {fileID: 2100000, guid: 245a4a1b80e8d9f429dc9e407d0447a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
