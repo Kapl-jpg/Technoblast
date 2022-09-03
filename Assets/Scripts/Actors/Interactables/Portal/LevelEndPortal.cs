@@ -9,7 +9,7 @@ public class LevelEndPortal : MonoBehaviour, IInteractable
     public bool IsActive { get; private set; }
 
     private SceneChanger _sceneChanger;
-    
+
     [Inject]
     private void Construct(SceneChanger sceneChanger)
     {

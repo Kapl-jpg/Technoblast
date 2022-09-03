@@ -6,6 +6,7 @@ public class JumpableObjectData
     public Material ObjectMaterial { get; private set; }
     public AudioClip ObjectHitAudio { get; private set; }
 
+
     public JumpableObjectData(int objectForce, Material objectMaterial, AudioClip objectHitSound)
     {
         ObjectForce = objectForce;

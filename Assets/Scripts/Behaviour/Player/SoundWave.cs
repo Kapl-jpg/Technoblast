@@ -19,6 +19,7 @@ public class SoundWave : BaseBehaviour
     
     private float _currentDistance;
 
+    private LaunchWaveVisual _launchWaveVisual;
     private InputHandler _playerInput;
     private Rigidbody _currentRigidbody;
     
@@ -29,6 +30,7 @@ public class SoundWave : BaseBehaviour
     {
         _playerInput = GetComponent<InputHandler>();
         _currentRigidbody = GetComponent<Rigidbody>();
+        _launchWaveVisual = GetComponent<LaunchWaveVisual>();
     }
 
     protected override void OnUpdate()
@@ -40,7 +42,8 @@ public class SoundWave : BaseBehaviour
     {
         if (direction != Vector3.zero)
         {
-            if (Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) &&  hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
+            if (Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) &&
+                hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
             {
                 JumpableObjectHitEvent?.Invoke(objectData.GetData());
                 AddForce(GetForceDirection(hit.point), objectData.GetData().ObjectForce);
@@ -49,9 +52,10 @@ public class SoundWave : BaseBehaviour
             {
                 JumpableObjectMissEvent?.Invoke();
             }
+            _launchWaveVisual.Launch(CurrentRay(direction).direction);
         }
     }
-    
+
     private Vector3 GetForceDirection(Vector3 hitPoint)
     {
         return (transform.position - hitPoint).normalized;
