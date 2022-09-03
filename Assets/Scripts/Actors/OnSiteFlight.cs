@@ -1,22 +1,30 @@
-using System;
 using UnityEngine;
+using DG.Tweening;
 
 public class OnSiteFlight : MonoBehaviour
 {
-    [SerializeField] private float speedFlight;
+    [SerializeField] private float secondsFlight;
     [SerializeField] private float amplitude;
-    [Range(-1, 1)] [SerializeField] private float offset;
-    [SerializeField] private GameObject body;
-    private Vector3 _parentPosition;
-
+    
+    private Vector3 _startPoint;
+    
     private void Start()
     {
-        _parentPosition = transform.position;
+        _startPoint = transform.localPosition;
+        transform.localPosition = EndPosition(Vector3.down);
+        var sequence = DOTween.Sequence();
+        FlightUpToDown(sequence);
     }
 
-    private void Update()
+    private void FlightUpToDown(Sequence sequence)
     {
-        body.transform.position = _parentPosition + new Vector3(0,
-            Mathf.Lerp(-amplitude, amplitude, Mathf.Sin(offset + Time.time * speedFlight) / 2 + 0.5f));
+        sequence.Append(transform.DOLocalMove(EndPosition(Vector3.up), secondsFlight));
+        sequence.Append(transform.DOLocalMove(EndPosition(Vector3.down), secondsFlight));
+        sequence.SetLoops(-1, LoopType.Restart);
+    }
+
+    private Vector3 EndPosition(Vector3 direction)
+    {
+        return _startPoint + new Vector3(0,direction.y * amplitude,0);
     }
 }
