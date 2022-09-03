@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
+    [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float distanceToGround;
     public float Movement { get; private set; }
     
@@ -11,7 +12,7 @@ public class InputHandler : MonoBehaviour
     public bool MovementIsNonPressed { get; private set; }
 
     public bool Jump { get; private set; }
-    
+
     public bool IsGrounded { get; private set; }
     
     public bool Trick { get; private set; }
@@ -33,7 +34,7 @@ public class InputHandler : MonoBehaviour
     private void CheckGrounded()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
-        IsGrounded = Physics.Raycast(ray, distanceToGround);
+        IsGrounded = Physics.Raycast(ray, distanceToGround,_groundLayer);
     }
     
     private void HandleJumpInput()
