@@ -353,7 +353,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3266155715886692290}
-  - component: {fileID: 7397758485625752366}
   - component: {fileID: 3362707192635691779}
   - component: {fileID: 8142992557961299368}
   - component: {fileID: 3590436952344992424}
@@ -385,20 +384,6 @@ Transform:
   m_Father: {fileID: 5059068284073556271}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!136 &7397758485625752366
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745058309210500472}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.059914503
-  m_Height: 0.33
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.0005032418, z: 0.016272798}
 --- !u!136 &3362707192635691779
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -425,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9676b27b59c2c1944897703415f1f63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ignoreInvincibility: 1
+  _ignoreInvincibility: 0
 --- !u!95 &3590436952344992424
 Animator:
   serializedVersion: 3
@@ -457,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00cc4e60563e9f24ab600c58ce0b7be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsFlight: 1.5
+  secondsFlight: 1.2
   amplitude: 0.1
 --- !u!114 &1285940485664044084
 MonoBehaviour:
