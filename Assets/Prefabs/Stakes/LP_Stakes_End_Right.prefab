@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5013904466618527947}
   - component: {fileID: 9099759405344495880}
   - component: {fileID: 5681001963237210680}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1264421161623300819}
   - component: {fileID: 6184785978112854265}
   - component: {fileID: 3066426954956443959}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LP_Stakes_End_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9676b27b59c2c1944897703415f1f63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ignoreInvincibility: 1
 --- !u!65 &3066426954956443959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ GameObject:
   - component: {fileID: 7356463892233124396}
   - component: {fileID: 5364813098849890131}
   - component: {fileID: 2279566920757152995}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +266,7 @@ GameObject:
   - component: {fileID: 600022775011128080}
   - component: {fileID: 5816318580738082620}
   - component: {fileID: 1510860243102748934}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EmisElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
