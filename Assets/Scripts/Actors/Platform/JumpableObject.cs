@@ -1,14 +1,13 @@
 using UnityEngine;
 
-public abstract class JumpableObject : MonoBehaviour, IHaveJumpForce
+public abstract class JumpableObject : MonoBehaviour, IJumpableObject
 {
     [SerializeField] protected ColorForceConfig _colorForceConfig;
     [SerializeField] protected ForceColor _color;
     [SerializeField] protected MeshRenderer[] _emissionElementMeshRenderer;
-    
-    protected int _force;
-    protected Material _material;
 
+    protected JumpableObjectData _objectData;
+    
     private void Start()
     {
         Init();
@@ -16,8 +15,7 @@ public abstract class JumpableObject : MonoBehaviour, IHaveJumpForce
 
     protected virtual void Init()
     {
-        _force = _colorForceConfig.GetForceByColor(_color);
-        _material = _colorForceConfig.GetMaterialByColor(_color);
+        _objectData = _colorForceConfig.GetData(_color);
         SetColor();
     }
 
@@ -25,12 +23,12 @@ public abstract class JumpableObject : MonoBehaviour, IHaveJumpForce
     {
         foreach (MeshRenderer meshRenderer in _emissionElementMeshRenderer)
         {
-            meshRenderer.material = _colorForceConfig.GetMaterialByColor(_color);
+            meshRenderer.material = _objectData.ObjectMaterial;
         }
     }
     
-    public virtual int GetForce()
+    public JumpableObjectData GetData()
     {
-        return _force;
+        return _objectData;
     }
 }

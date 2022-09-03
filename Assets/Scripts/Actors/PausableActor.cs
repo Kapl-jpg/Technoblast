@@ -9,12 +9,14 @@ public abstract class PausableActor : MonoBehaviour, IActor, ICanBePaused
     
     public bool IsPaused => _isPaused;
     
+    protected abstract void Init();
+    
     private void Start()
     {
         Init();
     }
     
-    private void Update()
+    protected virtual void Update()
     {
         if (!_isPaused)
         {
@@ -22,10 +24,7 @@ public abstract class PausableActor : MonoBehaviour, IActor, ICanBePaused
             {
                 behaviour.UpdateBehaviour();
             }
-            
-            OnUpdate();
         }
-            
     }
 
     public void Pause()
@@ -46,7 +45,4 @@ public abstract class PausableActor : MonoBehaviour, IActor, ICanBePaused
         Behaviours.Add(behaviour);
         return true;
     }
-    
-    protected abstract void Init();
-    protected abstract void OnUpdate();
 }

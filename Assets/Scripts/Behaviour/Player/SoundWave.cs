@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(InputHandler))]
@@ -21,6 +22,9 @@ public class SoundWave : BaseBehaviour
     private InputHandler _playerInput;
     private Rigidbody _currentRigidbody;
     
+    public event Action<JumpableObjectData> JumpableObjectHitEvent;
+    public event Action JumpableObjectMissEvent;
+
     private void Start()
     {
         _playerInput = GetComponent<InputHandler>();
@@ -34,14 +38,16 @@ public class SoundWave : BaseBehaviour
 
     private void Flight(Vector3 direction)
     {
-        if(_playerInput.IsGrounded)
-            return;
-        
-        if (direction != Vector3.zero && Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) )
+        if (direction != Vector3.zero)
         {
-            if (hit.collider.TryGetComponent<IHaveJumpForce>(out var jumpForce))
+            if (Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) &&  hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
             {
-                AddForce(GetForceDirection(hit.point), jumpForce.GetForce());
+                JumpableObjectHitEvent?.Invoke(objectData.GetData());
+                AddForce(GetForceDirection(hit.point), objectData.GetData().ObjectForce);
+            }
+            else
+            {
+                JumpableObjectMissEvent?.Invoke();
             }
         }
     }
@@ -53,13 +59,10 @@ public class SoundWave : BaseBehaviour
 
     private void AddForce(Vector3 direction, float forceValue)
     {
-        if (forceValue == 0)
+        if(forceValue == 0)
             return;
-
-        if (direction.x != 0)
-            _currentRigidbody.velocity = new Vector3(0, 0);
-        else
-            _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x, 0);
+        
+        _currentRigidbody.velocity = direction.x != 0 ? new Vector3(0, 0) : new Vector3(_currentRigidbody.velocity.x, 0);
 
         _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
     }

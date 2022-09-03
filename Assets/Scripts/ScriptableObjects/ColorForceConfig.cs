@@ -4,72 +4,36 @@ using UnityEngine;
 
 public class ColorForceConfig : ScriptableObject
 {
+    [Header("Force Values")]
     [SerializeField] private int _cyanColorForce;
-    public int CyanColorForce => _cyanColorForce;
-    
-    
     [SerializeField] private int _greyColorForce;
-    public int GreyColorForce => _greyColorForce;
-    
-    
     [SerializeField] private int _purpleColorForce;
-    public int PurpleColorForce => _purpleColorForce;
-    
-    
     [SerializeField] private int _orangeColorForce;
-    public int OrangeColorForce => _orangeColorForce;
 
+    [Header("Material Values"), Space(20)]
     [SerializeField] private Material _cyanColorMaterial;
-    public Material CyanColorMaterial => _cyanColorMaterial;
-    
     [SerializeField] private Material _greyColorMaterial;
-    public Material GreyColorMaterial => _greyColorMaterial;
-
     [SerializeField] private Material _purpleColorMaterial;
-    public Material PurpleColorMaterial => _purpleColorMaterial;
-
     [SerializeField] private Material _orangeColorMaterial;
-    public Material OrangeColorMaterial => _orangeColorMaterial;
 
-    public int GetForceByColor(ForceColor color)
-    {
-        return GetForce(color);
-    }
+    [Header("Sound Sources"), Space(20)]
+    [SerializeField] private AudioClip _cyanAudioClip;
+    [SerializeField] private AudioClip _greyAudioClip;
+    [SerializeField] private AudioClip _purpleAudioClip;
+    [SerializeField] private AudioClip _orangeAudioClip;
 
-    private int GetForce(ForceColor color)
+    public JumpableObjectData GetData(ForceColor color)
     {
         switch (color)
         {
             case(ForceColor.Cyan):
-                return CyanColorForce;
+                return new JumpableObjectData(_cyanColorForce, _cyanColorMaterial, _cyanAudioClip);
             case(ForceColor.Grey):
-                return GreyColorForce;
+                return new JumpableObjectData(_greyColorForce, _greyColorMaterial, _greyAudioClip);
             case(ForceColor.Orange):
-                return OrangeColorForce;
+                return new JumpableObjectData(_orangeColorForce, _orangeColorMaterial, _orangeAudioClip);
             case(ForceColor.Purple):
-                return PurpleColorForce;
-            default:
-                return 0;
-        }
-    }
-
-    public Material GetMaterialByColor(ForceColor color)
-    {
-        return GetMaterial(color);
-    }
-
-    private Material GetMaterial(ForceColor color)
-    {
-        switch (color)
-        {
-            case (ForceColor.Cyan):
-                return CyanColorMaterial;
-            case (ForceColor.Grey):
-                return GreyColorMaterial;
-            case (ForceColor.Orange):
-                return OrangeColorMaterial;
-            case (ForceColor.Purple):
-                return PurpleColorMaterial;
+                return new JumpableObjectData(_purpleColorForce, _purpleColorMaterial, _purpleAudioClip);
             default:
                 return null;
         }
