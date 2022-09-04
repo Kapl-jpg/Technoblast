@@ -4,25 +4,26 @@ using UnityEngine;
 [RequireComponent(typeof(InputHandler))]
 public class SoundWave : BaseBehaviour
 {
-    [Header("Ray settings")] [Space(3)]
-    [SerializeField] private float rayUpDistance;
+    [Header("Ray settings")] [Space(3)] [SerializeField]
+    private float rayUpDistance;
+
     [SerializeField] private float rayDownDistance;
     [SerializeField] private float rayLeftDistance;
     [SerializeField] private float rayRightDistance;
-    
-    [Space(15)]
-    [SerializeField] private Transform startPoint;
+
+    [Space(15)] [SerializeField] private Transform startPoint;
     [Range(-1, 1)] [SerializeField] private float angle;
 
-    [Header("Draw in scene")] [Space(3)]
-    [SerializeField] private bool drawRays = true;
-    
+    [Header("Draw in scene")] [Space(3)] [SerializeField]
+    private bool drawRays = true;
+
     private float _currentDistance;
 
     private LaunchWaveVisual _launchWaveVisual;
     private InputHandler _playerInput;
     private Rigidbody _currentRigidbody;
-    
+    [SerializeField] private Vector3 boxSize;
+
     public event Action<JumpableObjectData> JumpableObjectHitEvent;
     public event Action JumpableObjectMissEvent;
 
@@ -42,6 +43,10 @@ public class SoundWave : BaseBehaviour
     {
         if (direction != Vector3.zero)
         {
+
+            // if(Physics.BoxCast(CurrentRay(direction).GetPoint(0.5f), boxSize / 2,
+            //           CurrentRay(direction).direction, out var hit) &&
+            //       hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
             if (Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) &&
                 hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
             {
@@ -52,6 +57,7 @@ public class SoundWave : BaseBehaviour
             {
                 JumpableObjectMissEvent?.Invoke();
             }
+
             _launchWaveVisual.Launch(CurrentRay(direction).direction);
         }
     }
@@ -63,15 +69,44 @@ public class SoundWave : BaseBehaviour
 
     private void AddForce(Vector3 direction, float forceValue)
     {
-        if(forceValue == 0)
+        if (forceValue == 0)
             return;
-        
-        _currentRigidbody.velocity = direction.x != 0 ? new Vector3(0, 0) : new Vector3(_currentRigidbody.velocity.x, 0);
+
+        _currentRigidbody.velocity =
+            direction.x != 0 ? new Vector3(0, 0) : new Vector3(_currentRigidbody.velocity.x, 0);
 
         _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
     }
 
+    #region Get box cast
+
+    private Vector3 CenterBox(Vector3 direction)
+    {
+        var center = CurrentRay(direction).direction * GetDistance(direction)/2;
+        return center;
+    }
+
+    private void LookAt(Vector3 direction)
+    {
+        transform.LookAt(direction);
+    }
+
+    private float GetDistance(Vector3 direction)
+    {
+        return direction switch
+        {
+            var v when v.Equals(Vector3.down) => rayDownDistance,
+            var v when v.Equals(Vector3.up) => rayUpDistance,
+            var v when v.Equals(Vector3.left) => rayLeftDistance,
+            var v when v.Equals(Vector3.right) => rayRightDistance,
+            _ => 0
+        };
+    }
+
+    #endregion
+
     #region Get rays
+
     private Ray CurrentRay(Vector3 direction)
     {
         switch (direction)
@@ -89,13 +124,13 @@ public class SoundWave : BaseBehaviour
                 _currentDistance = rayRightDistance;
                 return RightRay();
         }
-        
-        return new Ray(Vector3.zero,Vector3.zero);
+
+        return new Ray(Vector3.zero, Vector3.zero);
     }
-    
+
     private Ray RightRay()
     {
-        return new Ray(startPoint.position,  new Vector3(CosValue(), SinValue()));
+        return new Ray(startPoint.position, new Vector3(CosValue(), SinValue()));
     }
 
     private Ray LeftRay()
@@ -112,8 +147,9 @@ public class SoundWave : BaseBehaviour
     {
         return new Ray(startPoint.position, Vector3.up);
     }
+
     #endregion
-    
+
     #region Calculate Cos and Sin angle
 
     private float CosValue()
@@ -143,5 +179,4 @@ public class SoundWave : BaseBehaviour
     }
 
     #endregion
-
 }
