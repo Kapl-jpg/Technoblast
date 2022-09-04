@@ -71,6 +71,35 @@ public class SoundWave : BaseBehaviour
         _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
     }
 
+    #region Get box cast
+
+    private Vector3 CenterBox(Vector3 direction,float currentDistance)
+    {
+        var position = startPoint.position;
+        var lastPoint = position + direction * GetDistance(direction);
+        var center = (position + lastPoint)/2;
+        return center;
+    }
+
+    private void LookAt(Vector3 direction)
+    {
+        transform.LookAt(direction);
+    }
+
+    private float GetDistance(Vector3 direction)
+    {
+        return direction switch
+        {
+            var v when v.Equals(Vector3.down) => rayDownDistance,
+            var v when v.Equals(Vector3.up) => rayUpDistance,
+            var v when v.Equals(Vector3.left) => rayLeftDistance,
+            var v when v.Equals(Vector3.right) => rayRightDistance,
+            _ => 0
+        };
+    }
+
+    #endregion
+    
     #region Get rays
     private Ray CurrentRay(Vector3 direction)
     {
