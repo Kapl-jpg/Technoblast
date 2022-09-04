@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Directors;
 using Interfaces;
@@ -13,12 +12,16 @@ public class SoundPlayer : MonoBehaviour
     [SerializeField] private SoundWave _playerSoundWave;
     [SerializeField] private AudioClip _onMissHitAudio;
 
+    [Header("Inventory references"), Space(10)]
+    [SerializeField] private InventoryComponent _playerInventory;
+    [SerializeField] private AudioClip _onSprayCanGetAudio;
+    
     private List<ILastBreath> _unfollowScriptsList = new List<ILastBreath>();
 
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         InitSoundWaveSounds();
+        InitGraffitiSounds();
     }
 
     private void OnDestroy()
@@ -41,6 +44,16 @@ public class SoundPlayer : MonoBehaviour
         if (waveSounds is ILastBreath)
         {
             _unfollowScriptsList.Add(waveSounds);
+        }
+    }
+
+    private void InitGraffitiSounds()
+    {
+        var inventorySounds = new InventorySounds(_playerInventory, _audioSource, _onSprayCanGetAudio);
+        
+        if (inventorySounds is ILastBreath)
+        {
+            _unfollowScriptsList.Add(inventorySounds);
         }
     }
 }
