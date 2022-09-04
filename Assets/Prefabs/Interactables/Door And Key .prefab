@@ -238,6 +238,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7657833619642530308, guid: 5117daba12bdf1845b3539640547824d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -7472466448706066407, guid: 5117daba12bdf1845b3539640547824d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -246,9 +250,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d164eca0cc87f174ca6d144e8ac4a643, type: 2}
+    - target: {fileID: -3546817253714895657, guid: 5117daba12bdf1845b3539640547824d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5117daba12bdf1845b3539640547824d, type: 3}
       propertyPath: m_Name
       value: LaserWall_LP
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5117daba12bdf1845b3539640547824d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705884960450769981, guid: 5117daba12bdf1845b3539640547824d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870631815145777029, guid: 5117daba12bdf1845b3539640547824d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5950808862020973468, guid: 5117daba12bdf1845b3539640547824d, type: 3}
       propertyPath: m_Materials.Array.data[0]
