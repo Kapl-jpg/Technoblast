@@ -27,13 +27,13 @@ public class ColorForceConfig : ScriptableObject
         switch (color)
         {
             case(ForceColor.Cyan):
-                return new JumpableObjectData(_cyanColorForce, _cyanColorMaterial, _cyanAudioClip);
+                return new JumpableObjectData(ForceColor.Cyan, _cyanColorForce, _cyanColorMaterial, _cyanAudioClip);
             case(ForceColor.Grey):
-                return new JumpableObjectData(_greyColorForce, _greyColorMaterial, _greyAudioClip);
+                return new JumpableObjectData(ForceColor.Grey, _greyColorForce, _greyColorMaterial, _greyAudioClip);
             case(ForceColor.Orange):
-                return new JumpableObjectData(_orangeColorForce, _orangeColorMaterial, _orangeAudioClip);
+                return new JumpableObjectData(ForceColor.Orange, _orangeColorForce, _orangeColorMaterial, _orangeAudioClip);
             case(ForceColor.Purple):
-                return new JumpableObjectData(_purpleColorForce, _purpleColorMaterial, _purpleAudioClip);
+                return new JumpableObjectData(ForceColor.Purple, _purpleColorForce, _purpleColorMaterial, _purpleAudioClip);
             default:
                 return null;
         }
