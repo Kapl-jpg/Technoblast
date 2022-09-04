@@ -71,7 +71,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066355326580159966}
   m_LocalRotation: {x: 0.0446656, y: -0, z: -0, w: 0.999002}
-  m_LocalPosition: {x: -8.09, y: 25.61484, z: -19.9202}
+  m_LocalPosition: {x: 0, y: 4.784841, z: -19.9202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1066355326923066233}
@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 8737216418311846744}
   - component: {fileID: 8964902519942557406}
   m_Layer: 0
-  m_Name: SoundPlayer
+  m_Name: MoveSoundPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -836,8 +836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6dc4d3dea729fd4ba213f54ff674f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSoundWave: {fileID: 6126457706365791636}
   _audioSource: {fileID: 6696602932514444282}
+  _playerSoundWave: {fileID: 6126457706365791636}
   _onMissHitAudio: {fileID: 8300000, guid: 7a0bb37fc542de24caf3489b9cb8edf9, type: 3}
 --- !u!1001 &1066355326530191762
 PrefabInstance:
