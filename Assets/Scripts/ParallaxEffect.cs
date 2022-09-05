@@ -13,8 +13,7 @@ public class ParallaxEffect : MonoBehaviour
     {
         for (int i = 0; i < layers.Length; i++)
         {
-            var position = characterTransform.position;
-            layers[i].position = new Vector3(position.x * ratio[i] + offset.x,position.y * ratio[i] + offset.y,offset.z);
+            layers[i].position = new Vector3(characterTransform.position.x * ratio[i] + offset.x,offset.y,offset.z);
         }
     }
 }
