@@ -6,13 +6,13 @@ namespace Directors
     public class SoundWaveSounds: ILastBreath
     {
         private SoundWave _playerSoundWave;
-        private AudioSource _audioSource;
+        private ICanPlayAudio _audioPlayer;
         private AudioClip _onMissHitAudio;
 
-        public SoundWaveSounds(SoundWave playerSoundWave, AudioSource audioSource, AudioClip onMissHitAudio)
+        public SoundWaveSounds(SoundWave playerSoundWave, ICanPlayAudio audioPlayer, AudioClip onMissHitAudio)
         {
             _playerSoundWave = playerSoundWave;
-            _audioSource = audioSource;
+            _audioPlayer = audioPlayer;
             _onMissHitAudio = onMissHitAudio;
             
             _playerSoundWave.JumpableObjectHitEvent += PlayJumpableObjectSound;
@@ -38,14 +38,14 @@ namespace Directors
 
         private void SetAudioAndPlay(AudioClip audioClip)
         {
-            if (_audioSource.clip == audioClip)
+            if (_audioPlayer.CurrentClip == audioClip)
             {
-                _audioSource.Play();
+                _audioPlayer.Play(audioClip);
             }
             else
             {
-                _audioSource.PlayOneShot(audioClip);
-                _audioSource.clip = audioClip;
+                _audioPlayer.PlayOneShot(audioClip);
+                _audioPlayer.CurrentClip = audioClip;
             }
         }
     }
