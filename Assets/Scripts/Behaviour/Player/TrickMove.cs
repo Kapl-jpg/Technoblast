@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using Interfaces;
+using ModestTree.Util;
 using UnityEngine;
 using Zenject;
 
@@ -10,7 +12,7 @@ public class TrickMove : BaseBehaviour
     [SerializeField] private float _invincibilityTime;
     [SerializeField] private float _radiusOfInteraction;
 
-    [Header("Interactive Objects Layer")] 
+    [Header("Interactive Objects Layer")]
     [SerializeField] private LayerMask _layerOfInteraction;
 
     private bool _isOnCooldown;
@@ -18,6 +20,8 @@ public class TrickMove : BaseBehaviour
 
     private InputHandler _playersInput;
     private ICanBeInvincible _invincibility;
+
+    public event Action OnTrickPressedEvent;
 
     [Inject]
     private void Construct(InputHandler inputHandler)
@@ -43,6 +47,7 @@ public class TrickMove : BaseBehaviour
 
     private void DoTrickMove()
     {
+        OnTrickPressedEvent?.Invoke();
         StartCoroutine(StartCooldown());
         MakeInvinsialbe();
         TryInteractWithObjects();

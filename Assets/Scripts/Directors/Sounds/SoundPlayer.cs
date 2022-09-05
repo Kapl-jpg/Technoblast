@@ -16,12 +16,17 @@ public class SoundPlayer : MonoBehaviour
     [SerializeField] private InventoryComponent _playerInventory;
     [SerializeField] private AudioClip _onSprayCanGetAudio;
     
+    [Header("Trick references"), Space(10)]
+    [SerializeField] private TrickMove _playerTrickMove;
+    [SerializeField] private SoundsContainer _trickAudios;
+    
     private List<ILastBreath> _unfollowScriptsList = new List<ILastBreath>();
 
     private void Start()
     {
         InitSoundWaveSounds();
         InitGraffitiSounds();
+        InitTrickSounds();
     }
 
     private void OnDestroy()
@@ -55,5 +60,20 @@ public class SoundPlayer : MonoBehaviour
         {
             _unfollowScriptsList.Add(inventorySounds);
         }
+    }
+
+    private void InitTrickSounds()
+    {
+        var trickSounds = new TrickMoveSounds(_playerTrickMove, _audioSource, _trickAudios);
+
+        if (trickSounds is ILastBreath)
+        {
+            _unfollowScriptsList.Add(trickSounds);
+        }    
+    }
+
+    private void InitDoorSounds()
+    {
+        
     }
 }
