@@ -1,26 +1,25 @@
 using Interfaces;
-using UnityEngine;
 
 namespace Directors
 {
     public class TrickMoveSounds : ILastBreath
     {
         private TrickMove _trickMove;
-        private AudioSource _audioSource;
+        private ICanPlayAudio _audioPlayer;
         private SoundsContainer _sounds;
         
-        public TrickMoveSounds(TrickMove trickMove, AudioSource audioSource, SoundsContainer sounds)
+        public TrickMoveSounds(TrickMove trickMove, ICanPlayAudio audioPlayer, SoundsContainer sounds)
         {
             _trickMove = trickMove;
-            _audioSource = audioSource;
+            _audioPlayer = audioPlayer;
             _sounds = sounds;
 
-            _trickMove.OnTrickPressedEvent += PlayRandomAudioClip;
+            _trickMove.OnTrickMissEvent += PlayRandomAudioClip;
         }
         
         public void LastBreath()
         {
-            _trickMove.OnTrickPressedEvent -= PlayRandomAudioClip;
+            _trickMove.OnTrickMissEvent -= PlayRandomAudioClip;
         }
 
         private void PlayRandomAudioClip()
@@ -28,7 +27,7 @@ namespace Directors
             if (_sounds.IsAvailableClips())
             {
                var audio = _sounds.GetRandomAudioClip();
-               _audioSource.PlayOneShot(audio);
+               _audioPlayer.PlayOneShot(audio);
             }
         }
     }

@@ -21,7 +21,7 @@ public class TrickMove : BaseBehaviour
     private InputHandler _playersInput;
     private ICanBeInvincible _invincibility;
 
-    public event Action OnTrickPressedEvent;
+    public event Action OnTrickMissEvent;
 
     [Inject]
     private void Construct(InputHandler inputHandler)
@@ -47,7 +47,6 @@ public class TrickMove : BaseBehaviour
 
     private void DoTrickMove()
     {
-        OnTrickPressedEvent?.Invoke();
         StartCoroutine(StartCooldown());
         MakeInvinsialbe();
         TryInteractWithObjects();
@@ -77,7 +76,8 @@ public class TrickMove : BaseBehaviour
                 return true;
             }
         }
-
+        
+        OnTrickMissEvent?.Invoke();
         return false;
     }
 }

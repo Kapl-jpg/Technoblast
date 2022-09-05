@@ -322,3 +322,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _openMaterial: {fileID: 2100000, guid: a2cbe6866aa680448a90301edf354f9a, type: 2}
   _latticeReference: {fileID: 1430084544661575158}
+--- !u!114 &7578993702823280594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669323436187422498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d19d0c5e96045f5b128cfdaebf46dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _openSound: {fileID: 8300000, guid: f287a9da9afa70949a2e777803b4eafb, type: 3}
+  _closeSound: {fileID: 8300000, guid: c676ae0c9f46de848b3721c4400655fd, type: 3}

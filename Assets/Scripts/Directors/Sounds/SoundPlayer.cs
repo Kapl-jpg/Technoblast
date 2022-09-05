@@ -3,7 +3,7 @@ using Directors;
 using Interfaces;
 using UnityEngine;
 
-public class SoundPlayer : MonoBehaviour
+public class SoundPlayer : MonoBehaviour, ICanPlayAudio
 {
     [Header("References")]
     [SerializeField] private AudioSource _audioSource;
@@ -11,7 +11,7 @@ public class SoundPlayer : MonoBehaviour
     [Header("SoundWave references"), Space(10)]
     [SerializeField] private SoundWave _playerSoundWave;
     [SerializeField] private AudioClip _onMissHitAudio;
-
+    
     [Header("Inventory references"), Space(10)]
     [SerializeField] private InventoryComponent _playerInventory;
     [SerializeField] private AudioClip _onSprayCanGetAudio;
@@ -19,8 +19,22 @@ public class SoundPlayer : MonoBehaviour
     [Header("Trick references"), Space(10)]
     [SerializeField] private TrickMove _playerTrickMove;
     [SerializeField] private SoundsContainer _trickAudios;
-    
+
     private List<ILastBreath> _unfollowScriptsList = new List<ILastBreath>();
+
+    public AudioClip CurrentClip
+    {
+        get
+        {
+            return _audioSource.clip;
+        }
+
+        set
+        {
+            if (value != _audioSource.clip)
+                _audioSource.clip = value;
+        }
+    }
 
     private void Start()
     {
@@ -44,36 +58,38 @@ public class SoundPlayer : MonoBehaviour
 
     private void InitSoundWaveSounds()
     {
-        var waveSounds = new SoundWaveSounds(_playerSoundWave, _audioSource, _onMissHitAudio);
+        var waveSounds = new SoundWaveSounds(_playerSoundWave, this, _onMissHitAudio);
         
-        if (waveSounds is ILastBreath)
-        {
-            _unfollowScriptsList.Add(waveSounds);
-        }
+        AddToFollowScriptsList(waveSounds);  
     }
-
+    
     private void InitGraffitiSounds()
     {
-        var inventorySounds = new InventorySounds(_playerInventory, _audioSource, _onSprayCanGetAudio);
+        var inventorySounds = new InventorySounds(_playerInventory, this, _onSprayCanGetAudio);
         
-        if (inventorySounds is ILastBreath)
-        {
-            _unfollowScriptsList.Add(inventorySounds);
-        }
+        AddToFollowScriptsList(inventorySounds);  
     }
-
+    
     private void InitTrickSounds()
     {
-        var trickSounds = new TrickMoveSounds(_playerTrickMove, _audioSource, _trickAudios);
-
-        if (trickSounds is ILastBreath)
-        {
-            _unfollowScriptsList.Add(trickSounds);
-        }    
+        var trickSounds = new TrickMoveSounds(_playerTrickMove, this, _trickAudios);
+        
+        AddToFollowScriptsList(trickSounds);  
     }
 
-    private void InitDoorSounds()
+    private void AddToFollowScriptsList(ILastBreath lastBreath)
     {
-        
+        _unfollowScriptsList.Add(lastBreath);
+    }
+    
+    public void PlayOneShot(AudioClip audio)
+    {
+        _audioSource.PlayOneShot(audio);
+    }
+
+    public void Play(AudioClip audio)
+    {
+        _audioSource.clip = audio;
+        _audioSource.Play();
     }
 }
