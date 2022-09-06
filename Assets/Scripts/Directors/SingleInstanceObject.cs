@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 
 namespace Directors
 {
     public abstract class SingleInstanceObject : MonoBehaviour
     {
-        protected static SingleInstanceObject _instance;
+        protected SingleInstanceObject _instance;
         
         private void Start()
         {

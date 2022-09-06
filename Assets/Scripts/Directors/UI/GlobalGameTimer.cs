@@ -1,24 +1,23 @@
 using System;
-using Directors;
 using Directors.UI;
 using TMPro;
 using UnityEngine;
 
-public class GlobalGameTimer : SingleInstanceObject, ICanBePaused
+public class GlobalGameTimer : MonoBehaviour, ICanBePaused
 {
     [SerializeField] private TextMeshProUGUI _uiTimerText;
     public bool IsPaused { get; private set; }
     
-    public event Action <float> OnTimerTickEvent;
+    public event Action <int> OnTimerTickEvent;
 
     private float _currentTimerValue;
 
-    protected override void Init()
+    private void Start()
     {
         var uiUpdater = new UpdateTimerUI(_uiTimerText);
         OnTimerTickEvent += uiUpdater.UpdateUI;
     }
-    
+
     private void Update()
     {
         Tick();
@@ -29,7 +28,7 @@ public class GlobalGameTimer : SingleInstanceObject, ICanBePaused
         if (!IsPaused)
         {
             _currentTimerValue += Time.deltaTime;
-            OnTimerTickEvent?.Invoke(_currentTimerValue);   
+            OnTimerTickEvent?.Invoke(Mathf.RoundToInt(_currentTimerValue));   
         }
     }
     

@@ -11,9 +11,16 @@ namespace Directors.UI
             _text = text;
         }
 
-        public void UpdateUI(float timeValue)
+        public void UpdateUI(int timeValue)
         {
-            SetText( $"{timeValue}" );            
+            var outPutString = $"{timeValue}";
+            
+            if (timeValue > 60)
+            {
+                outPutString = $"{timeValue/60}:{timeValue%60}";
+            }
+
+            SetText( outPutString );            
         }
         
         private void SetText(string newText)
