@@ -3,7 +3,15 @@ guid: f626be618c44ed24a818537b5dc1e5ae
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _cyanColorMaterial: {instanceID: 0}
+  - _greyColorMaterial: {instanceID: 0}
+  - _purpleColorMaterial: {instanceID: 0}
+  - _orangeColorMaterial: {instanceID: 0}
+  - _cyanAudioClip: {fileID: 8300000, guid: 835e1e5c586247c419490ebed77dacee, type: 3}
+  - _greyAudioClip: {fileID: 8300000, guid: 620ebed3e3ea7b74796edca6ada3bec6, type: 3}
+  - _purpleAudioClip: {fileID: 8300000, guid: 71a95e3c8c22fa14aafcf0aed2680800, type: 3}
+  - _orangeAudioClip: {fileID: 8300000, guid: 5e2d0c37032d3f24787ccc8f339425e9, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
