@@ -14,16 +14,17 @@ public class SoundWave : BaseBehaviour
     [Space(15)] [SerializeField] private Transform startPoint;
     [Range(-1, 1)] [SerializeField] private float angle;
 
+    [SerializeField] private Color missWaveColor;
+
     [Header("Draw in scene")] [Space(3)] [SerializeField]
     private bool drawRays = true;
-
+    
     private float _currentDistance;
 
     private LaunchWaveVisual _launchWaveVisual;
     private InputHandler _playerInput;
     private Rigidbody _currentRigidbody;
-    [SerializeField] private Vector3 boxSize;
-
+    
     public event Action<JumpableObjectData> JumpableObjectHitEvent;
     public event Action JumpableObjectMissEvent;
 
@@ -50,15 +51,17 @@ public class SoundWave : BaseBehaviour
             if (Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) &&
                 hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
             {
+                objectData.GetData();
                 JumpableObjectHitEvent?.Invoke(objectData.GetData());
                 AddForce(GetForceDirection(hit.point), objectData.GetData().ObjectForce);
+                _launchWaveVisual.Launch(CurrentRay(direction).direction,objectData.GetData().WaveColor);
             }
             else
             {
                 JumpableObjectMissEvent?.Invoke();
+                _launchWaveVisual.Launch(CurrentRay(direction).direction,missWaveColor);
             }
 
-            _launchWaveVisual.Launch(CurrentRay(direction).direction);
         }
     }
 
