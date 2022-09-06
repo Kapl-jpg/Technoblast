@@ -2,36 +2,21 @@ using UnityEngine;
 
 namespace Directors
 {
-    public class BackgroundSoundsPlayer : MonoBehaviour
+    public class BackgroundSoundsPlayer : SingleInstanceObject
     {
         [SerializeField] private SoundsContainer _soundsContainer;
 
-        private static BackgroundSoundsPlayer _instance;
-
         private AudioSource _audioSource;
 
-        private void Start()
+        protected override void Init()
         {
-            Config();
-        }
-
-        private void Config()
-        {
-            if (_instance == null)
-            {
-                _instance = this;
-                DontDestroyOnLoad(this);
-                _audioSource = GetComponent<AudioSource>();
-                StartPlayingSoundTheme();
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            StartPlayingSoundTheme();
         }
 
         private void StartPlayingSoundTheme()
         {
+            _audioSource = GetComponent<AudioSource>();
+            
             if (_soundsContainer.IsAvailableClips())
             {
                 _audioSource.clip = _soundsContainer.GetFirstAvailableAudioClip();
