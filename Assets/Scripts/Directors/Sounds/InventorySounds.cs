@@ -6,13 +6,13 @@ namespace Directors
     public class InventorySounds : ILastBreath
     {
         private InventoryComponent _inventory;
-        private AudioSource _audioSource;
+        private ICanPlayAudio _audioPlayer;
         private AudioClip _audioClip;
 
-        public InventorySounds(InventoryComponent inventory, AudioSource audioSource, AudioClip audioClip)
+        public InventorySounds(InventoryComponent inventory, ICanPlayAudio audioPlayer, AudioClip audioClip)
         {
             _inventory = inventory;
-            _audioSource = audioSource;
+            _audioPlayer = audioPlayer;
             _audioClip = audioClip;
             
             FollowInventoryEvents();
@@ -30,7 +30,7 @@ namespace Directors
 
         private void PlayItemTakeSound()
         {
-            _audioSource.PlayOneShot(_audioClip);
+            _audioPlayer.PlayOneShot(_audioClip);
         }
     }
 }
