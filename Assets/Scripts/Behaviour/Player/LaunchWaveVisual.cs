@@ -8,7 +8,6 @@ public class LaunchWaveVisual : MonoBehaviour
     [SerializeField] private int waveCount;
     private List<ParticleSystem> _waveParticleSystems;
     private Vector3 _characterPosition;
-
     private void Start()
     {
         CreateWaves();
@@ -17,22 +16,29 @@ public class LaunchWaveVisual : MonoBehaviour
     private void CreateWaves()
     {
         _waveParticleSystems = new List<ParticleSystem>();
+        var waves = new GameObject("Waves");
         for (var i = 0; i < waveCount; i++)
         {
+            
             var instance = Instantiate(waveParticleSystem, Vector3.zero, Quaternion.identity);
-            instance.transform.parent = transform;
+            instance.transform.parent = waves.transform;
             instance.gameObject.SetActive(false);
             _waveParticleSystems.Add(instance);
         }
     }
 
-    public void Launch(Vector3 characterRayDirection)
+    public void Launch(Vector3 characterRayDirection, Color color)
     {
         var wave = GetParticleSystem();
-        
         SetWavePosition(wave);
         SetWaveRotation(wave, characterRayDirection);
         ActivateWave(wave);
+        SetColor(wave, color);
+    }
+
+    private void SetColor(Component wave,Color color)
+    {
+        wave.GetComponent<Renderer>().material.SetColor("_WaveColor",color);
     }
 
     private void ActivateWave(ParticleSystem wave)

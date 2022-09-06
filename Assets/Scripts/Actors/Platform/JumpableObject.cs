@@ -21,7 +21,7 @@ public abstract class JumpableObject : MonoBehaviour, IJumpableObject
 
     private void SetColor()
     {
-        foreach (MeshRenderer meshRenderer in _emissionElementMeshRenderer)
+        foreach (var meshRenderer in _emissionElementMeshRenderer)
         {
             meshRenderer.material = _objectData.ObjectMaterial;
         }
