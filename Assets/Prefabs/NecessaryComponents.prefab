@@ -1944,7 +1944,6 @@ GameObject:
   - component: {fileID: 1188749731025205363}
   - component: {fileID: 6180494463335282766}
   - component: {fileID: 1515450079116271010}
-  - component: {fileID: 2455868260737428456}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -2009,21 +2008,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2455868260737428456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8148158675037041940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d07a957a71d94afba3177de15a77a3ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _viewsToTurnOn:
-  - {fileID: 881301183681414152}
-  - {fileID: 8234500948123472529}
 --- !u!1 &8187350250005084961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,6 +2017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2043905888040636920}
+  - component: {fileID: 5988740440879862307}
   m_Layer: 0
   m_Name: LevelSprayCan
   m_TagString: Untagged
@@ -2062,6 +2047,21 @@ RectTransform:
   m_AnchoredPosition: {x: -82.986, y: -73.2}
   m_SizeDelta: {x: 165.11, y: -333.3428}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5988740440879862307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8187350250005084961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d07a957a71d94afba3177de15a77a3ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewsToTurnOn:
+  - {fileID: 881301183681414152}
+  - {fileID: 8234500948123472529}
 --- !u!1 &8234500948123472529
 GameObject:
   m_ObjectHideFlags: 0
