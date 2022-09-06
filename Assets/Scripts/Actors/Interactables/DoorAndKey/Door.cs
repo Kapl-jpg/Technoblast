@@ -4,20 +4,18 @@ using Player.Interactables;
 using UnityEngine;
 
 [RequireComponent( typeof(Collider))]
-public class Door : OpenableActor, ICanBePaused
+public class Door : OpenableActor
 {
     [SerializeField] private Material _openMaterial;
     [SerializeField] private GameObject _latticeReference;
-    
-    public bool IsPaused { get; }
-    
+
     private Collider _collider;
     private Material _latticeMaterial;
     private Material _defaultMaterial;
 
     public event Action OnDoorOpenEvent;
     public event Action OnDoorCloseEvent;
-    
+
     private void Start()
     {
         _collider = GetComponent<Collider>();
@@ -58,15 +56,5 @@ public class Door : OpenableActor, ICanBePaused
     private void SetNewMaterial(Material material)
     {
         _latticeReference.GetComponent<Renderer>().material = material;
-    }
-
-    public void Pause()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Unpause()
-    {
-        throw new System.NotImplementedException();
     }
 }

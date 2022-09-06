@@ -17,15 +17,23 @@ public class InputHandler : MonoBehaviour
     
     public bool Trick { get; private set; }
 
+    public bool Pause { get; private set; } = false;
+    
     private void Update()
+    {
+        CheckInputStates();
+    }
+
+    private void CheckInputStates()
     {
         HandleMovementInput();
         CheckGrounded();
         HandleJumpInput();
         HandleFireInput();
         HandleTrickInput();
+        HandlePauseState();
     }
-
+    
     private void HandleMovementInput()
     {
         Movement = Input.GetAxisRaw(GlobalAxis.HorizontalAxis);
@@ -66,5 +74,10 @@ public class InputHandler : MonoBehaviour
     {
         if (!IsGrounded)
             Trick = Input.GetKeyDown(KeyCode.S);
+    }
+
+    private void HandlePauseState()
+    {
+        Pause = Input.GetKeyDown(KeyCode.Escape);
     }
 }
