@@ -4,24 +4,33 @@ using UnityEngine;
 namespace Directors.UI
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
-    public class GlobalSprayCanCounter : SingleInstanceObject
+    public class GlobalSprayCanCounter : MonoBehaviour
     {
         [SerializeField] private InventoryComponent _inventory;
 
-        private TextMeshProUGUI _sprayCanCounterText;
+        public int CurrentSprayCanCounter
+        {
+            get => _currentSprayCanCounter;
+            set
+            { 
+                _currentSprayCanCounter = value > 0 ? value : 0;
+                SetText($"{_currentSprayCanCounter}");
+            }
+        }
         private int _currentSprayCanCounter;
         
-        protected override void Init()
+        private TextMeshProUGUI _sprayCanCounterText;
+
+        private void Start()
         {
             _sprayCanCounterText = GetComponent<TextMeshProUGUI>();
-            SetText("0");
-            _inventory.OnItemAddedEvent += UpdateUI;
+            _inventory.OnItemAddedEvent += IncreaseCounter;
         }
-
-        private void UpdateUI()
+        
+        private void IncreaseCounter()
         {
             _currentSprayCanCounter++;
-            SetText( $"{_currentSprayCanCounter}" );
+            SetText($"{_currentSprayCanCounter}");
         }
 
         private void SetText(string text)
