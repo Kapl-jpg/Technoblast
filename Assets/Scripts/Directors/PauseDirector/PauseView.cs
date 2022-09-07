@@ -8,8 +8,6 @@ namespace Directors.PauseDirector
         private PauseDirector _pauseDirector;
         private InputHandler _inputHandler;
 
-        private bool _pauseState;
-        
         [Inject]
         private void Construct(PauseDirector pauseDirector, InputHandler inputHandler)
         {
@@ -27,15 +25,6 @@ namespace Directors.PauseDirector
 
         private void SwitchState()
         {
-            if (!_pauseState)
-            {
-                _pauseState = true;
-            }
-            else
-            {
-                _pauseState = false;
-            }
-            
             _pauseDirector.ChangePauseState();
         }
     }
