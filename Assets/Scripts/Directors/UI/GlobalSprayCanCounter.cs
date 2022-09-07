@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,16 +9,15 @@ namespace Directors.UI
     {
         [SerializeField] private InventoryComponent _inventory;
 
+        private int _currentSprayCanCounter;
         public int CurrentSprayCanCounter
         {
             get => _currentSprayCanCounter;
             set
             { 
                 _currentSprayCanCounter = value > 0 ? value : 0;
-                SetText($"{_currentSprayCanCounter}");
             }
         }
-        private int _currentSprayCanCounter;
         
         private TextMeshProUGUI _sprayCanCounterText;
 
@@ -25,6 +25,7 @@ namespace Directors.UI
         {
             _sprayCanCounterText = GetComponent<TextMeshProUGUI>();
             _inventory.OnItemAddedEvent += IncreaseCounter;
+            SetText($"{_currentSprayCanCounter}");
         }
         
         private void IncreaseCounter()

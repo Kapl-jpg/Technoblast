@@ -12,16 +12,26 @@ namespace Data
         [SerializeField] private float _globalGameTimer;
         public float GlobalGameTimer => _globalGameTimer;
 
-        public LevelStateData(int sprayCanCounter, float globalGameTimer)
+        [SerializeField] private int _globalDeathCounter;
+
+        public int GlobalDeathCounter
         {
-            _sprayCanCounter = sprayCanCounter;
-            _globalGameTimer = globalGameTimer;
+            get => _globalDeathCounter;
+            set => _globalDeathCounter = value > 0 ? value : 0;
         }
 
-        public void RefreshData(int sprayCanCounter, float globalGameTimer)
+        public LevelStateData(int sprayCanCounter, float globalGameTimer, int globalDeathCounter)
         {
             _sprayCanCounter = sprayCanCounter;
             _globalGameTimer = globalGameTimer;
+            _globalDeathCounter = globalDeathCounter;
+        }
+
+        public void RefreshData(int sprayCanCounter, float globalGameTimer, int globalDeathCounter)
+        {
+            _sprayCanCounter = sprayCanCounter;
+            _globalGameTimer = globalGameTimer;
+            _globalDeathCounter = globalDeathCounter;
         }
 
         public void SetGlobalGameTimer(float value)

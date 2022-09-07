@@ -1,7 +1,9 @@
 using System;
 using Directors.UI;
+using Interfaces;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class GlobalGameTimer : MonoBehaviour, ICanBePaused
 {
@@ -17,13 +19,16 @@ public class GlobalGameTimer : MonoBehaviour, ICanBePaused
     public bool IsPaused { get; private set; }
     
     public event Action <int> OnTimerTickEvent;
-    
-    private void Start()
+
+    [Inject]
+    private void Construct(IPauseDirector pauseDirector)
     {
+        pauseDirector.RegisterICanBePausedActor(this);
+        
         var uiUpdater = new UpdateTimerUI(_uiTimerText);
         OnTimerTickEvent += uiUpdater.UpdateUI;
     }
-    
+
     private void Update()
     {
         Tick();
