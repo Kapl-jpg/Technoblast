@@ -10,6 +10,7 @@ namespace Directors.UI
     {
         [SerializeField] private GlobalGameTimer _timer;
         [SerializeField] private GlobalSprayCanCounter _sprayCanCounter;
+        [SerializeField] private GlobalDeathCounter _deathCounter;
         
         [SerializeField] private LevelData _levelData;
         
@@ -22,7 +23,7 @@ namespace Directors.UI
             playerDie.OnDeathEvent += SaveTimerValue;
         }
         
-        private void Start()
+        private void Awake()
         {
             SetStartLevelData();
         }
@@ -37,12 +38,12 @@ namespace Directors.UI
         
         private void SaveLevelEndValues()
         {
-            _levelData.SetLevelStateData(new LevelStateData(_sprayCanCounter.CurrentSprayCanCounter, _timer.CurrentTimerValue));
+            _levelData.SetLevelStateData(new LevelStateData(_sprayCanCounter.CurrentSprayCanCounter, _timer.CurrentTimerValue, _levelStateData.GlobalDeathCounter));
         }
         
         private void SaveTimerValue()
         {
-            _levelData.SetLevelStateData(new LevelStateData(_levelStateData.SprayCanCounter, _timer.CurrentTimerValue));
+            _levelData.SetLevelStateData(new LevelStateData(_levelStateData.SprayCanCounter, _timer.CurrentTimerValue, ++_levelStateData.GlobalDeathCounter));
         }
     }
 }

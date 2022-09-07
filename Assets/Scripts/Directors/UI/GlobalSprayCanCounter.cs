@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -14,9 +15,9 @@ namespace Directors.UI
             set
             { 
                 _currentSprayCanCounter = value > 0 ? value : 0;
-                SetText($"{_currentSprayCanCounter}");
             }
         }
+        
         private int _currentSprayCanCounter;
         
         private TextMeshProUGUI _sprayCanCounterText;
