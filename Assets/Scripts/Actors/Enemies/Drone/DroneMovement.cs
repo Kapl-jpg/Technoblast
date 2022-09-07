@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using  DG.Tweening;
+using Interfaces;
+using Zenject;
 
-public class DroneMovement : MonoBehaviour
+public class DroneMovement : MonoBehaviour, ICanBePaused
 {
     [SerializeField] private GameObject points;
     
@@ -13,11 +15,17 @@ public class DroneMovement : MonoBehaviour
     [SerializeField] private bool stay;
 
     private List<Vector3> _targetPoints;
-    
-    private int _numberPoint;
 
-    private void Start()
+    private Sequence _runningSequence;
+    private int _numberPoint;
+    
+    public bool IsPaused { get; }
+
+    [Inject]
+    private void Construct(IPauseDirector pauseDirector)
     {
+        pauseDirector.RegisterICanBePausedActor(this);
+        
         if (stay || points.transform.childCount <= 0)
             return;
 
@@ -37,13 +45,25 @@ public class DroneMovement : MonoBehaviour
     private void SetPath()
     {
         transform.position = _targetPoints[0];
-        var sequence = DOTween.Sequence();
+        _runningSequence = DOTween.Sequence();
+        
         for (var i = 1; i < _targetPoints.Count; i++)
         {
-            sequence.Append(transform.DOMove(_targetPoints[i], secondsMove));
+            _runningSequence.Append(transform.DOMove(_targetPoints[i], secondsMove));
             if(i==_targetPoints.Count-1 && loopAgain)
-                sequence.Append(transform.DOMove( _targetPoints[0], secondsMove));
+                _runningSequence.Append(transform.DOMove( _targetPoints[0], secondsMove));
         }
-        sequence.SetLoops(-1, loopAgain ? LoopType.Restart : LoopType.Yoyo);
+        
+        _runningSequence.SetLoops(-1, loopAgain ? LoopType.Restart : LoopType.Yoyo);
+    }
+    
+    public void Pause()
+    {
+        _runningSequence.Pause();
+    }
+
+    public void Unpause()
+    {
+        _runningSequence.Play();
     }
 }
