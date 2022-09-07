@@ -23,7 +23,7 @@ namespace Directors.PauseDirector
             }
         }
 
-        private void SwitchState()
+        public void SwitchState()
         {
             _pauseDirector.ChangePauseState();
         }

@@ -9,6 +9,7 @@ namespace Directors.UI
     {
         [SerializeField] private InventoryComponent _inventory;
 
+        private int _currentSprayCanCounter;
         public int CurrentSprayCanCounter
         {
             get => _currentSprayCanCounter;
@@ -18,14 +19,13 @@ namespace Directors.UI
             }
         }
         
-        private int _currentSprayCanCounter;
-        
         private TextMeshProUGUI _sprayCanCounterText;
 
         private void Start()
         {
             _sprayCanCounterText = GetComponent<TextMeshProUGUI>();
             _inventory.OnItemAddedEvent += IncreaseCounter;
+            SetText($"{_currentSprayCanCounter}");
         }
         
         private void IncreaseCounter()
