@@ -6,9 +6,9 @@ namespace Directors
     {
         [SerializeField] private SoundsContainer _soundsContainer;
 
-        private static BackgroundSoundsPlayer _instance;
-
         private AudioSource _audioSource;
+
+        private  static BackgroundSoundsPlayer _instance;
 
         private void Start()
         {
@@ -21,7 +21,6 @@ namespace Directors
             {
                 _instance = this;
                 DontDestroyOnLoad(this);
-                _audioSource = GetComponent<AudioSource>();
                 StartPlayingSoundTheme();
             }
             else
@@ -32,6 +31,8 @@ namespace Directors
 
         private void StartPlayingSoundTheme()
         {
+            _audioSource = GetComponent<AudioSource>();
+            
             if (_soundsContainer.IsAvailableClips())
             {
                 _audioSource.clip = _soundsContainer.GetFirstAvailableAudioClip();
