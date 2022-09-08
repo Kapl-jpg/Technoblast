@@ -14,6 +14,9 @@ public class SoundWave : BaseBehaviour
     [Space(15)] [SerializeField] private Transform startPoint;
     [Range(-1, 1)] [SerializeField] private float angle;
 
+    [SerializeField]
+    private float fireCooldown;
+
     [SerializeField] private Color missWaveColor;
 
     [Header("Draw in scene")] [Space(3)] [SerializeField]
@@ -24,12 +27,16 @@ public class SoundWave : BaseBehaviour
     private LaunchWaveVisual _launchWaveVisual;
     private InputHandler _playerInput;
     private Rigidbody _currentRigidbody;
+    private AnimationState _animationState;
     
     public event Action<JumpableObjectData> JumpableObjectHitEvent;
     public event Action JumpableObjectMissEvent;
 
+    private float _currentTime;
+
     private void Start()
     {
+        _animationState = GetComponent<AnimationState>();
         _playerInput = GetComponent<InputHandler>();
         _currentRigidbody = GetComponent<Rigidbody>();
         _launchWaveVisual = GetComponent<LaunchWaveVisual>();
@@ -37,32 +44,39 @@ public class SoundWave : BaseBehaviour
 
     protected override void OnUpdate()
     {
+        print(_currentTime);
+        CanShoot();
         Flight(_playerInput.Fire);
     }
 
     private void Flight(Vector3 direction)
     {
-        if (direction != Vector3.zero)
+        if (direction == Vector3.zero) return;
+        
+        if(_currentTime < fireCooldown)
+            return;
+        
+        if (Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) &&
+            hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
         {
-
-            // if(Physics.BoxCast(CurrentRay(direction).GetPoint(0.5f), boxSize / 2,
-            //           CurrentRay(direction).direction, out var hit) &&
-            //       hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
-            if (Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) &&
-                hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
-            {
-                objectData.GetData();
-                JumpableObjectHitEvent?.Invoke(objectData.GetData());
-                AddForce(GetForceDirection(hit.point), objectData.GetData().ObjectForce);
-                _launchWaveVisual.Launch(CurrentRay(direction).direction,objectData.GetData().WaveColor);
-            }
-            else
-            {
-                JumpableObjectMissEvent?.Invoke();
-                _launchWaveVisual.Launch(CurrentRay(direction).direction,missWaveColor);
-            }
-
+            objectData.GetData();
+            JumpableObjectHitEvent?.Invoke(objectData.GetData());
+            AddForce(GetForceDirection(hit.point), objectData.GetData().ObjectForce);
+            _launchWaveVisual.Launch(CurrentRay(direction).direction,objectData.GetData().WaveColor);
         }
+        else
+        {
+            JumpableObjectMissEvent?.Invoke();
+            _launchWaveVisual.Launch(CurrentRay(direction).direction,missWaveColor);
+        }
+
+        _currentTime = 0;
+        _animationState.SetLaunchWave(direction);
+    }
+    
+    private void CanShoot()
+    {
+        _currentTime += Time.deltaTime;
     }
 
     private Vector3 GetForceDirection(Vector3 hitPoint)
@@ -80,20 +94,7 @@ public class SoundWave : BaseBehaviour
 
         _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
     }
-
-    #region Get box cast
-
-    private Vector3 CenterBox(Vector3 direction)
-    {
-        var center = CurrentRay(direction).direction * GetDistance(direction)/2;
-        return center;
-    }
-
-    private void LookAt(Vector3 direction)
-    {
-        transform.LookAt(direction);
-    }
-
+    
     private float GetDistance(Vector3 direction)
     {
         return direction switch
@@ -105,8 +106,6 @@ public class SoundWave : BaseBehaviour
             _ => 0
         };
     }
-
-    #endregion
 
     #region Get rays
 
