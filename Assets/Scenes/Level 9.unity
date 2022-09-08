@@ -2406,11 +2406,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7092618159603387590, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.08
+      value: -13.5
       objectReference: {fileID: 0}
     - target: {fileID: 7092618159603387590, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.84
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7092618159603387590, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2448,6 +2448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret Shot
       objectReference: {fileID: 0}
+    - target: {fileID: 8810889638040452847, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8829423004dc91b448d2ec3839d9bd36, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
 --- !u!4 &1352408442 stripped
