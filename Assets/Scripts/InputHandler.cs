@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private LayerMask groundLayer;
+    
     [SerializeField] private float distanceToGround;
     public float Movement { get; private set; }
     
     public Vector3 Fire { get; private set; }
-
-    public bool MovementIsNonPressed { get; private set; }
 
     public bool Jump { get; private set; }
 
@@ -41,20 +40,21 @@ public class InputHandler : MonoBehaviour
 
     private void CheckGrounded()
     {
-        Ray ray = new Ray(transform.position, Vector3.down);
-        IsGrounded = Physics.Raycast(ray, distanceToGround,_groundLayer);
+        var ray = new Ray(transform.position, Vector3.down);
+        IsGrounded = Physics.Raycast(ray, distanceToGround,groundLayer);
     }
     
     private void HandleJumpInput()
     {
         Jump = Input.GetKeyDown(KeyCode.W);
     }
-    
+
     private void HandleFireInput()
     {
-        if(!IsGrounded)
+        if (!IsGrounded)
             Fire = GetFireDirection();
     }
+
 
     private Vector3 GetFireDirection()
     {
