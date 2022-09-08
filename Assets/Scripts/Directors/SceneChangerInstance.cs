@@ -18,6 +18,16 @@ namespace Directors
             _instance.RestartCurrentScene();
         }
 
+        public void LoadNextScene()
+        {
+            _instance.LoadNextScene();
+        }
+
+        public void LoadMainMenuScene()
+        {
+            _instance.LoadMainMenuScene();
+        }
+        
         public void QuitGame()
         {
             _instance.QuitGame();

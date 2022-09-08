@@ -1,6 +1,5 @@
 using Data;
 using Interfaces;
-using ScriptableObjects;
 using UnityEngine;
 using Zenject;
 
@@ -12,8 +11,8 @@ namespace Directors.UI
         [SerializeField] private GlobalSprayCanCounter _sprayCanCounter;
         [SerializeField] private GlobalDeathCounter _deathCounter;
         
-        [SerializeField] private LevelData _levelData;
-        
+        [SerializeField] private StatSaver _statSaver;
+
         private LevelStateData _levelStateData;
         
         [Inject]
@@ -30,20 +29,21 @@ namespace Directors.UI
         
         private void SetStartLevelData()
         {
-            _levelStateData = _levelData.GetLevelStateData;
+            _levelStateData = _statSaver.GetLevelData();
 
             _timer.CurrentTimerValue = _levelStateData.GlobalGameTimer;
             _sprayCanCounter.CurrentSprayCanCounter = _levelStateData.SprayCanCounter;
         }
         
-        private void SaveLevelEndValues()
+        public void SaveLevelEndValues()
         {
-            _levelData.SetLevelStateData(new LevelStateData(_sprayCanCounter.CurrentSprayCanCounter, _timer.CurrentTimerValue, _levelStateData.GlobalDeathCounter));
+            _statSaver.SaveLevelStateData(new LevelStateData(_sprayCanCounter.CurrentSprayCanCounter, _timer.CurrentTimerValue, _levelStateData.GlobalDeathCounter));
         }
         
-        private void SaveTimerValue()
+        public void SaveTimerValue()
         {
-            _levelData.SetLevelStateData(new LevelStateData(_levelStateData.SprayCanCounter, _timer.CurrentTimerValue, ++_levelStateData.GlobalDeathCounter));
+            _statSaver.SaveLevelStateData(new LevelStateData(_levelStateData.SprayCanCounter, _timer.CurrentTimerValue, ++_levelStateData.GlobalDeathCounter));
         }
+
     }
 }
