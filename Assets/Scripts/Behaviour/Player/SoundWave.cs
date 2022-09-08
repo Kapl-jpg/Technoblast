@@ -44,8 +44,7 @@ public class SoundWave : BaseBehaviour
 
     protected override void OnUpdate()
     {
-        print(_currentTime);
-        CanShoot();
+        CountingTime();
         Flight(_playerInput.Fire);
     }
 
@@ -63,6 +62,7 @@ public class SoundWave : BaseBehaviour
             JumpableObjectHitEvent?.Invoke(objectData.GetData());
             AddForce(GetForceDirection(hit.point), objectData.GetData().ObjectForce);
             _launchWaveVisual.Launch(CurrentRay(direction).direction,objectData.GetData().WaveColor);
+            _animationState.SetLaunchWave(direction);
         }
         else
         {
@@ -71,10 +71,9 @@ public class SoundWave : BaseBehaviour
         }
 
         _currentTime = 0;
-        _animationState.SetLaunchWave(direction);
     }
     
-    private void CanShoot()
+    private void CountingTime()
     {
         _currentTime += Time.deltaTime;
     }
@@ -93,18 +92,6 @@ public class SoundWave : BaseBehaviour
             direction.x != 0 ? new Vector3(0, 0) : new Vector3(_currentRigidbody.velocity.x, 0);
 
         _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
-    }
-    
-    private float GetDistance(Vector3 direction)
-    {
-        return direction switch
-        {
-            var v when v.Equals(Vector3.down) => rayDownDistance,
-            var v when v.Equals(Vector3.up) => rayUpDistance,
-            var v when v.Equals(Vector3.left) => rayLeftDistance,
-            var v when v.Equals(Vector3.right) => rayRightDistance,
-            _ => 0
-        };
     }
 
     #region Get rays

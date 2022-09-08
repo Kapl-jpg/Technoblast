@@ -3,8 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(InputHandler))]
 public class CharacterMovement : BaseBehaviour
 {
-    [Header("Speed")] [SerializeField] private float timeToMaximumSpeed;
+    [Header("Speed")] 
+    [SerializeField] private float timeToMaximumSpeed;
+    
     [SerializeField] private float maxSpeed = 7;
+    
     [SerializeField] private float timeToStop;
 
     [SerializeField] private float forceJump;
@@ -59,12 +62,10 @@ public class CharacterMovement : BaseBehaviour
 
     private void HandleAnimation()
     {
+        _animationState.SetSpeedX(Mathf.Abs(_currentRigidbody.velocity.x));
         _animationState.SetSpeedY(_currentRigidbody.velocity.y);
         _animationState.SetGrounded(_playerInput.IsGrounded);
-        _animationState.SetHorizontalMovement(Mathf.Abs(_playerInput.Movement)!=0);
-
     }
-
 
     private void Run(Vector3 direction)
     {
