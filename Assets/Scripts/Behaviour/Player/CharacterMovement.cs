@@ -19,7 +19,10 @@ public class CharacterMovement : BaseBehaviour
     private float _currentTimeDeceleration;
 
     private Rigidbody _currentRigidbody;
+    
     private InputHandler _playerInput;
+
+    private AnimationState _animationState;
 
     private float _speedDuringPressing;
 
@@ -27,12 +30,14 @@ public class CharacterMovement : BaseBehaviour
     {
         _playerInput = GetComponent<InputHandler>();
         _currentRigidbody = GetComponent<Rigidbody>();
+        _animationState = GetComponent<AnimationState>();
     }
 
     protected override void OnUpdate()
     {
         HandleCharacterMovement();
         HandleJump();
+        HandleAnimation();
     }
 
     private void HandleCharacterMovement()
@@ -52,15 +57,23 @@ public class CharacterMovement : BaseBehaviour
         }
     }
 
+    private void HandleAnimation()
+    {
+        _animationState.SetSpeedY(_currentRigidbody.velocity.y);
+        _animationState.SetGrounded(_playerInput.IsGrounded);
+        _animationState.SetHorizontalMovement(Mathf.Abs(_playerInput.Movement)!=0);
+
+    }
+
 
     private void Run(Vector3 direction)
     {
         AccelerationTime();
-        
+
         _currentRigidbody.velocity +=
-            new Vector3(Mathf.Clamp(
-                CalculateAcceleration() * _currentTimeAcceleration * direction.x, -maxSpeed,
-                maxSpeed) - _currentRigidbody.velocity.x, 0);
+            new Vector3(
+                Mathf.Clamp(CalculateAcceleration() * _currentTimeAcceleration * direction.x, -maxSpeed, maxSpeed) -
+                _currentRigidbody.velocity.x, 0);
     }
 
 
@@ -83,10 +96,17 @@ public class CharacterMovement : BaseBehaviour
         return !_playerInput.IsGrounded ? multiplierDecelerationInJump : 1;
     }
 
+    private bool CharacterIsJumped()
+    {
+        return _playerInput.Jump && _playerInput.IsGrounded;
+    }
+
     private void HandleJump()
     {
-        if (_playerInput.Jump && _playerInput.IsGrounded)
+        if (CharacterIsJumped())
+        {
             _currentRigidbody.velocity = new Vector3(_currentRigidbody.velocity.x, forceJump);
+        }
     }
 
     private void OnDrawGizmos()
