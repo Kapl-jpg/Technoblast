@@ -21,6 +21,13 @@ public class TrickMove : BaseBehaviour
     private InputHandler _playersInput;
     private ICanBeInvincible _invincibility;
 
+    private AnimationState _animationState;
+
+    private void Start()
+    {
+        _animationState = GetComponent<AnimationState>();
+    }
+
     public event Action OnTrickMissEvent;
 
     [Inject]
@@ -55,8 +62,10 @@ public class TrickMove : BaseBehaviour
     private IEnumerator StartCooldown()
     {
         _isOnCooldown = true;
+        _animationState.SetTrick(true);
         yield return new WaitForSecondsRealtime(_cooldownTime);
         _isOnCooldown = false;
+        _animationState.SetTrick(false);
     }
 
     private void MakeInvinsialbe()

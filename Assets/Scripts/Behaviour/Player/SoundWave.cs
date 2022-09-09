@@ -62,14 +62,14 @@ public class SoundWave : BaseBehaviour
             JumpableObjectHitEvent?.Invoke(objectData.GetData());
             AddForce(GetForceDirection(hit.point), objectData.GetData().ObjectForce);
             _launchWaveVisual.Launch(CurrentRay(direction).direction,objectData.GetData().WaveColor);
-            _animationState.SetLaunchWave(direction);
         }
         else
         {
             JumpableObjectMissEvent?.Invoke();
             _launchWaveVisual.Launch(CurrentRay(direction).direction,missWaveColor);
         }
-
+        
+        _animationState.SetLaunchWave(direction);
         _currentTime = 0;
     }
     

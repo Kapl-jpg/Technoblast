@@ -8,6 +8,7 @@ public class AnimationState : CharacterAnimatorController
     private static readonly int WaveBelow = Animator.StringToHash("WaveBelow");
     private static readonly int SpeedY = Animator.StringToHash("SpeedY");
     private static readonly int SpeedX = Animator.StringToHash("SpeedX");
+    private static readonly int Trick = Animator.StringToHash("Trick");
 
     public void SetGrounded(bool isGrounded)
     {
@@ -42,6 +43,11 @@ public class AnimationState : CharacterAnimatorController
                 SetWaveSide();
                 break;
         }
+    }
+    
+    public void SetTrick(bool trick)
+    {
+        Animator.SetBool(Trick, trick);
     }
 
     #region Waves animation
