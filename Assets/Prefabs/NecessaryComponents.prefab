@@ -3761,6 +3761,10 @@ PrefabInstance:
       propertyPath: distanceToGround
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1590990713127633278, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: timeToMaximumSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1849545154027300407, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: _invincibilityTime
       value: 0.2
