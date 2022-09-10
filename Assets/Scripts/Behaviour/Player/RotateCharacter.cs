@@ -4,23 +4,21 @@ public class RotateCharacter : MonoBehaviour
 {
     [SerializeField] private Transform currentTransform;
 
-    private InputHandler _inputHandler;
-
-    private void Start()
+    public void SetRotate(int directionX)
     {
-        _inputHandler = GetComponent<InputHandler>();
+        if (directionX == -1)
+            RotateLeft();
+        if (directionX == 1)
+            RotateRight();
     }
 
-    private void Update()
+    private void RotateRight()
     {
-        if (_inputHandler.Movement < 0)
-        {
-            currentTransform.rotation = Quaternion.Euler(0, -90, 0);
-        }
+        currentTransform.rotation = Quaternion.Euler(0, 90, 0);
+    }
 
-        if (_inputHandler.Movement > 0)
-        {
-            currentTransform.rotation = Quaternion.Euler(0, 90, 0);
-        }
+    private void RotateLeft()
+    {
+        currentTransform.rotation = Quaternion.Euler(0, -90, 0);
     }
 }
