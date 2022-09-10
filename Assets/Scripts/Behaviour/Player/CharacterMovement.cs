@@ -42,15 +42,14 @@ public class CharacterMovement : BaseBehaviour
 
     protected override void OnUpdate()
     {
-        /*HandleCharacterMovement();
         HandleJump();
+        /*HandleCharacterMovement();
         HandleAnimation();*/
     }
     
     private void FixedUpdate()
     {
         HandleCharacterMovement();
-        HandleJump();
         HandleAnimation();
     }
 
@@ -149,12 +148,12 @@ public class CharacterMovement : BaseBehaviour
     private void AccelerationTime()
     {
         _currentTimeDeceleration = 0;
-        _currentTimeAcceleration += Time.deltaTime;
+        _currentTimeAcceleration += Time.fixedDeltaTime;
     }
 
     private void DecelerationTime()
     {
         _currentTimeAcceleration = 0;
-        _currentTimeDeceleration += Time.deltaTime;
+        _currentTimeDeceleration += Time.fixedDeltaTime;
     }
 }
