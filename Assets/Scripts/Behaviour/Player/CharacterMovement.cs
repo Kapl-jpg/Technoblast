@@ -42,6 +42,13 @@ public class CharacterMovement : BaseBehaviour
 
     protected override void OnUpdate()
     {
+        /*HandleCharacterMovement();
+        HandleJump();
+        HandleAnimation();*/
+    }
+    
+    private void FixedUpdate()
+    {
         HandleCharacterMovement();
         HandleJump();
         HandleAnimation();
