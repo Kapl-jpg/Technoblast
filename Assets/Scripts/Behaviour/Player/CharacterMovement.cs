@@ -3,16 +3,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(InputHandler))]
 public class CharacterMovement : BaseBehaviour
 {
-    [Header("Speed")] 
-    [SerializeField] private float timeToMaximumSpeed;
-    
+    [Header("Speed")] [SerializeField] private float timeToMaximumSpeed;
+
     [SerializeField] private float maxSpeed = 7;
-    
+
     [SerializeField] private float timeToStop;
 
     [SerializeField] private float forceJump;
 
-    [SerializeField] private float multiplierDecelerationInJump;
+    [SerializeField] private float maxForceInAir = 0.875f;
 
     [SerializeField] private bool drawDistanceBeforeGround = true;
 
@@ -22,7 +21,7 @@ public class CharacterMovement : BaseBehaviour
     private float _currentTimeDeceleration;
 
     private Rigidbody _currentRigidbody;
-    
+
     private InputHandler _playerInput;
 
     private AnimationState _animationState;
@@ -77,7 +76,6 @@ public class CharacterMovement : BaseBehaviour
                 _currentRigidbody.velocity.x, 0);
     }
 
-
     private void SlowingDown()
     {
         DecelerationTime();
@@ -89,12 +87,7 @@ public class CharacterMovement : BaseBehaviour
 
     private void SlowingDownInAir(Vector3 direction)
     {
-        _currentRigidbody.AddForce(direction * maxSpeed / SlowSpeed());
-    }
-
-    private float SlowSpeed()
-    {
-        return !_playerInput.IsGrounded ? multiplierDecelerationInJump : 1;
+        _currentRigidbody.AddForce(direction * maxForceInAir);
     }
 
     private bool CharacterIsJumped()
