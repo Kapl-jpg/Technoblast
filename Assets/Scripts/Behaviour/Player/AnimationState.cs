@@ -5,10 +5,19 @@ public class AnimationState : CharacterAnimatorController
     private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
     private static readonly int WaveSide = Animator.StringToHash("WaveSide");
     private static readonly int WaveUp = Animator.StringToHash("WaveUp");
-    private static readonly int WaveBelow = Animator.StringToHash("WaveBelow");
+    private static readonly int WaveDown = Animator.StringToHash("WaveDown");
     private static readonly int SpeedY = Animator.StringToHash("SpeedY");
     private static readonly int SpeedX = Animator.StringToHash("SpeedX");
     private static readonly int Trick = Animator.StringToHash("Trick");
+    private static readonly int DirectionAxisX = Animator.StringToHash("DirectionAxisX");
+
+    public void SetDirection(float direction)
+    {
+        if (direction > 0)
+            Animator.SetInteger(DirectionAxisX, 1);
+        if (direction < 0)
+            Animator.SetInteger(DirectionAxisX, -1);
+    }
 
     public void SetGrounded(bool isGrounded)
     {
@@ -31,7 +40,7 @@ public class AnimationState : CharacterAnimatorController
         switch (direction)
         {
             case var v when v.Equals(Vector3.down):
-                SetWaveBelow();
+                SetWaveDown();
                 break;
             case var v when v.Equals(Vector3.up):
                 SetWaveUp();
@@ -55,16 +64,22 @@ public class AnimationState : CharacterAnimatorController
     private void SetWaveSide()
     {
         Animator.SetBool(WaveSide, true);
+        Animator.SetBool(WaveDown, false);
+        Animator.SetBool(WaveUp,false);
     }
 
     private void SetWaveUp()
     {
         Animator.SetBool(WaveUp, true);
+        Animator.SetBool(WaveDown, false);
+        Animator.SetBool(WaveSide,false);
     }
 
-    private void SetWaveBelow()
+    private void SetWaveDown()
     {
-        Animator.SetBool(WaveBelow, true);
+        Animator.SetBool(WaveDown, true);
+        Animator.SetBool(WaveUp, false);
+        Animator.SetBool(WaveSide,false);
     }
 
     private void ResetWaves(bool isGrounded)
@@ -72,7 +87,7 @@ public class AnimationState : CharacterAnimatorController
         if (!isGrounded)
             return;
         
-        Animator.SetBool(WaveBelow, false);
+        Animator.SetBool(WaveDown, false);
         Animator.SetBool(WaveSide, false);
         Animator.SetBool(WaveUp, false);
     }

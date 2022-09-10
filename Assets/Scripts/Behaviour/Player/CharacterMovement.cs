@@ -11,11 +11,13 @@ public class CharacterMovement : BaseBehaviour
 
     [SerializeField] private float forceJump;
 
-    [SerializeField] private float maxForceInAir = 0.875f;
+    [SerializeField] private float airAcceleration = 0.875f;
 
     [SerializeField] private bool drawDistanceBeforeGround = true;
 
     [SerializeField] private float distanceToGround;
+
+    private int _directionAxisX;
 
     private float _currentTimeAcceleration;
     private float _currentTimeDeceleration;
@@ -26,6 +28,8 @@ public class CharacterMovement : BaseBehaviour
 
     private AnimationState _animationState;
 
+    private RotateCharacter _rotateCharacter;
+
     private float _speedDuringPressing;
 
     private void Start()
@@ -33,6 +37,7 @@ public class CharacterMovement : BaseBehaviour
         _playerInput = GetComponent<InputHandler>();
         _currentRigidbody = GetComponent<Rigidbody>();
         _animationState = GetComponent<AnimationState>();
+        _rotateCharacter = GetComponent<RotateCharacter>();
     }
 
     protected override void OnUpdate()
@@ -46,6 +51,8 @@ public class CharacterMovement : BaseBehaviour
     {
         if (_playerInput.Movement != 0)
         {
+            SetDirectionX();
+            SetRotate(_directionAxisX);
             if (_playerInput.IsGrounded)
                 Run(new Vector3(_playerInput.Movement, 0));
 
@@ -64,6 +71,21 @@ public class CharacterMovement : BaseBehaviour
         _animationState.SetSpeedX(Mathf.Abs(_currentRigidbody.velocity.x));
         _animationState.SetSpeedY(_currentRigidbody.velocity.y);
         _animationState.SetGrounded(_playerInput.IsGrounded);
+        _animationState.SetDirection(SetDirectionX());
+    }
+
+    private int SetDirectionX()
+    {
+            if (_playerInput.Movement > 0)
+                _directionAxisX = 1;
+            if (_playerInput.Movement < 0)
+                _directionAxisX = -1;
+            return _directionAxisX;
+    }
+
+    private void SetRotate(int directionX)
+    {
+        _rotateCharacter.SetRotate(directionX);
     }
 
     private void Run(Vector3 direction)
@@ -87,7 +109,7 @@ public class CharacterMovement : BaseBehaviour
 
     private void SlowingDownInAir(Vector3 direction)
     {
-        _currentRigidbody.AddForce(direction * maxForceInAir);
+        _currentRigidbody.AddForce(direction * airAcceleration);
     }
 
     private bool CharacterIsJumped()
