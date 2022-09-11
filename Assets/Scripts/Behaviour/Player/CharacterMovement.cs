@@ -28,8 +28,6 @@ public class CharacterMovement : BaseBehaviour
 
     private AnimationState _animationState;
 
-    private RotateCharacter _rotateCharacter;
-
     private float _speedDuringPressing;
 
     private void Start()
@@ -37,7 +35,6 @@ public class CharacterMovement : BaseBehaviour
         _playerInput = GetComponent<InputHandler>();
         _currentRigidbody = GetComponent<Rigidbody>();
         _animationState = GetComponent<AnimationState>();
-        _rotateCharacter = GetComponent<RotateCharacter>();
     }
 
     protected override void OnUpdate()
@@ -52,7 +49,6 @@ public class CharacterMovement : BaseBehaviour
         if (_playerInput.Movement != 0)
         {
             SetDirectionX();
-            SetRotate(_directionAxisX);
             if (_playerInput.IsGrounded)
                 Run(new Vector3(_playerInput.Movement, 0));
 
@@ -81,11 +77,6 @@ public class CharacterMovement : BaseBehaviour
             if (_playerInput.Movement < 0)
                 _directionAxisX = -1;
             return _directionAxisX;
-    }
-
-    private void SetRotate(int directionX)
-    {
-        _rotateCharacter.SetRotate(directionX);
     }
 
     private void Run(Vector3 direction)
