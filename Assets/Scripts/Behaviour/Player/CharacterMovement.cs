@@ -72,9 +72,9 @@ public class CharacterMovement : BaseBehaviour
 
     private int SetDirectionX()
     {
-            if (_playerInput.Movement > 0)
+            if (_currentRigidbody.velocity.x > 0)
                 _directionAxisX = 1;
-            if (_playerInput.Movement < 0)
+            if (_currentRigidbody.velocity.x < 0)
                 _directionAxisX = -1;
             return _directionAxisX;
     }
