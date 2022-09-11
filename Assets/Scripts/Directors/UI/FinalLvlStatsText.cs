@@ -22,12 +22,14 @@ namespace Directors.UI
             var globalData = _levelData.GetLevelStateData;
             
             var globalDeath = globalData.GlobalDeathCounter;
-            var globalTime = Mathf.Round(globalData.GlobalGameTimer);
             var globalSprayCans = globalData.SprayCanCounter;
+            
+            var updateTimer = new UpdateTimerUI();
+            var globalTime = updateTimer.GetStringInTimeFormatWithHours(Mathf.RoundToInt(globalData.GlobalGameTimer));
 
             _text.text = $"Общее время прохождения - {globalTime} \n " +
                          $"Общее количество смертей - {globalDeath} \n " +
-                         $"Всего собрано граффити - {globalSprayCans}";
+                         $"Всего собрано граффити - {globalSprayCans} из {_levelData.SprayCanInAllLevels}";
         }
     }
 }

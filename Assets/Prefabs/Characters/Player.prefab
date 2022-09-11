@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2033434915460523110}
   - component: {fileID: 1351634387258085669}
   - component: {fileID: 283558330174940995}
+  - component: {fileID: 6311713519964790096}
   - component: {fileID: 8699275032143609062}
   - component: {fileID: 1159189489509377000}
   - component: {fileID: 4493284845770332706}
@@ -103,9 +104,23 @@ SphereCollider:
   m_GameObject: {fileID: 6081627357098359499}
   m_Material: {fileID: 13400000, guid: 2191b3024f630534aa7ce5f6a70a5a98, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &6311713519964790096
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6081627357098359499}
+  m_Material: {fileID: 13400000, guid: 2191b3024f630534aa7ce5f6a70a5a98, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8699275032143609062
 Rigidbody:
