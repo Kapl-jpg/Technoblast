@@ -28,8 +28,8 @@ public abstract class PausableActor : MonoBehaviour, IActor, ICanBePaused
     {
         Init();
     }
-    
-    protected virtual void Update()
+
+    protected void Update()
     {
         if (!_isPaused)
         {

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using Interfaces;
-using ModestTree.Util;
 using UnityEngine;
 using Zenject;
 
@@ -20,20 +19,15 @@ public class TrickMove : BaseBehaviour
 
     private InputHandler _playersInput;
     private ICanBeInvincible _invincibility;
-
     private AnimationState _animationState;
-
-    private void Start()
-    {
-        _animationState = GetComponent<AnimationState>();
-    }
-
+    
     public event Action OnTrickMissEvent;
 
     [Inject]
     private void Construct(InputHandler inputHandler)
     {
         _playersInput = inputHandler;
+        _animationState = GetComponent<AnimationState>();
         if (TryGetComponent<ICanBeInvincible>(out var canBeInvincible))
         {
             _invincibility = canBeInvincible;
@@ -54,12 +48,12 @@ public class TrickMove : BaseBehaviour
 
     private void DoTrickMove()
     {
-        StartCoroutine(StartCooldown());
+        StartCoroutine(StartCooldownAsync());
         MakeInvinsialbe();
         TryInteractWithObjects();
     }
 
-    private IEnumerator StartCooldown()
+    private IEnumerator StartCooldownAsync()
     {
         _isOnCooldown = true;
         _animationState.SetTrick(true);
