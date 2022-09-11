@@ -17,12 +17,12 @@ namespace Directors
             _player = player;
             _sceneChanger = sceneChanger;
         }
-
+        
         private void Start()
         {
             FollowPlayerDeath(_sceneChanger.RestartCurrentScene);
         }
-
+        
         public void FollowPlayerDeath(Action methodToFollow)
         {
             if (!_playerDeathFollowers.Contains(methodToFollow))
@@ -31,7 +31,7 @@ namespace Directors
                 _playerDeathFollowers.Add(methodToFollow);   
             }
         }
-
+        
         public bool UnFollowPlayerDeath(Action methodToUnfollow)
         {
             if (_playerDeathFollowers.Contains(methodToUnfollow))
@@ -48,10 +48,10 @@ namespace Directors
         {
             UnFollowEvents();
         }
-
+        
         private void UnFollowEvents()
         {
-            _player.OnDeathEvent -= _sceneChanger.RestartCurrentScene;
+            UnFollowPlayerDeath(_sceneChanger.RestartCurrentScene);
             
             foreach (var method in _playerDeathFollowers)
             {

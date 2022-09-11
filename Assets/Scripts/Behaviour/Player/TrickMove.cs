@@ -9,6 +9,7 @@ public class TrickMove : BaseBehaviour
     [Header("Trick Settings")] 
     [SerializeField] private float _cooldownTime;
     [SerializeField] private float _invincibilityTime;
+    public float InvincibilityTime => _invincibilityTime;
     [SerializeField] private float _radiusOfInteraction;
 
     [Header("Interactive Objects Layer")]
@@ -21,6 +22,7 @@ public class TrickMove : BaseBehaviour
     private ICanBeInvincible _invincibility;
     private AnimationState _animationState;
     
+    public event Action OnTrickStartEvent; 
     public event Action OnTrickMissEvent;
 
     [Inject]
@@ -48,6 +50,7 @@ public class TrickMove : BaseBehaviour
 
     private void DoTrickMove()
     {
+        OnTrickStartEvent?.Invoke();
         StartCoroutine(StartCooldownAsync());
         MakeInvinsialbe();
         TryInteractWithObjects();
