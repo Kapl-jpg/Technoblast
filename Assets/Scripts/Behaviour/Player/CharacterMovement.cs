@@ -39,9 +39,14 @@ public class CharacterMovement : BaseBehaviour
 
     protected override void OnUpdate()
     {
-        HandleCharacterMovement();
         HandleJump();
         HandleAnimation();
+        /*HandleCharacterMovement();*/
+    }
+    
+    private void FixedUpdate()
+    {
+        HandleCharacterMovement();
     }
 
     private void HandleCharacterMovement()
@@ -91,11 +96,7 @@ public class CharacterMovement : BaseBehaviour
 
     private void SlowingDown()
     {
-        DecelerationTime();
-        if (_playerInput.IsGrounded)
-            _currentRigidbody.velocity = Vector3.Lerp(_currentRigidbody.velocity,
-                new Vector3(0, _currentRigidbody.velocity.y),
-                (timeToStop - (timeToStop - _currentTimeDeceleration)) / timeToStop);
+        _currentRigidbody.velocity = new Vector3(0, _currentRigidbody.velocity.y);
     }
 
     private void SlowingDownInAir(Vector3 direction)
