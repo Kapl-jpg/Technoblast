@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using  DG.Tweening;
@@ -31,6 +32,11 @@ public class DroneMovement : MonoBehaviour, ICanBePaused
 
         GetPoints();
         SetPath();
+    }
+
+    private void OnDestroy()
+    {
+        _runningSequence.Kill();
     }
 
     private void GetPoints()

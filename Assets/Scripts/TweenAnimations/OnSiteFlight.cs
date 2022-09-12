@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
 
@@ -7,13 +8,19 @@ public class OnSiteFlight : MonoBehaviour
     [SerializeField] private float amplitude;
     
     private Vector3 _startPoint;
+    private Sequence _sequence;
     
     private void Start()
     {
         _startPoint = transform.localPosition;
         transform.localPosition = EndPosition(Vector3.down);
-        var sequence = DOTween.Sequence();
-        FlightUpToDown(sequence);
+        _sequence = DOTween.Sequence();
+        FlightUpToDown(_sequence);
+    }
+
+    private void OnDestroy()
+    {
+        _sequence.Kill();
     }
 
     private void FlightUpToDown(Sequence sequence)

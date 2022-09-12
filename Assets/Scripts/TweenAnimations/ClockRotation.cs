@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -8,10 +9,17 @@ public class ClockRotation : MonoBehaviour
     [SerializeField] private float _delayBeforeStart = 0;
     [SerializeField] private float _loopDurationInSeconds;
     [SerializeField] private Vector3 _endValue;
+
+    private Sequence _sequence;
     
     private void Start()
     {
         StartCoroutine(StartAsync());
+    }
+
+    private void OnDestroy()
+    {
+        _sequence.Kill();
     }
 
     private IEnumerator StartAsync()
@@ -22,8 +30,8 @@ public class ClockRotation : MonoBehaviour
 
     private void StartLoop()
     {
-        var sequence = DOTween.Sequence();
-        sequence.Append(transform.DORotate(_endValue, _loopDurationInSeconds));
-        sequence.SetLoops(-1, LoopType.Yoyo);
+        _sequence = DOTween.Sequence();
+        _sequence.Append(transform.DORotate(_endValue, _loopDurationInSeconds));
+        _sequence.SetLoops(-1, LoopType.Yoyo);   
     }
 }
