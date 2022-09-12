@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class AnimationState : CharacterAnimatorController
 {
+    [SerializeField] private float maxSpeedAxisX = 18;
+    
     private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
     private static readonly int WaveSide = Animator.StringToHash("WaveSide");
     private static readonly int WaveUp = Animator.StringToHash("WaveUp");
@@ -25,6 +27,11 @@ public class AnimationState : CharacterAnimatorController
         Animator.SetTrigger(WinGame);
     }
     
+    public bool GetWaveSide()
+    {
+        return Animator.GetBool(WaveSide);
+    }
+
     public void SetDirection(float direction)
     {
         if (direction > 0)
