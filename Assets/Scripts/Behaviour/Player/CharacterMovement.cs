@@ -7,8 +7,6 @@ public class CharacterMovement : BaseBehaviour
 
     [SerializeField] private float maxSpeed = 7;
 
-    [SerializeField] private float timeToStop;
-
     [SerializeField] private float forceJump;
 
     [SerializeField] private float airAcceleration = 0.875f;
@@ -20,7 +18,6 @@ public class CharacterMovement : BaseBehaviour
     private int _directionAxisX;
 
     private float _currentTimeAcceleration;
-    private float _currentTimeDeceleration;
 
     private Rigidbody _currentRigidbody;
 
@@ -64,6 +61,8 @@ public class CharacterMovement : BaseBehaviour
         {
             if (_playerInput.IsGrounded)
                 SlowingDown();
+            
+            _currentTimeAcceleration = 0;
         }
     }
 
@@ -133,13 +132,6 @@ public class CharacterMovement : BaseBehaviour
 
     private void AccelerationTime()
     {
-        _currentTimeDeceleration = 0;
-        _currentTimeAcceleration += Time.deltaTime;
-    }
-
-    private void DecelerationTime()
-    {
-        _currentTimeAcceleration = 0;
-        _currentTimeDeceleration += Time.deltaTime;
+        _currentTimeAcceleration += Time.fixedDeltaTime;
     }
 }

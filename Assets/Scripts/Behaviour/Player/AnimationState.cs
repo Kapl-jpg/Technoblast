@@ -10,6 +10,7 @@ public class AnimationState : CharacterAnimatorController
     private static readonly int SpeedX = Animator.StringToHash("SpeedX");
     private static readonly int Trick = Animator.StringToHash("Trick");
     private static readonly int DirectionAxisX = Animator.StringToHash("DirectionAxisX");
+    [SerializeField] private float maxSpeedAxisX = 18;
 
     public void SetDirection(float direction)
     {
@@ -35,15 +36,15 @@ public class AnimationState : CharacterAnimatorController
         Animator.SetFloat(SpeedY, speed);
     }
 
-    public void SetLaunchWave(Vector3 direction)
+    public void SetLaunchWave(Vector3 direction, bool isGrounded, float speedAxisX)
     {
         switch (direction)
         {
             case var v when v.Equals(Vector3.down):
-                SetWaveDown();
+                SetWaveDown(isGrounded, speedAxisX);
                 break;
             case var v when v.Equals(Vector3.up):
-                SetWaveUp();
+                SetWaveUp(isGrounded, speedAxisX);
                 break;
             case var v when v.Equals(Vector3.left):
                 SetWaveSide();
@@ -53,7 +54,7 @@ public class AnimationState : CharacterAnimatorController
                 break;
         }
     }
-    
+
     public void SetTrick(bool trick)
     {
         Animator.SetBool(Trick, trick);
@@ -68,15 +69,27 @@ public class AnimationState : CharacterAnimatorController
         Animator.SetBool(WaveUp,false);
     }
 
-    private void SetWaveUp()
+    private void SetWaveUp(bool isGrounded, float speedAxisX)
     {
+        if(isGrounded)
+            return;
+        
+        if(speedAxisX > maxSpeedAxisX)
+            return;
+
         Animator.SetBool(WaveUp, true);
         Animator.SetBool(WaveDown, false);
         Animator.SetBool(WaveSide,false);
     }
 
-    private void SetWaveDown()
+    private void SetWaveDown(bool isGrounded, float speedAxisX)
     {
+        if(isGrounded)
+            return;
+        
+        if(speedAxisX > maxSpeedAxisX)
+            return;
+
         Animator.SetBool(WaveDown, true);
         Animator.SetBool(WaveUp, false);
         Animator.SetBool(WaveSide,false);

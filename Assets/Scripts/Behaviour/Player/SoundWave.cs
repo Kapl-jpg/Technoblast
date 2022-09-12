@@ -69,7 +69,7 @@ public class SoundWave : BaseBehaviour
             _launchWaveVisual.Launch(CurrentRay(direction).direction,missWaveColor);
         }
         
-        _animationState.SetLaunchWave(direction);
+        _animationState.SetLaunchWave(direction,_playerInput.IsGrounded,_currentRigidbody.velocity.x);
         _currentTime = 0;
     }
     
