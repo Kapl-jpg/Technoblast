@@ -103,7 +103,7 @@ SphereCollider:
   m_GameObject: {fileID: 6081627357098359499}
   m_Material: {fileID: 13400000, guid: 2191b3024f630534aa7ce5f6a70a5a98, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -116,7 +116,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 6081627357098359499}
   m_Material: {fileID: 13400000, guid: 2191b3024f630534aa7ce5f6a70a5a98, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.3
   m_Height: 1.1
   m_Direction: 1
@@ -365,6 +365,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510674363807352435}
     m_Modifications:
+    - target: {fileID: 5689947222827597219, guid: 2ecf2f2023636414ca95ddb22beb9f2f, type: 3}
+      propertyPath: _trickMove
+      value: 
+      objectReference: {fileID: 1849545154027300407}
     - target: {fileID: 5854662390726825760, guid: 2ecf2f2023636414ca95ddb22beb9f2f, type: 3}
       propertyPath: m_RootOrder
       value: 0
