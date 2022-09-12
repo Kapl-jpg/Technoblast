@@ -35,7 +35,7 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 8
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 0
@@ -45,17 +45,14 @@ SpriteAtlas:
     packables:
     - {fileID: 2800000, guid: a6ac9a0a09aaf92408ab064c103e6751, type: 3}
     - {fileID: 2800000, guid: 74932beb270d5f84fa1673596c296b8c, type: 3}
-    - {fileID: 2800000, guid: 066e70e184867f34bbbf60f9bb3fed9d, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 066e70e184867f34bbbf60f9bb3fed9d, type: 3}
   - {fileID: 21300000, guid: a6ac9a0a09aaf92408ab064c103e6751, type: 3}
   - {fileID: 21300000, guid: 74932beb270d5f84fa1673596c296b8c, type: 3}
   m_PackedSpriteNamesToIndex:
-  - 1_baloons_with _frame 1
   - Interface_all_ballons_frame_levels
   - Interface_death_time_frame
   m_RenderDataMap: {}
