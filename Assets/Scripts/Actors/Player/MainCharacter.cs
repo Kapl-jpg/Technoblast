@@ -78,6 +78,8 @@ public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
     
     private void StartWinGameAnimation()
     {
+        Pause();
+        _characterRigidbody.useGravity = false;
         _animationState.TriggerWinGame();
     }
 }
