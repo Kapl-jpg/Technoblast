@@ -1,3 +1,4 @@
+using System;
 using Player;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class InputHandler : MonoBehaviour
     public bool Jump { get; private set; }
 
     public bool IsGrounded { get; private set; }
+    public event Action OnLandedEvent;
+    private float _airTime;
     
     public bool Trick { get; private set; }
 
@@ -27,6 +30,7 @@ public class InputHandler : MonoBehaviour
     {
         HandleMovementInput();
         CheckGrounded();
+        CheckLanded();
         HandleJumpInput();
         HandleFireInput();
         HandleTrickInput();
@@ -43,6 +47,35 @@ public class InputHandler : MonoBehaviour
         var ray = new Ray(transform.position, Vector3.down);
         IsGrounded = Physics.Raycast(ray, distanceToGround,groundLayer);
     }
+
+    private void CheckLanded()
+    {
+        CheckLand();
+        CheckAirTime();
+    }
+    
+    private void CheckAirTime() 
+    {
+        if (IsGrounded)
+        {
+            _airTime = 0f;
+        }
+        else
+        {
+            _airTime += Time.deltaTime;
+        }
+    }
+    private void CheckLand()
+    {
+        if (_airTime > 0)
+        {
+            if (IsGrounded)
+            {
+                OnLandedEvent?.Invoke();
+            }
+        }
+    }
+    
     
     private void HandleJumpInput()
     {
