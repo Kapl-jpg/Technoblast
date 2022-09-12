@@ -28,7 +28,6 @@ public class SoundWave : BaseBehaviour
     private InputHandler _playerInput;
     private Rigidbody _currentRigidbody;
     private AnimationState _animationState;
-    private RotateCharacter _rotateCharacter;
     
     public event Action<JumpableObjectData> JumpableObjectHitEvent;
     public event Action JumpableObjectMissEvent;
@@ -41,7 +40,6 @@ public class SoundWave : BaseBehaviour
         _playerInput = GetComponent<InputHandler>();
         _currentRigidbody = GetComponent<Rigidbody>();
         _launchWaveVisual = GetComponent<LaunchWaveVisual>();
-        _rotateCharacter = GetComponent<RotateCharacter>();
     }
 
     protected override void OnUpdate()
@@ -72,8 +70,6 @@ public class SoundWave : BaseBehaviour
         }
         
         _animationState.SetLaunchWave(direction);
-        if((int)direction.x!=0)
-            _rotateCharacter.SetRotate((int)direction.x);
         _currentTime = 0;
     }
     

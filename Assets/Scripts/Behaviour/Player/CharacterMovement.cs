@@ -28,8 +28,6 @@ public class CharacterMovement : BaseBehaviour
 
     private AnimationState _animationState;
 
-    private RotateCharacter _rotateCharacter;
-
     private float _speedDuringPressing;
 
     private void Start()
@@ -37,14 +35,18 @@ public class CharacterMovement : BaseBehaviour
         _playerInput = GetComponent<InputHandler>();
         _currentRigidbody = GetComponent<Rigidbody>();
         _animationState = GetComponent<AnimationState>();
-        _rotateCharacter = GetComponent<RotateCharacter>();
     }
 
     protected override void OnUpdate()
     {
-        HandleCharacterMovement();
         HandleJump();
         HandleAnimation();
+        /*HandleCharacterMovement();*/
+    }
+    
+    private void FixedUpdate()
+    {
+        HandleCharacterMovement();
     }
 
     private void HandleCharacterMovement()
@@ -52,7 +54,6 @@ public class CharacterMovement : BaseBehaviour
         if (_playerInput.Movement != 0)
         {
             SetDirectionX();
-            SetRotate(_directionAxisX);
             if (_playerInput.IsGrounded)
                 Run(new Vector3(_playerInput.Movement, 0));
 
@@ -76,16 +77,11 @@ public class CharacterMovement : BaseBehaviour
 
     private int SetDirectionX()
     {
-            if (_playerInput.Movement > 0)
+            if (_currentRigidbody.velocity.x > 0)
                 _directionAxisX = 1;
-            if (_playerInput.Movement < 0)
+            if (_currentRigidbody.velocity.x < 0)
                 _directionAxisX = -1;
             return _directionAxisX;
-    }
-
-    private void SetRotate(int directionX)
-    {
-        _rotateCharacter.SetRotate(directionX);
     }
 
     private void Run(Vector3 direction)
@@ -100,11 +96,7 @@ public class CharacterMovement : BaseBehaviour
 
     private void SlowingDown()
     {
-        DecelerationTime();
-        if (_playerInput.IsGrounded)
-            _currentRigidbody.velocity = Vector3.Lerp(_currentRigidbody.velocity,
-                new Vector3(0, _currentRigidbody.velocity.y),
-                (timeToStop - (timeToStop - _currentTimeDeceleration)) / timeToStop);
+        _currentRigidbody.velocity = new Vector3(0, _currentRigidbody.velocity.y);
     }
 
     private void SlowingDownInAir(Vector3 direction)
