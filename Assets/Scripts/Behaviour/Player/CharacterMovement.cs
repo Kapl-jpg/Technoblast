@@ -7,8 +7,6 @@ public class CharacterMovement : BaseBehaviour
 
     [SerializeField] private float maxSpeed = 7;
 
-    [SerializeField] private float timeToStop;
-
     [SerializeField] private float forceJump;
 
     [SerializeField] private float airAcceleration = 0.875f;
@@ -20,7 +18,6 @@ public class CharacterMovement : BaseBehaviour
     private int _directionAxisX;
 
     private float _currentTimeAcceleration;
-    private float _currentTimeDeceleration;
 
     private Rigidbody _currentRigidbody;
 
@@ -53,7 +50,6 @@ public class CharacterMovement : BaseBehaviour
     {
         if (_playerInput.Movement != 0)
         {
-            SetDirectionX();
             if (_playerInput.IsGrounded)
                 Run(new Vector3(_playerInput.Movement, 0));
 
@@ -64,6 +60,8 @@ public class CharacterMovement : BaseBehaviour
         {
             if (_playerInput.IsGrounded)
                 SlowingDown();
+            
+            _currentTimeAcceleration = 0;
         }
     }
 
@@ -72,7 +70,8 @@ public class CharacterMovement : BaseBehaviour
         _animationState.SetSpeedX(Mathf.Abs(_currentRigidbody.velocity.x));
         _animationState.SetSpeedY(_currentRigidbody.velocity.y);
         _animationState.SetGrounded(_playerInput.IsGrounded);
-        _animationState.SetDirection(SetDirectionX());
+        if(!_animationState.GetWaveSide())
+            _animationState.SetDirection(SetDirectionX());
     }
 
     private int SetDirectionX()
@@ -133,13 +132,6 @@ public class CharacterMovement : BaseBehaviour
 
     private void AccelerationTime()
     {
-        _currentTimeDeceleration = 0;
-        _currentTimeAcceleration += Time.deltaTime;
-    }
-
-    private void DecelerationTime()
-    {
-        _currentTimeAcceleration = 0;
-        _currentTimeDeceleration += Time.deltaTime;
+        _currentTimeAcceleration += Time.fixedDeltaTime;
     }
 }
