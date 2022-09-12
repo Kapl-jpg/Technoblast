@@ -8,7 +8,6 @@ public class LevelEndPortal : MonoBehaviour, IInteractable, ILevelEnd
 {
     [SerializeField] private bool _isActiveAtStart;
     public bool IsActive { get; private set; }
-
     public event Action OnLevelEndEvent;
 
     private SceneChanger _sceneChanger;
@@ -25,8 +24,6 @@ public class LevelEndPortal : MonoBehaviour, IInteractable, ILevelEnd
         if (IsActive)
         {
             OnLevelEndEvent?.Invoke();
-            
-            _sceneChanger.LoadNextScene();
         }
     }
 }

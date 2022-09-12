@@ -41,12 +41,12 @@ public class CharacterMovement : BaseBehaviour
     {
         HandleJump();
         HandleAnimation();
-        /*HandleCharacterMovement();*/
     }
     
     private void FixedUpdate()
     {
-        HandleCharacterMovement();
+        if(!_actor.IsPaused) 
+            HandleCharacterMovement();
     }
 
     private void HandleCharacterMovement()
