@@ -50,7 +50,6 @@ public class CharacterMovement : BaseBehaviour
     {
         if (_playerInput.Movement != 0)
         {
-            SetDirectionX();
             if (_playerInput.IsGrounded)
                 Run(new Vector3(_playerInput.Movement, 0));
 
@@ -71,7 +70,8 @@ public class CharacterMovement : BaseBehaviour
         _animationState.SetSpeedX(Mathf.Abs(_currentRigidbody.velocity.x));
         _animationState.SetSpeedY(_currentRigidbody.velocity.y);
         _animationState.SetGrounded(_playerInput.IsGrounded);
-        _animationState.SetDirection(SetDirectionX());
+        if(!_animationState.GetWaveSide())
+            _animationState.SetDirection(SetDirectionX());
     }
 
     private int SetDirectionX()

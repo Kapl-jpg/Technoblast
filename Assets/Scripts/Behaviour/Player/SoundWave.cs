@@ -51,28 +51,28 @@ public class SoundWave : BaseBehaviour
     private void Flight(Vector3 direction)
     {
         if (direction == Vector3.zero) return;
-        
-        if(_currentTime < fireCooldown)
+
+        if (_currentTime < fireCooldown)
             return;
-        
+
         if (Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) &&
             hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
         {
             objectData.GetData();
             JumpableObjectHitEvent?.Invoke(objectData.GetData());
             AddForce(GetForceDirection(hit.point), objectData.GetData().ObjectForce);
-            _launchWaveVisual.Launch(CurrentRay(direction).direction,objectData.GetData().WaveColor);
+            _launchWaveVisual.Launch(CurrentRay(direction).direction, objectData.GetData().WaveColor);
         }
         else
         {
             JumpableObjectMissEvent?.Invoke();
-            _launchWaveVisual.Launch(CurrentRay(direction).direction,missWaveColor);
+            _launchWaveVisual.Launch(CurrentRay(direction).direction, missWaveColor);
         }
-        
-        _animationState.SetLaunchWave(direction,_playerInput.IsGrounded,_currentRigidbody.velocity.x);
+
+        _animationState.SetLaunchWave(direction, _playerInput.IsGrounded, _currentRigidbody.velocity.x);
         _currentTime = 0;
     }
-    
+
     private void CountingTime()
     {
         _currentTime += Time.deltaTime;

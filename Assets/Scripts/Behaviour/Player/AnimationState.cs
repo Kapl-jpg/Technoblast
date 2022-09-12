@@ -10,6 +10,13 @@ public class AnimationState : CharacterAnimatorController
     private static readonly int SpeedX = Animator.StringToHash("SpeedX");
     private static readonly int Trick = Animator.StringToHash("Trick");
     private static readonly int DirectionAxisX = Animator.StringToHash("DirectionAxisX");
+
+    public bool GetWaveSide()
+    {
+        return Animator.GetBool(WaveSide);
+    }
+    
+    
     [SerializeField] private float maxSpeedAxisX = 18;
 
     public void SetDirection(float direction)
@@ -48,9 +55,11 @@ public class AnimationState : CharacterAnimatorController
                 break;
             case var v when v.Equals(Vector3.left):
                 SetWaveSide();
+                SetDirection(-1);
                 break;
             case var v when v.Equals(Vector3.right):
                 SetWaveSide();
+                SetDirection(1);
                 break;
         }
     }
