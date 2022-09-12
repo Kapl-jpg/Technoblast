@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SoundsContainer", menuName = "ScriptableObjects/SoundsContainer", order = 2)]
