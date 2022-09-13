@@ -4181,8 +4181,12 @@ PrefabInstance:
       value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 580010725054558056, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: _jumpVolume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 580010725054558056, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: _landVolume
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 580010725054558056, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: _moveVolume
