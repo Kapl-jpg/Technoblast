@@ -16,12 +16,18 @@ public class AnimationsEvents : MonoBehaviour
     }
 
     public event Action OnLevelStartEvents; 
+    public event Action OnLevelStartEndEvents; 
     public event Action OnWinGameEvents;
     public event Action OnDeathStartEvents;
 
     public void LevelStartEvents()
     {
         OnLevelStartEvents?.Invoke();
+    }
+
+    public void LevelStartEndEvents()
+    {
+        OnLevelStartEndEvents?.Invoke();
     }
     
     public void WinGameSoundEvents()
