@@ -15,8 +15,14 @@ public class AnimationsEvents : MonoBehaviour
         _sceneChanger = sceneChanger;
     }
 
+    public event Action OnLevelStartEvents; 
     public event Action OnWinGameEvents;
     public event Action OnDeathStartEvents;
+
+    public void LevelStartEvents()
+    {
+        OnLevelStartEvents?.Invoke();
+    }
     
     public void WinGameSoundEvents()
     {

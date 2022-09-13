@@ -21,12 +21,14 @@ namespace Directors
 
         private void Start()
         {
+            _animationEvents.OnLevelStartEvents += PlayLevelStartSound;
             _animationEvents.OnWinGameEvents += PlayWinGameSound;
             _animationEvents.OnDeathStartEvents += PlayDeathSound;
         }
 
         private void OnDestroy()
         {
+            _animationEvents.OnLevelStartEvents -= PlayLevelStartSound;
             _animationEvents.OnWinGameEvents -= PlayWinGameSound;
             _animationEvents.OnDeathStartEvents -= PlayDeathSound;
         }
