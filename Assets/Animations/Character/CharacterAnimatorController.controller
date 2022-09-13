@@ -244,7 +244,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -442,7 +442,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -849,7 +849,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -1115,7 +1115,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -1442,7 +1442,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -1689,7 +1689,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -1732,7 +1732,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -1815,7 +1815,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -1858,7 +1858,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -2086,7 +2086,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -2129,7 +2129,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -2203,7 +2203,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -2383,7 +2383,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -2442,6 +2442,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedX
     m_EventTreshold: 18
+  - m_ConditionMode: 3
+    m_ConditionEvent: SpeedY
+    m_EventTreshold: -6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5811577854723752717}
   m_Solo: 0
@@ -2512,7 +2515,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -2719,7 +2722,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -3009,7 +3012,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -3101,49 +3104,6 @@ AnimatorStateTransition:
     m_EventTreshold: 18
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5811577854723752717}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 0.9916481
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &-3287296849846050075
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: IsGrounded
-    m_EventTreshold: 0
-  - m_ConditionMode: 3
-    m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
-  - m_ConditionMode: 2
-    m_ConditionEvent: Trick
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveUp
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveDown
-    m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: DirectionAxisX
-    m_EventTreshold: -1
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -2395025128821446354}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -3280,7 +3240,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -3323,7 +3283,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -3437,7 +3397,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -3634,7 +3594,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -3976,7 +3936,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -3985,9 +3945,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveDown
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
@@ -4044,7 +4001,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -4253,7 +4210,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -4509,7 +4466,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -4518,9 +4475,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveDown
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
@@ -5014,7 +4968,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -5168,7 +5122,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -5633,7 +5587,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -6183,7 +6137,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -6365,7 +6319,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -6408,7 +6362,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -6451,7 +6405,6 @@ AnimatorState:
   m_Transitions:
   - {fileID: -8504171597834454075}
   - {fileID: -6989201577719010309}
-  - {fileID: 4942312333340709330}
   - {fileID: -277326401843893907}
   - {fileID: 3747716257063161960}
   - {fileID: 3997811621814969290}
@@ -6464,7 +6417,6 @@ AnimatorState:
   - {fileID: 737602476592606652}
   - {fileID: -6929067015398299221}
   - {fileID: -8435581949997352706}
-  - {fileID: 4945805552855438774}
   - {fileID: 1323371955866812597}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
@@ -6630,7 +6582,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -6716,7 +6668,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -6976,7 +6928,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -7239,7 +7191,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -7338,7 +7290,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -7381,7 +7333,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -7440,6 +7392,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedX
     m_EventTreshold: 18
+  - m_ConditionMode: 3
+    m_ConditionEvent: SpeedY
+    m_EventTreshold: -6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5715793426106856093}
   m_Solo: 0
@@ -8027,7 +7982,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -8085,92 +8040,6 @@ AnimatorStateTransition:
     m_EventTreshold: -1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1788668371065199802}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 0.9916481
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &4942312333340709330
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: IsGrounded
-    m_EventTreshold: 0
-  - m_ConditionMode: 3
-    m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
-  - m_ConditionMode: 2
-    m_ConditionEvent: Trick
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveUp
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveDown
-    m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: DirectionAxisX
-    m_EventTreshold: 1
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -995480390637541776}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 0.9916481
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &4945805552855438774
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: IsGrounded
-    m_EventTreshold: 0
-  - m_ConditionMode: 3
-    m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
-  - m_ConditionMode: 2
-    m_ConditionEvent: Trick
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveUp
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveDown
-    m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: DirectionAxisX
-    m_EventTreshold: -1
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -2395025128821446354}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -8384,7 +8253,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -8547,7 +8416,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -8590,7 +8459,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -8633,7 +8502,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -8642,9 +8511,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveDown
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
@@ -8707,7 +8573,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -8772,7 +8638,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -9043,7 +8909,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -9300,7 +9166,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -9399,7 +9265,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -9515,15 +9381,18 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: WaveSide
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: WaveDown
-    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
     m_EventTreshold: -1
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedX
     m_EventTreshold: 18
+  - m_ConditionMode: 3
+    m_ConditionEvent: SpeedY
+    m_EventTreshold: -6
+  - m_ConditionMode: 1
+    m_ConditionEvent: WaveDown
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5715793426106856093}
   m_Solo: 0
@@ -9678,7 +9547,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -9937,7 +9806,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -10248,7 +10117,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -10317,7 +10186,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -10385,7 +10254,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -10514,7 +10383,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -15
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -10544,49 +10413,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1101 &8178336089469238324
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: IsGrounded
-    m_EventTreshold: 0
-  - m_ConditionMode: 3
-    m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
-  - m_ConditionMode: 2
-    m_ConditionEvent: Trick
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveUp
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveDown
-    m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: DirectionAxisX
-    m_EventTreshold: 1
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -995480390637541776}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 0.9916481
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
 --- !u!1101 &8183309447654384611
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -10600,7 +10426,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -10705,7 +10531,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -10879,15 +10705,18 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: WaveSide
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: WaveDown
-    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
     m_EventTreshold: 1
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedX
     m_EventTreshold: 18
+  - m_ConditionMode: 3
+    m_ConditionEvent: SpeedY
+    m_EventTreshold: -6
+  - m_ConditionMode: 1
+    m_ConditionEvent: WaveDown
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5811577854723752717}
   m_Solo: 0
@@ -10915,7 +10744,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -10989,7 +10818,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -22
+    m_EventTreshold: -6
   - m_ConditionMode: 2
     m_ConditionEvent: Trick
     m_EventTreshold: 0
@@ -10998,9 +10827,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveDown
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
@@ -11144,7 +10970,6 @@ AnimatorState:
   - {fileID: -1064669480801397324}
   - {fileID: 8183309447654384611}
   - {fileID: -8287350705823729335}
-  - {fileID: 8178336089469238324}
   - {fileID: 2464236227503134949}
   - {fileID: -3506680709384869954}
   - {fileID: -1742471354489047021}
@@ -11157,7 +10982,6 @@ AnimatorState:
   - {fileID: 7233175050207392894}
   - {fileID: -7332231618948158376}
   - {fileID: -112159828524458228}
-  - {fileID: -3287296849846050075}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
