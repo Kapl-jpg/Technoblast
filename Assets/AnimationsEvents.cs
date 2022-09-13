@@ -1,3 +1,4 @@
+using System;
 using Directors;
 using UnityEngine;
 using Zenject;
@@ -12,6 +13,19 @@ public class AnimationsEvents : MonoBehaviour
     private void Construct(SceneChanger sceneChanger)
     {
         _sceneChanger = sceneChanger;
+    }
+
+    public event Action OnWinGameEvents;
+    public event Action OnDeathStartEvents;
+    
+    public void WinGameSoundEvents()
+    {
+        OnWinGameEvents?.Invoke();
+    }
+    
+    public void DeathSoundEvents()
+    {
+        OnDeathStartEvents?.Invoke();
     }
     
     public void StartDeathEvents()

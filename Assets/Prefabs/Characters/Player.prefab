@@ -191,7 +191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToMaximumSpeed: 0.5
   maxSpeed: 7
-  timeToStop: 1
   forceJump: 15
   airAcceleration: 0.875
   drawDistanceBeforeGround: 0
@@ -262,6 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshCharacter: {fileID: 385283986032784407}
+  maxSpeedAxisX: 18
 --- !u!82 &5918689123000996456
 AudioSource:
   m_ObjectHideFlags: 0
@@ -425,11 +425,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6278143020068411109, guid: 2ecf2f2023636414ca95ddb22beb9f2f, type: 3}
+      propertyPath: _landSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 743f8013f906bbc4e8e24f3e4246d2be, type: 3}
+    - target: {fileID: 6278143020068411109, guid: 2ecf2f2023636414ca95ddb22beb9f2f, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6517870571155148186, guid: 2ecf2f2023636414ca95ddb22beb9f2f, type: 3}
       propertyPath: m_Name
       value: Fresh_Mesh
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7132179460292069760, guid: 2ecf2f2023636414ca95ddb22beb9f2f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2ecf2f2023636414ca95ddb22beb9f2f, type: 3}
 --- !u!1 &385283986032784407 stripped
 GameObject:
