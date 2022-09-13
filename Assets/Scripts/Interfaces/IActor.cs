@@ -1,5 +1,5 @@
 
-public interface IActor 
+public interface IActor : ICanBePaused
 {
     public bool AddBehaviour(IBehaviour behaviour);
 }

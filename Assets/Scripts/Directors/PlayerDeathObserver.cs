@@ -15,6 +15,7 @@ namespace Directors
         private void Construct(ICanDie player, SceneChanger sceneChanger)
         {
             _player = player;
+
             _sceneChanger = sceneChanger;
         }
         

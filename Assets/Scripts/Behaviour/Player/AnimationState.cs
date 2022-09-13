@@ -1,7 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class AnimationState : CharacterAnimatorController
 {
+    [SerializeField] private float maxSpeedAxisX = 18;
+    
     private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
     private static readonly int WaveSide = Animator.StringToHash("WaveSide");
     private static readonly int WaveUp = Animator.StringToHash("WaveUp");
@@ -10,14 +13,24 @@ public class AnimationState : CharacterAnimatorController
     private static readonly int SpeedX = Animator.StringToHash("SpeedX");
     private static readonly int Trick = Animator.StringToHash("Trick");
     private static readonly int DirectionAxisX = Animator.StringToHash("DirectionAxisX");
+    private static readonly int Death = Animator.StringToHash("Death");
+    private static readonly int WinGame = Animator.StringToHash("WinGame");
 
+
+    public void TriggerDeath()
+    {
+        Animator.SetTrigger(Death);
+    }
+
+    public void TriggerWinGame()
+    {
+        Animator.SetTrigger(WinGame);
+    }
+    
     public bool GetWaveSide()
     {
         return Animator.GetBool(WaveSide);
     }
-    
-    
-    [SerializeField] private float maxSpeedAxisX = 18;
 
     public void SetDirection(float direction)
     {
