@@ -1088,6 +1088,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: DirectionAxisX
     m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: SpeedY
+    m_EventTreshold: -6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8964088476228775671}
   m_Solo: 0
@@ -2439,9 +2442,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
     m_EventTreshold: 1
-  - m_ConditionMode: 4
-    m_ConditionEvent: SpeedX
-    m_EventTreshold: 18
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
     m_EventTreshold: -6
@@ -2985,6 +2985,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: DirectionAxisX
     m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: SpeedY
+    m_EventTreshold: -6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8984930914310829463}
   m_Solo: 0
@@ -5708,6 +5711,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: DirectionAxisX
     m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: SpeedY
+    m_EventTreshold: -6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8984930914310829463}
   m_Solo: 0
@@ -7298,14 +7304,11 @@ AnimatorStateTransition:
     m_ConditionEvent: WaveUp
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
     m_ConditionEvent: WaveDown
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
-    m_EventTreshold: -1
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9062992837531010568}
   m_Solo: 0
@@ -7389,9 +7392,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
     m_EventTreshold: -1
-  - m_ConditionMode: 4
-    m_ConditionEvent: SpeedX
-    m_EventTreshold: 18
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
     m_EventTreshold: -6
@@ -8078,6 +8078,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: DirectionAxisX
     m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: SpeedY
+    m_EventTreshold: -6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8964088476228775671}
   m_Solo: 0
@@ -8581,14 +8584,11 @@ AnimatorStateTransition:
     m_ConditionEvent: WaveUp
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
     m_ConditionEvent: WaveDown
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
-    m_EventTreshold: 1
+    m_EventTreshold: -1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1779238915533064494}
   m_Solo: 0
@@ -8718,9 +8718,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WaveDown
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
@@ -9174,14 +9171,11 @@ AnimatorStateTransition:
     m_ConditionEvent: WaveUp
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
     m_ConditionEvent: WaveDown
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
-    m_EventTreshold: 1
+    m_EventTreshold: -1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1779238915533064494}
   m_Solo: 0
@@ -9384,9 +9378,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
     m_EventTreshold: -1
-  - m_ConditionMode: 4
-    m_ConditionEvent: SpeedX
-    m_EventTreshold: 18
   - m_ConditionMode: 3
     m_ConditionEvent: SpeedY
     m_EventTreshold: -6
@@ -9814,14 +9805,11 @@ AnimatorStateTransition:
     m_ConditionEvent: WaveUp
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: WaveSide
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
     m_ConditionEvent: WaveDown
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: DirectionAxisX
-    m_EventTreshold: -1
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9062992837531010568}
   m_Solo: 0
