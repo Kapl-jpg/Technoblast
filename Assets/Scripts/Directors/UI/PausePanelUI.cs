@@ -7,7 +7,7 @@ namespace Directors.UI
     public class PausePanelUI : MonoBehaviour, ICanBePaused
     {
         [SerializeField] private GameObject _pausePanel;
-        
+        [SerializeField] private GameObject _settingsPanel;
         public bool IsPaused { get; }
 
         [Inject]
@@ -24,6 +24,7 @@ namespace Directors.UI
         public void Unpause()
         {
             _pausePanel.SetActive(false);
+            _settingsPanel.SetActive(false);
         }
     }
 }
