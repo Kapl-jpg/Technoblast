@@ -80,6 +80,7 @@ public class SoundWave : BaseBehaviour
 
     private Vector3 GetForceDirection(Vector3 hitPoint)
     {
+        print((transform.position - hitPoint).normalized);
         return (transform.position - hitPoint).normalized;
     }
 
