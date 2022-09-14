@@ -19,6 +19,7 @@ public class TurretShoot : MonoBehaviour
     [SerializeField] private Vector3 startSize;
     [SerializeField] private Vector3 finalSize;
     [SerializeField] private float magnificationTime;
+    [SerializeField] private float angleRotation;
     
     [SerializeField] private bool draw;
     private float _currentTime;
@@ -51,6 +52,7 @@ public class TurretShoot : MonoBehaviour
 
     private void SetFields(GameObject bullet)
     {
+        bullet.GetComponent<Bullet>().Angle = angleRotation;
         bullet.GetComponent<Bullet>().Speed = speedBullet;
         bullet.GetComponent<Bullet>().StartSize = startSize;
         bullet.GetComponent<Bullet>().FinalSize = finalSize;

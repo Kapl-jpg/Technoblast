@@ -12,16 +12,25 @@ public class Bullet : MonoBehaviour
 
     public float MagnificationTime { get; set; }
 
-    private float _currentTime;
+    public float Angle { get; set; }
 
+    private float _currentTime;
 
     private void Update()
     {
+        ReSize();
+        Rotate();
         transform.position += Direction * Speed * Time.deltaTime;
+    }
+
+    private void Rotate()
+    {
+        transform.rotation = Quaternion.Euler(_currentTime * Angle,_currentTime * Angle , _currentTime * Angle);
     }
 
     private void ReSize()
     {
+        transform.localScale = Vector3.Lerp(StartSize,FinalSize,MagnificationTime * _currentTime);
         TimerTick();
     }
 
@@ -43,6 +52,7 @@ public class Bullet : MonoBehaviour
     private void DisableCurrentObject()
     {
         _currentTime = 0;
+        transform.localScale = StartSize;
         gameObject.SetActive(false);
     }
 }

@@ -2294,9 +2294,10 @@ MonoBehaviour:
   startPoint: {fileID: 1067207325542922042}
   prefabBullet: {fileID: 3273929767325380634, guid: 097bf544ec2143d4abdab63609aa94c8, type: 3}
   countBullets: 5
-  startSize: {x: 0, y: 0, z: 0}
-  finalSize: {x: 0, y: 0, z: 0}
-  magnificationTime: 0
+  startSize: {x: 10, y: 10, z: 10}
+  finalSize: {x: 80, y: 80, z: 80}
+  magnificationTime: 0.8
+  angleRotation: 60
   draw: 1
 --- !u!1 &6339454408926125709
 GameObject:
