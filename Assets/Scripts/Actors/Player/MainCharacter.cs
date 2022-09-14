@@ -7,6 +7,8 @@ using Zenject;
 [RequireComponent(typeof(Rigidbody))]
 public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
 {
+    [SerializeField] private AnimationsEvents _animationsEvents;
+    
     public bool PossibleToDie { get; private set; } = true;
     
     public event Action OnDeathEvent;
@@ -22,6 +24,9 @@ public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
     {
         _levelEnd = levelEnd;
         _levelEnd.OnLevelEndEvent += StartWinGameAnimation;
+
+        _animationsEvents.OnLevelStartEvents += StopMovement;
+        _animationsEvents.OnLevelStartEndEvents += ResetMovement;
     }
 
     protected override void Init()
@@ -37,6 +42,9 @@ public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
         OnPauseEvent -= SetGravityOff;
         OnUnpauseEvent -= SetGravityOn;
         _levelEnd.OnLevelEndEvent -= StartWinGameAnimation;
+        
+        _animationsEvents.OnLevelStartEvents -= StopMovement;
+        _animationsEvents.OnLevelStartEndEvents -= ResetMovement;
     }
 
     private void SetGravityOff()
@@ -66,9 +74,8 @@ public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
 
     public void Death()
     {
-        Pause();
+        StopMovement();
         _animationState.TriggerDeath();
-        _characterRigidbody.useGravity = false;
     }
 
     public void StartDeathEvents()
@@ -78,9 +85,18 @@ public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
     
     private void StartWinGameAnimation()
     {
-        Pause();
-        _characterRigidbody.useGravity = false;
+        StopMovement();
         _animationState.TriggerWinGame();
+    }
+
+    private void StopMovement()
+    {        
+        Pause();
+    }
+
+    private void ResetMovement()
+    {
+        Unpause();
     }
 }
 

@@ -1,8 +1,9 @@
 using System;
+using Interfaces;
 using UnityEngine;
 using Zenject;
 
-public class JumpMoveLandSounds : MonoBehaviour
+public class JumpMoveLandSounds : MonoBehaviour, ICanBePaused
 {
     [Header("Settings")]
     [SerializeField] private AudioSource _audioSource;
@@ -17,11 +18,15 @@ public class JumpMoveLandSounds : MonoBehaviour
 
     private InputHandler _playerInputs;
     
+    public bool IsPaused { get; private set; }
+    
     [Inject]
-    private void Construct(InputHandler inputs)
+    private void Construct(InputHandler inputs, IPauseDirector pauseDirector)
     {
         _playerInputs = inputs;
         _playerInputs.OnLandedEvent += PlayLandSound;
+        
+        pauseDirector.RegisterICanBePausedActor(this);
     }
 
     private void OnDestroy()
@@ -42,11 +47,22 @@ public class JumpMoveLandSounds : MonoBehaviour
 
     private void PlayLandSound()
     {
-        _audioSource.PlayOneShot(_landSound, _landVolume);
+        if(!IsPaused) 
+            _audioSource.PlayOneShot(_landSound, _landVolume);
     }
     
     public void PlayMoveSound()
     {
         _audioSource.PlayOneShot(_moveSound, _moveVolume);
+    }
+    
+    public void Pause()
+    {
+        IsPaused = true;
+    }
+
+    public void Unpause()
+    {
+        IsPaused = false;
     }
 }

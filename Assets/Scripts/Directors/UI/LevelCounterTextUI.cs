@@ -7,9 +7,6 @@ namespace Directors.UI
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class LevelCounterTextUI : MonoBehaviour
     {
-        [SerializeField] private int _currentLvlTextSize;
-        [SerializeField] private int _allLvlsCount;
-        
         private TextMeshProUGUI _text;
 
         private void Start()
@@ -21,7 +18,7 @@ namespace Directors.UI
         private void SetText()
         {
             var currentLevelIndex = SceneManager.GetActiveScene().buildIndex ;
-            _text.text = $"<size={_currentLvlTextSize}>{currentLevelIndex}</size>/{_allLvlsCount} уровень";
+            _text.text = $"{currentLevelIndex}";
         }
     }
 }
