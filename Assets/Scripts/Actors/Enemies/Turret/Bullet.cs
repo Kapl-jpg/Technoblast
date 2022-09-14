@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
 
     public float MagnificationTime { get; set; }
 
+    private float _currentTime;
 
 
     private void Update()
@@ -19,13 +20,29 @@ public class Bullet : MonoBehaviour
         transform.position += Direction * Speed * Time.deltaTime;
     }
 
+    private void ReSize()
+    {
+        TimerTick();
+    }
+
+    private void TimerTick()
+    {
+        _currentTime += Time.deltaTime;
+    }
+    
     private void OnBecameInvisible()
     {
-        gameObject.SetActive(false);
+        DisableCurrentObject();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        DisableCurrentObject();
+    }
+
+    private void DisableCurrentObject()
+    {
+        _currentTime = 0;
         gameObject.SetActive(false);
     }
 }
