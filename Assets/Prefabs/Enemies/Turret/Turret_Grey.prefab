@@ -2288,16 +2288,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73909852b29d9ed489d353dfe30bfafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToAttack: 3
-  speedBullet: 0.2
-  rangeAttack: 10
+  timeToAttack: 2
+  speedBullet: 0.75
+  rangeAttack: 15
   startPoint: {fileID: 1067207325542922042}
   prefabBullet: {fileID: 3273929767325380634, guid: f2b070eb1633afb46bdc2c635ab42b6e, type: 3}
-  countBullets: 5
+  countBullets: 10
   startSize: {x: 10, y: 10, z: 10}
   finalSize: {x: 80, y: 80, z: 80}
-  magnificationTime: 0.8
-  angleRotation: 60
+  magnificationTime: 1.5
+  angleRotation: 120
   draw: 1
 --- !u!1 &6339454408926125709
 GameObject:
