@@ -1,24 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects.Sounds_SO;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Slider))]
 public class MusicSlider : MonoBehaviour
 {
+    [SerializeField] private string _volumeName;
     [SerializeField] private AudioMixer _audioMixer;
-    
-    private Slider _musicSlider;
-    
-    private void Start()
-    {
-        _musicSlider = GetComponent<Slider>();
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateValueOnChange(float value)
     {
-        
+        if (Settings.Profile && Settings.Profile.AudioMixer)
+        {
+            var volume = Mathf.Log(value) * 20f;
+            Settings.Profile.AudioMixer.SetFloat(_volumeName, volume);
+        }
     }
 }
