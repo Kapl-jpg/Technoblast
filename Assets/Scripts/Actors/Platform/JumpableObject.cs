@@ -6,6 +6,16 @@ public abstract class JumpableObject : MonoBehaviour, IJumpableObject
     [SerializeField] protected ForceColor _color;
     [SerializeField] protected MeshRenderer[] _emissionElementMeshRenderer;
 
+    public JumpableObjectData ObjectData
+    {
+        get
+        {
+            if(_objectData == null)
+                _objectData = _colorForceConfig.GetData(_color);
+            return _objectData;
+        }
+    }
+
     protected JumpableObjectData _objectData;
     
     private void Start()
@@ -15,7 +25,6 @@ public abstract class JumpableObject : MonoBehaviour, IJumpableObject
 
     protected virtual void Init()
     {
-        _objectData = _colorForceConfig.GetData(_color);
         SetColor();
     }
 

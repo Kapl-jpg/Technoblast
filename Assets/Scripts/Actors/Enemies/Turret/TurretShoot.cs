@@ -27,6 +27,9 @@ public class TurretShoot : MonoBehaviour
         
         var turretBullets = new GameObject("TurretBullets");
         
+        var bulletColor = GetComponent<Platform>().GetData().ObjectMaterial;
+        prefabBullet.GetComponent<BulletColor>().InitColor(bulletColor);
+
         for (var i = 0; i < countBullets; i++)
         {
             var instance = Instantiate(prefabBullet, Vector3.zero, Quaternion.identity);
@@ -46,6 +49,9 @@ public class TurretShoot : MonoBehaviour
     private void Start()
     {
         _turretLookAt = GetComponent<TurretLookAt>();
+
+        var platform = GetComponent<Platform>().GetData();
+        
         CreatePool();
     }
 

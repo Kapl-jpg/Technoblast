@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f47c52768b7c49adf82029417c7de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorForceConfig: {fileID: 0}
+  _colorForceConfig: {fileID: 11400000, guid: 28ce2bc8796c23d4f8fa57c5126c3ccd, type: 2}
   _color: 0
-  _emissionElementMeshRenderer: []
+  _emissionElementMeshRenderer:
+  - {fileID: 3941173656718183389}
