@@ -53,8 +53,10 @@ public class DroneAnimation : MonoBehaviour
 
         if (_characterMovement == null) return;
 
-        Debug.DrawLine(transform.position, _characterMovement.transform.position,
-            Vector3.Distance(transform.position, _characterMovement.transform.position) <= maxDistance
+        var position = transform.position;
+        var characterposition = _characterMovement.transform.position;
+        Debug.DrawLine(position, characterposition,
+            Vector3.Distance(position, characterposition) <= maxDistance
                 ? Color.red
                 : Color.blue);
     }
