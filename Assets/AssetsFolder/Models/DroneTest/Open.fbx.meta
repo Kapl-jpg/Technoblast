@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 74998c36bee32aa44a2e3520525317b0
+guid: 240bfb8fd315d3c4da2d6caaf47b72e5
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable:
   - first:
-      74: 1007095770567677685
-    second: Close
+      74: 5984496454500463648
+    second: Open
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Close
-      takeName: Close
+      name: Open
+      takeName: Open
       internalID: 0
-      firstFrame: 39
-      lastFrame: 70
+      firstFrame: 0
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -62,7 +62,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 39
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
