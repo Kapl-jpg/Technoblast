@@ -1,3 +1,4 @@
+using ModestTree;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SoundsContainer", menuName = "ScriptableObjects/SoundsContainer", order = 2)]
@@ -19,7 +20,21 @@ public class SoundsContainer : ScriptableObject
         
         return null;
     }
+    
+    public AudioClip GetNextAvailableAudioClip(AudioClip currentAudioClip)
+    {
+        var clipsContainsAudio = AudioClips.IndexOf(currentAudioClip) > -1;
+        
+        if(clipsContainsAudio)
+        {
+            var indexOfCurrentAudio = AudioClips.IndexOf(currentAudioClip);
+            if (indexOfCurrentAudio < AudioClips.Length)
+                return AudioClips[indexOfCurrentAudio + 1];
+        }
 
+        return null;
+    }
+    
     public AudioClip GetRandomAudioClip()
     {
         if (IsAvailableClips())
