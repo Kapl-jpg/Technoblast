@@ -8,6 +8,18 @@ public abstract class JumpableObject : MonoBehaviour, IJumpableObject
 
     protected JumpableObjectData _objectData;
     
+    public JumpableObjectData ObjectData
+    {
+        get
+        {
+            if(_objectData == null)
+                _objectData = _colorForceConfig.GetData(_color);
+            
+            return _objectData;
+        }
+    }
+
+    
     private void Start()
     {
         Init();
@@ -15,15 +27,16 @@ public abstract class JumpableObject : MonoBehaviour, IJumpableObject
 
     protected virtual void Init()
     {
-        _objectData = _colorForceConfig.GetData(_color);
         SetColor();
     }
 
     private void SetColor()
     {
+        if (_emissionElementMeshRenderer == null) return;
+        
         foreach (var meshRenderer in _emissionElementMeshRenderer)
         {
-            meshRenderer.material = _objectData.ObjectMaterial;
+            meshRenderer.material = ObjectData.ObjectMaterial;
         }
     }
     

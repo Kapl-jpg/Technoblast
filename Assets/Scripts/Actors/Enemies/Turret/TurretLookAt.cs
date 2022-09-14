@@ -1,22 +1,12 @@
 using UnityEngine;
-using Zenject;
 
 public class TurretLookAt : MonoBehaviour
 {
-    private CharacterMovement _characterMovement;
 
     [SerializeField] private GameObject movingPart;
 
-    [Inject]
-    private void Construct(CharacterMovement characterMovement)
+    public void LookAtCharacter(GameObject characterMovement)
     {
-        _characterMovement = characterMovement;
-    }
-
-    private void Update()
-    {
-        movingPart.transform.LookAt(
-            new Vector3(_characterMovement.transform.position.x, _characterMovement.transform.position.y,
-                _characterMovement.transform.position.z), Vector3.back);
+        movingPart.transform.LookAt(characterMovement.transform.position, Vector3.back);
     }
 }
