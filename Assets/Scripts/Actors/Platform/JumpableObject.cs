@@ -6,17 +6,19 @@ public abstract class JumpableObject : MonoBehaviour, IJumpableObject
     [SerializeField] protected ForceColor _color;
     [SerializeField] protected MeshRenderer[] _emissionElementMeshRenderer;
 
+    protected JumpableObjectData _objectData;
+    
     public JumpableObjectData ObjectData
     {
         get
         {
             if(_objectData == null)
                 _objectData = _colorForceConfig.GetData(_color);
+            
             return _objectData;
         }
     }
 
-    protected JumpableObjectData _objectData;
     
     private void Start()
     {
@@ -34,7 +36,7 @@ public abstract class JumpableObject : MonoBehaviour, IJumpableObject
         
         foreach (var meshRenderer in _emissionElementMeshRenderer)
         {
-            meshRenderer.material = _objectData.ObjectMaterial;
+            meshRenderer.material = ObjectData.ObjectMaterial;
         }
     }
     
