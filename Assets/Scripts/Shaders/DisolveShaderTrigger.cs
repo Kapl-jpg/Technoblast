@@ -33,10 +33,11 @@ public class DisolveShaderTrigger : MonoBehaviour
     private void SetNewMaterial(Material material)
     {
         materialsInMesh = _meshObject.GetComponent<SkinnedMeshRenderer>().materials;
+        _meshObject.GetComponent<SkinnedMeshRenderer>().sortingOrder = 15;
         
         for (int i = 0; i < materialsInMesh.Length; i++)
         {
-            materialsInMesh[i] = _materialToSet;
+            materialsInMesh[i] = material;
         }
 
         _meshObject.GetComponent<SkinnedMeshRenderer>().materials = materialsInMesh;
