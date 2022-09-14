@@ -4,7 +4,7 @@ public class BulletColor : JumpableObject
 {
   protected override void Init()
      {
-         _objectData = _colorForceConfig.GetData(_color);
+         
      }
  
      public void InitColor(Material colorMaterial)
@@ -15,5 +15,10 @@ public class BulletColor : JumpableObject
          {
              meshRenderer.material = colorMaterial;
          }
+     }
+
+     public void SetJumpableOnjectData(JumpableObjectData jumpableObjectData)
+     {
+         _objectData = jumpableObjectData;
      }
 }

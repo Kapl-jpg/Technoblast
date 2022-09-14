@@ -7,8 +7,6 @@ public class TurretLookAt : MonoBehaviour
 
     public void LookAtCharacter(GameObject characterMovement)
     {
-        var distance = Vector3.Distance(transform.position, movingPart.transform.position);
-        
         movingPart.transform.LookAt(characterMovement.transform.position, Vector3.back);
     }
 }

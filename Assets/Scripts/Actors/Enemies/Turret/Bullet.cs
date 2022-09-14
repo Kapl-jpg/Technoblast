@@ -6,6 +6,14 @@ public class Bullet : MonoBehaviour
 
     public float Speed { get; set; }
 
+    public Vector3 StartSize { get; set; }
+    
+    public Vector3 FinalSize { get; set; }
+
+    public float MagnificationTime { get; set; }
+
+
+
     private void Update()
     {
         transform.position += Direction * Speed * Time.deltaTime;
