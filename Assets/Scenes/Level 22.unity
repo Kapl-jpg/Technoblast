@@ -3545,6 +3545,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background 19 - 25
       objectReference: {fileID: 0}
+    - target: {fileID: 4520504142380406681, guid: 00b55a687b5706a40a393c3ffd0454dd, type: 3}
+      propertyPath: offset.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520504142380406681, guid: 00b55a687b5706a40a393c3ffd0454dd, type: 3}
+      propertyPath: offset.y
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 4520504142380406682, guid: 00b55a687b5706a40a393c3ffd0454dd, type: 3}
       propertyPath: m_RootOrder
       value: 7
