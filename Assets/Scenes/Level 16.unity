@@ -1789,6 +1789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background 11-18
       objectReference: {fileID: 0}
+    - target: {fileID: 4520504142380406681, guid: 2ef5ffeda06aacf429d74bf06894d10e, type: 3}
+      propertyPath: offset.y
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 4520504142380406682, guid: 2ef5ffeda06aacf429d74bf06894d10e, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3293,7 +3297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7092618159603387590, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.97
+      value: -0.86
       objectReference: {fileID: 0}
     - target: {fileID: 7092618159603387590, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
       propertyPath: m_LocalPosition.y
