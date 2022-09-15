@@ -8,13 +8,13 @@ namespace Directors
         private InventoryComponent _inventory;
         private ICanPlayAudio _audioPlayer;
         private AudioClip _audioClip;
-
-        public InventorySounds(InventoryComponent inventory, ICanPlayAudio audioPlayer, AudioClip audioClip)
+        private float _volume;
+        public InventorySounds(InventoryComponent inventory, ICanPlayAudio audioPlayer, AudioClip audioClip, float volume)
         {
             _inventory = inventory;
             _audioPlayer = audioPlayer;
             _audioClip = audioClip;
-            
+            _volume = volume;
             FollowInventoryEvents();
         }
 
@@ -30,7 +30,7 @@ namespace Directors
 
         private void PlayItemTakeSound()
         {
-            _audioPlayer.PlayOneShot(_audioClip);
+            _audioPlayer.PlayOneShot(_audioClip, _volume);
         }
     }
 }
