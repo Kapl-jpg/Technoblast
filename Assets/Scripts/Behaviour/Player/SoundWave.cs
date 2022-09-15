@@ -60,7 +60,7 @@ public class SoundWave : BaseBehaviour
         {
             objectData.GetData();
             JumpableObjectHitEvent?.Invoke(objectData.GetData());
-            AddForce(GetForceDirection(hit.point), objectData.GetData().ObjectForce);
+            AddForce(GetForceDirection(direction), objectData.GetData().ObjectForce);
             _launchWaveVisual.Launch(CurrentRay(direction).direction, objectData.GetData().WaveColor);
         }
         else
@@ -78,10 +78,9 @@ public class SoundWave : BaseBehaviour
         _currentTime += Time.deltaTime;
     }
 
-    private Vector3 GetForceDirection(Vector3 hitPoint)
+    private Vector3 GetForceDirection(Vector3 direction)
     {
-        print((transform.position - hitPoint).normalized);
-        return (transform.position - hitPoint).normalized;
+        return ( - CurrentRay(direction).direction).normalized;
     }
 
     private void AddForce(Vector3 direction, float forceValue)
