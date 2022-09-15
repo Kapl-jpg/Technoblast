@@ -7,13 +7,14 @@ namespace Directors
         private TrickMove _trickMove;
         private ICanPlayAudio _audioPlayer;
         private SoundsContainer _sounds;
-        
-        public TrickMoveSounds(TrickMove trickMove, ICanPlayAudio audioPlayer, SoundsContainer sounds)
+        private float _volume;
+        public TrickMoveSounds(TrickMove trickMove, ICanPlayAudio audioPlayer, SoundsContainer sounds, float volume)
         {
             _trickMove = trickMove;
             _audioPlayer = audioPlayer;
             _sounds = sounds;
-
+            _volume = volume;
+            
             _trickMove.OnTrickMissEvent += PlayRandomAudioClip;
         }
         
@@ -27,7 +28,7 @@ namespace Directors
             if (_sounds.IsAvailableClips())
             {
                var audio = _sounds.GetRandomAudioClip();
-               _audioPlayer.PlayOneShot(audio);
+               _audioPlayer.PlayOneShot(audio, _volume);
             }
         }
     }
