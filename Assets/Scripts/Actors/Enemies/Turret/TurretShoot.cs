@@ -27,6 +27,7 @@ public class TurretShoot : MonoBehaviour
 
     private TurretLookAt _turretLookAt;
     private CharacterMovement _characterMovement;
+    private AudioSource _shootAudioSource;
 
     #region Создание пула объектов
     
@@ -58,6 +59,7 @@ public class TurretShoot : MonoBehaviour
         bullet.GetComponent<Bullet>().FinalSize = finalSize;
         bullet.GetComponent<Bullet>().MagnificationTime = magnificationTime;
     }
+    
     #endregion
 
     [Inject]
@@ -68,6 +70,7 @@ public class TurretShoot : MonoBehaviour
 
     private void Start()
     {
+        _shootAudioSource = GetComponent<AudioSource>();
         _turretLookAt = GetComponent<TurretLookAt>();
         CreatePool();
     }
@@ -91,6 +94,7 @@ public class TurretShoot : MonoBehaviour
         _currentTime += Time.deltaTime;
         if (!(_currentTime >= timeToAttack)) return;
         
+        _shootAudioSource.Play();
         GetBullet();
         _currentTime = 0;
     }
