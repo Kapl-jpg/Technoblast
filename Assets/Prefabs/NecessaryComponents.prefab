@@ -802,7 +802,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066355326580159966}
   m_LocalRotation: {x: 0.0446656, y: -0, z: -0, w: 0.999002}
-  m_LocalPosition: {x: -14.81, y: 4.784841, z: -19.9202}
+  m_LocalPosition: {x: 0, y: 4.784841, z: -19.9202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1066355326923066233}
@@ -5462,7 +5462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849545154027300407, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: _invincibilityTime
-      value: 0.25
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1849545154027300407, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: _radiusOfInteraction
@@ -5483,6 +5483,14 @@ PrefabInstance:
     - target: {fileID: 6614090576512855046, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: fireCooldown
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614090576512855046, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: rayLeftDistance
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614090576512855046, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: rayRightDistance
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8699275032143609062, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: m_Constraints
