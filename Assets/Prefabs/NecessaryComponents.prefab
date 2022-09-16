@@ -5485,6 +5485,14 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6614090576512855046, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: rayUpDistance
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614090576512855046, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: rayDownDistance
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614090576512855046, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: rayLeftDistance
       value: 3.5
       objectReference: {fileID: 0}
