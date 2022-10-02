@@ -1,11 +1,14 @@
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Application = UnityEngine.Application;
 
 namespace Directors
 {
-    public class SceneChanger
+    public class SceneChanger : MonoBehaviour
     {
-        public void RestartCurrentScene()
+        public int IndexScene { get; set; }
+
+        public void RestartLevel()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
@@ -20,6 +23,11 @@ namespace Directors
             SceneManager.LoadScene(0);
         }
 
+        public void LoadLevelByIndex()
+        {
+            SceneManager.LoadScene(IndexScene);
+        }
+        
         public void QuitGame()
         {
             Application.Quit();

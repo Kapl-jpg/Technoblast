@@ -21,7 +21,7 @@ namespace Directors
         
         private void Start()
         {
-            FollowPlayerDeath(_sceneChanger.RestartCurrentScene);
+            FollowPlayerDeath(_sceneChanger.RestartLevel);
         }
         
         public void FollowPlayerDeath(Action methodToFollow)
@@ -52,7 +52,7 @@ namespace Directors
         
         private void UnFollowEvents()
         {
-            UnFollowPlayerDeath(_sceneChanger.RestartCurrentScene);
+            UnFollowPlayerDeath(_sceneChanger.RestartLevel);
             
             foreach (var method in _playerDeathFollowers)
             {
