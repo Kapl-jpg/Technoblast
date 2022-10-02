@@ -32,7 +32,7 @@ public class SceneChanger : MonoBehaviour
 
     public void LoadLevelByIndex()
     {
-        SceneManager.LoadScene(_writeInFile.ReadLevelNumber());
+        SceneManager.LoadScene(_writeInFile.ReadLevelFormXml());
     }
 
     public void QuitGame()

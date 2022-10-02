@@ -2,20 +2,17 @@ using UnityEngine;
 using System.IO;
 using Application = UnityEngine.Application;
 using UnityEngine.SceneManagement;
-using Zenject;
+using System.Xml.Linq;
 
 public class WriteInFile : MonoBehaviour
 {
-    private string _dataFolderName = "SaveData";
-    private string _levelFileName = "LevelNumber";
+    private readonly string _dataFolderName = "SaveData";
+    private readonly string _levelFileName = "Data";
 
-    private SceneChanger _changer;
+    private readonly string _dataElement = "Data";
+        private readonly string _levelElement = "Level";
+        private readonly string _numberElement = "Number";
 
-    [Inject]
-    private void Construct(SceneChanger sceneChanger)
-    {
-        _changer = sceneChanger;
-    }
 
     public int ReadLevelNumber()
     {
@@ -33,25 +30,16 @@ public class WriteInFile : MonoBehaviour
     private void Start()
     {
         InitialFile(Application.persistentDataPath + "/" + _dataFolderName);
-        WriteLevelNumber();
-        
+        WriteInXmlFile();
     }
     private string Path()
     {
-        return (Application.persistentDataPath + "/" + "SaveData" + "/" + "LevelNumber" + ".txt");
-    }
-
-    private void WriteLevelNumber()
-    {
-        if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
-            return;
-
-        File.WriteAllText(Path(), SceneManager.GetActiveScene().buildIndex.ToString());
+        return (Application.persistentDataPath + "/" + _dataFolderName + "/" + _levelFileName + ".xml");
     }
 
     private void InitialFile(string path)
     {
-        var filePath = path + "/" + _levelFileName + ".txt";
+        var filePath = path + "/" + _levelFileName + ".xml";
 
         if (!Directory.Exists(path) || !File.Exists(filePath))
         {
@@ -75,4 +63,46 @@ public class WriteInFile : MonoBehaviour
             File.Create(path);
         }
     }
+    #region Level
+
+    private void WriteLevel(XElement xElement)
+    {
+        XElement level = new XElement(_levelElement);
+        xElement.Add(level);
+
+        XElement number = new XElement(_numberElement, CurrentLevelToString());
+        level.Add(number);
+    }
+
+    public int ReadLevelFormXml()
+    {
+        XDocument doc = XDocument.Load(Path());
+        XElement data = doc.Element(_dataElement);
+        XElement level = data.Element(_levelElement);
+        XElement number = level.Element(_numberElement);
+        return int.Parse(number.Value);
+    }
+
+    #endregion
+
+    private void WriteInXmlFile()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
+            return;
+        XDocument doc = new XDocument();
+        XElement xElement = new XElement(_dataElement);
+
+        WriteLevel(xElement);
+
+        doc.Add(xElement);
+
+        using StreamWriter sw = new StreamWriter(Path());
+        string xDoc = doc.ToString();
+        sw.WriteLine(xDoc);
+    }    
+
+    private string CurrentLevelToString()
+    {
+        return SceneManager.GetActiveScene().buildIndex.ToString();
+    }    
 }
