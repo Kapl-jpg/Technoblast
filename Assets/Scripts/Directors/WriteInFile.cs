@@ -2,31 +2,39 @@ using UnityEngine;
 using System.IO;
 using Application = UnityEngine.Application;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 public class WriteInFile : MonoBehaviour
 {
     private string _dataFolderName = "SaveData";
     private string _levelFileName = "LevelNumber";
 
-    //public int ReadLevelNumber()
-    //{
-    //    var path = Application.dataPath;
-    //    var directory = Application.dataPath + "";
-    //    var fileName = "LevelNumber.txt";
-    //    var allPath = path + "/" + fileName;
-    //    if (File.Exists(allPath))
-    //    {
-    //        StreamReader sr = new StreamReader(allPath);
-    //        var text = File.ReadAllText(sr.ReadToEnd());
-    //        return int.Parse(text);
-    //    }
-    //    return 0;
-    //}
+    private SceneChanger _changer;
+
+    [Inject]
+    private void Construct(SceneChanger sceneChanger)
+    {
+        _changer = sceneChanger;
+    }
+
+    public int ReadLevelNumber()
+    {
+        if (File.Exists(Path()))
+        {
+            var text = File.ReadAllText(Path());
+            if (text != "")
+            {
+                return int.Parse(text);
+            }
+        }
+        return 0;
+    }
 
     private void Start()
     {
         InitialFile(Application.persistentDataPath + "/" + _dataFolderName);
         WriteLevelNumber();
+        
     }
     private string Path()
     {

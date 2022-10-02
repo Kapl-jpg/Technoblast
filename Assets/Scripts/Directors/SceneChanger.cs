@@ -1,36 +1,42 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Application = UnityEngine.Application;
+using Zenject;
 
-namespace Directors
+public class SceneChanger : MonoBehaviour
 {
-    public class SceneChanger : MonoBehaviour
+    private WriteInFile _writeInFile;
+
+    [Inject]
+    private void Construct(WriteInFile writeInFile)
     {
-        public int IndexScene { get; set; }
+        _writeInFile = writeInFile;
+    }
 
-        public void RestartLevel()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+    public int IndexScene { get; set; }
 
-        public void LoadNextScene()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
-        public void LoadMainMenuScene()
-        {
-            SceneManager.LoadScene(0);
-        }
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
-        public void LoadLevelByIndex()
-        {
-            SceneManager.LoadScene(IndexScene);
-        }
-        
-        public void QuitGame()
-        {
-            Application.Quit();
-        }
+    public void LoadMainMenuScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void LoadLevelByIndex()
+    {
+        SceneManager.LoadScene(_writeInFile.ReadLevelNumber());
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
