@@ -6,10 +6,12 @@ namespace Directors
     public class SceneChangerInstance : MonoBehaviour
     {
         private SceneChanger _instance;
+        private WriteInFile _writeInFile;
         
         [Inject]
-        private void Construct(SceneChanger sceneChanger)
+        private void Construct(SceneChanger sceneChanger,WriteInFile writeInFile)
         {
+            _writeInFile = writeInFile;
             _instance = sceneChanger;
         }
 

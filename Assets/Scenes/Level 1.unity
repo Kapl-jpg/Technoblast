@@ -5843,6 +5843,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -14.81
       objectReference: {fileID: 0}
+    - target: {fileID: 1066355327777391457, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
+      propertyPath: _monoInstallers.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1066355327966611448, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
       propertyPath: m_Name
       value: NecessaryComponents
@@ -6383,7 +6387,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 177.47855
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5007541780615788550, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
 --- !u!4 &1992346308 stripped
 Transform:

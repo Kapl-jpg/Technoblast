@@ -6,6 +6,6 @@ public class SceneChangerInstaller : MonoInstaller
         public override void InstallBindings()
         {
                 var sceneChanger = new SceneChanger();
-                Container.Bind<SceneChanger>().FromInstance(sceneChanger).AsSingle().NonLazy();
+                Container.Bind<SceneChanger>().FromInstance(sceneChanger).AsSingle().NonLazy();        
         }
 }
