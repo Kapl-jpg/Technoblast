@@ -30,7 +30,7 @@ public class WriteInFile : MonoBehaviour
     private void Start()
     {
         InitialFile(Application.persistentDataPath + "/" + _dataFolderName);
-        WriteInXmlFile();
+        WriteLevelInXmlFile();
     }
     private string Path()
     {
@@ -83,9 +83,8 @@ public class WriteInFile : MonoBehaviour
         return int.Parse(number.Value);
     }
 
-    #endregion
 
-    private void WriteInXmlFile()
+    private void WriteLevelInXmlFile()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
             return;
@@ -104,5 +103,7 @@ public class WriteInFile : MonoBehaviour
     private string CurrentLevelToString()
     {
         return SceneManager.GetActiveScene().buildIndex.ToString();
-    }    
+    }
+
+    #endregion
 }
