@@ -4,12 +4,24 @@ using UnityEngine;
 [RequireComponent(typeof(InputHandler))]
 public class SoundWave : BaseBehaviour
 {
-    [Header("Ray settings")] [Space(3)] [SerializeField]
-    private float rayUpDistance;
-
+    [Header("Ray settings")] [Space(3)] 
+    
+    [SerializeField] private float rayUpDistance;
     [SerializeField] private float rayDownDistance;
     [SerializeField] private float rayLeftDistance;
     [SerializeField] private float rayRightDistance;
+
+    [Header("Box collider")]
+
+    [SerializeField] private BoxCollider upBoxCollider;
+    [SerializeField] private BoxCollider downBoxCollider;
+    [SerializeField] private BoxCollider leftBoxCollider;
+    [SerializeField] private BoxCollider rightBoxCollider;
+
+    private BoxColliderGetCast upBoxColliderCast;
+    private BoxColliderGetCast downBoxColliderCast;
+    private BoxColliderGetCast leftBoxColliderCast;
+    private BoxColliderGetCast rightBoxColliderCast;
 
     [Space(15)] [SerializeField] private Transform startPoint;
     [Range(-1, 1)] [SerializeField] private float angle;
@@ -34,7 +46,15 @@ public class SoundWave : BaseBehaviour
 
     private float _currentTime;
 
+    #region Initialize the initial data and install the box collider
+
     private void Start()
+    {
+        GetComponents();
+        BoxColliderInitial();
+    }
+
+    private void GetComponents()
     {
         _animationState = GetComponent<AnimationState>();
         _playerInput = GetComponent<InputHandler>();
@@ -42,21 +62,82 @@ public class SoundWave : BaseBehaviour
         _launchWaveVisual = GetComponent<LaunchWaveVisual>();
     }
 
+    private void BoxColliderInitial()
+    {
+        SetBoxColliderPosition();
+        SetBoxColliderRotation();
+        SetBoxColliderScale();
+        GetBoxCastScript();
+    }
+
+    private void GetBoxCastScript()
+    {
+        upBoxColliderCast = upBoxCollider.GetComponent<BoxColliderGetCast>();
+        downBoxColliderCast = downBoxCollider.GetComponent<BoxColliderGetCast>();
+        leftBoxColliderCast = leftBoxCollider.GetComponent<BoxColliderGetCast>();
+        rightBoxColliderCast = rightBoxCollider.GetComponent<BoxColliderGetCast>();
+    }
+
+    private void SetBoxColliderPosition()
+    {
+        upBoxCollider.gameObject.transform.position = (CurrentRay(Vector3.up).GetPoint(0) + CurrentRay(Vector3.up).GetPoint(rayUpDistance)) / 2;
+        downBoxCollider.gameObject.transform.position = (CurrentRay(Vector3.down).GetPoint(0) + CurrentRay(Vector3.down).GetPoint(rayDownDistance)) / 2;
+        rightBoxCollider.gameObject.transform.position = (CurrentRay(Vector3.right).GetPoint(0) + CurrentRay(Vector3.right).GetPoint(rayRightDistance)) / 2;
+        leftBoxCollider.gameObject.transform.position = (CurrentRay(Vector3.left).GetPoint(0) + CurrentRay(Vector3.left).GetPoint(rayLeftDistance)) / 2;
+    }
+
+    private void SetBoxColliderRotation()
+    {
+        upBoxCollider.gameObject.transform.LookAt(startPoint);
+        downBoxCollider.gameObject.transform.LookAt(startPoint);
+        leftBoxCollider.gameObject.transform.LookAt(startPoint);
+        rightBoxCollider.gameObject.transform.LookAt(startPoint);
+    }
+    private void SetBoxColliderScale()
+    {
+        upBoxCollider.size = new Vector3(upBoxCollider.size.x, upBoxCollider.size.y, rayUpDistance)/transform.localScale.x;
+        downBoxCollider.size = new Vector3(downBoxCollider.size.x, downBoxCollider.size.y, rayDownDistance) / transform.localScale.x;
+        rightBoxCollider.size = new Vector3(rightBoxCollider.size.x, rightBoxCollider.size.y, rayRightDistance) / transform.localScale.x;
+        leftBoxCollider.size = new Vector3(leftBoxCollider.size.x, leftBoxCollider.size.y, rayLeftDistance) / transform.localScale.x;
+    }
+
+    #endregion
+
+    #region Launching a wave
+
     protected override void OnUpdate()
     {
         CountingTime();
-        Flight(_playerInput.Fire);
+        GetBox(_playerInput.Fire);
     }
 
-    private void Flight(Vector3 direction)
+    private void GetBox(Vector3 direction)
+    {
+        switch (direction)
+        {
+            case var v when v.Equals(Vector3.up):
+                upBoxColliderCast.LaunchWave();
+                break;
+            case var v when v.Equals(Vector3.down):
+                downBoxColliderCast.LaunchWave();
+                break;
+            case var v when v.Equals(Vector3.left):
+                leftBoxColliderCast.LaunchWave();
+                break;
+            case var v when v.Equals(Vector3.right):
+                rightBoxColliderCast.LaunchWave();
+                break;
+        }
+    }
+
+    public void Flight(Vector3 direction,bool hit,IJumpableObject objectData)
     {
         if (direction == Vector3.zero) return;
 
         if (_currentTime < fireCooldown)
             return;
 
-        if (Physics.Raycast(CurrentRay(direction), out var hit, _currentDistance) &&
-            hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
+        if (hit)
         {
             objectData.GetData();
             JumpableObjectHitEvent?.Invoke(objectData.GetData());
@@ -93,6 +174,8 @@ public class SoundWave : BaseBehaviour
 
         _currentRigidbody.AddForce(direction * forceValue, ForceMode.Impulse);
     }
+
+    #endregion
 
     #region Get rays
 
