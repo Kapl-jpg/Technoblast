@@ -18,16 +18,15 @@ public class MainCharacter : MonoBehaviour, ICanDie, ICanBeInvincible
     private Vector3 _velocity;
 
     private ILevelEnd _levelEnd;
+    private CharacterMovement _characterMovement;
 
     [Inject]
-    private void Construct(ILevelEnd levelEnd)
+    private void Construct(ILevelEnd levelEnd,CharacterMovement characterMovement)
     {
+        _characterMovement = characterMovement;
         _levelEnd = levelEnd;
         _levelEnd.OnLevelEndEvent += StartWinGameAnimation;
-
-        //_animationsEvents.OnLevelStartEvents += StopMovement;
-        //_animationsEvents.OnLevelStartEndEvents += ResetMovement;
-    }
+            }
 
     private void Start()
     {
@@ -44,8 +43,6 @@ public class MainCharacter : MonoBehaviour, ICanDie, ICanBeInvincible
     {
         _levelEnd.OnLevelEndEvent -= StartWinGameAnimation;
         
-        //_animationsEvents.OnLevelStartEvents -= StopMovement;
-        //_animationsEvents.OnLevelStartEndEvents -= ResetMovement;
     }
 
     private void SetGravityOff()
@@ -75,7 +72,7 @@ public class MainCharacter : MonoBehaviour, ICanDie, ICanBeInvincible
 
     public void Death()
     {
-        //StopMovement();
+        _characterMovement.Death = true;
         _animationState.TriggerDeath();
     }
 
@@ -86,17 +83,7 @@ public class MainCharacter : MonoBehaviour, ICanDie, ICanBeInvincible
     
     private void StartWinGameAnimation()
     {
-        //StopMovement();
         _animationState.TriggerWinGame();
     }
-
-    //private void StopMovement()
-    //{        
-
-    //}
-
-    //private void ResetMovement()
-    //{
-    //}
 }
 

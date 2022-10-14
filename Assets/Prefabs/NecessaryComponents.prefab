@@ -2085,6 +2085,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 6926391550839941530}
+        m_TargetAssemblyTypeName: PauseView, Assembly-CSharp
+        m_MethodName: UnpauseState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &8518717598846777968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2495,8 +2507,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 6926391550839941530}
-        m_TargetAssemblyTypeName: Directors.PauseDirector.PauseView, Assembly-CSharp
-        m_MethodName: SwitchState
+        m_TargetAssemblyTypeName: PauseView, Assembly-CSharp
+        m_MethodName: UnpauseState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2517,6 +2529,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8685482192142788776}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &9109794585833756487
 MonoBehaviour:
@@ -2575,10 +2599,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!1 &4328650416247333832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,19 +3066,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2881185439330597881}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6926391550839941530}
-        m_TargetAssemblyTypeName: Directors.PauseDirector.PauseView, Assembly-CSharp
-        m_MethodName: SwitchState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5328168448100028791
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,7 +3540,6 @@ GameObject:
   - component: {fileID: 3965596400377776260}
   - component: {fileID: 2849525282371488127}
   - component: {fileID: 7512748694289121606}
-  - component: {fileID: 7492884841906487778}
   m_Layer: 0
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -3623,20 +3630,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7492884841906487778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6243480000459815828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beb7b8c627df48709a9eb94b5ad80c66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pausePanel: {fileID: 8685482192142788776}
-  _settingsPanel: {fileID: 3934076816310978790}
 --- !u!1 &6513872202809523425
 GameObject:
   m_ObjectHideFlags: 0
@@ -4238,6 +4231,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 6926391550839941530}
+        m_TargetAssemblyTypeName: PauseView, Assembly-CSharp
+        m_MethodName: UnpauseState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &5455772266686747472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4501,6 +4506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ab63eda76b4616bea89ef08ddee8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausePanel: {fileID: 8685482192142788776}
 --- !u!1 &7919866569726379900
 GameObject:
   m_ObjectHideFlags: 0
@@ -5353,6 +5359,22 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 5918689123000996456, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
   m_PrefabInstance: {fileID: 1066355326530191762}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1889975625770026977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1510674363807352435, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+  m_PrefabInstance: {fileID: 1066355326530191762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3501318121151847344 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4493284845770332706, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+  m_PrefabInstance: {fileID: 1066355326530191762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b7b1bf6a55cf348b59c5e28825265c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1686196745819269029 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1849545154027300407, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
@@ -5386,22 +5408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1e76f99d0127a4bb47225d83d32578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2223142383132811898 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1159189489509377000, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
-  m_PrefabInstance: {fileID: 1066355326530191762}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4134bed7419fbcc48a0eb9df153c03f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1889975625770026977 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1510674363807352435, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
-  m_PrefabInstance: {fileID: 1066355326530191762}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2461875948267398743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3235312572473534405, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
@@ -5413,15 +5419,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2a693407c27b84e81c817775f6d2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3501318121151847344 stripped
+--- !u!114 &2223142383132811898 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4493284845770332706, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1159189489509377000, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
   m_PrefabInstance: {fileID: 1066355326530191762}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78b7b1bf6a55cf348b59c5e28825265c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4134bed7419fbcc48a0eb9df153c03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &611164693528083395 stripped

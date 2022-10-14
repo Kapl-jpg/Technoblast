@@ -25,7 +25,7 @@ public class CharacterMovement : MonoBehaviour
 
     private AnimationState _animationState;
 
-    private float _speedDuringPressing;
+    public bool Death { get; set; }
 
     private void Start()
     {
@@ -42,7 +42,10 @@ public class CharacterMovement : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if(!Death)
             HandleCharacterMovement();
+        else
+            _currentRigidbody.velocity = Vector3.zero;
     }
 
     private void HandleCharacterMovement()

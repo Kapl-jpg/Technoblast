@@ -14,7 +14,7 @@ public class GlobalGameTimer : MonoBehaviour
     }
     private float _currentTimerValue;
 
-    public event Action <int> OnTimerTickEvent;
+    public event Action<int> OnTimerTickEvent;
 
     private void Start()
     {
@@ -26,13 +26,10 @@ public class GlobalGameTimer : MonoBehaviour
     {
         Tick();
     }
-    
+
     private void Tick()
     {
-        //if (!IsPaused)
-        //{
-        //    _currentTimerValue += Time.deltaTime;
-        //    OnTimerTickEvent?.Invoke(Mathf.RoundToInt(_currentTimerValue));   
-        //}
+        _currentTimerValue += Time.deltaTime;
+        OnTimerTickEvent?.Invoke(Mathf.RoundToInt(_currentTimerValue));
     }
 }
