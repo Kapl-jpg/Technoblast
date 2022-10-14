@@ -2,7 +2,7 @@ using Interfaces;
 using UnityEngine;
 using Zenject;
 
-public class SprayCan : PausableActor, IInteractable
+public class SprayCan : MonoBehaviour, IInteractable
 {
     [SerializeField] private int _value;
     
@@ -16,7 +16,7 @@ public class SprayCan : PausableActor, IInteractable
         _inventory = inventory;
     }
     
-    protected override void Init()
+    private void Init()
     {
         gameObject.SetActive(true);
     }

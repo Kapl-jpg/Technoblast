@@ -1,11 +1,9 @@
 using System;
 using Directors.UI;
-using Interfaces;
 using TMPro;
 using UnityEngine;
-using Zenject;
 
-public class GlobalGameTimer : MonoBehaviour, ICanBePaused
+public class GlobalGameTimer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _uiTimerText;
 
@@ -16,15 +14,10 @@ public class GlobalGameTimer : MonoBehaviour, ICanBePaused
     }
     private float _currentTimerValue;
 
-    public bool IsPaused { get; private set; }
-    
     public event Action <int> OnTimerTickEvent;
 
-    [Inject]
-    private void Construct(IPauseDirector pauseDirector)
+    private void Start()
     {
-        pauseDirector.RegisterICanBePausedActor(this);
-        
         var uiUpdater = new UpdateTimerUI(_uiTimerText);
         OnTimerTickEvent += uiUpdater.UpdateUI;
     }
@@ -36,25 +29,10 @@ public class GlobalGameTimer : MonoBehaviour, ICanBePaused
     
     private void Tick()
     {
-        if (!IsPaused)
-        {
-            _currentTimerValue += Time.deltaTime;
-            OnTimerTickEvent?.Invoke(Mathf.RoundToInt(_currentTimerValue));   
-        }
-    }
-    
-    public void Pause()
-    {
-        SetPauseState(true);
-    }
-
-    public void Unpause()
-    {
-        SetPauseState(false);
-    }
-
-    private void SetPauseState(bool state)
-    {
-        IsPaused = state;
+        //if (!IsPaused)
+        //{
+        //    _currentTimerValue += Time.deltaTime;
+        //    OnTimerTickEvent?.Invoke(Mathf.RoundToInt(_currentTimerValue));   
+        //}
     }
 }

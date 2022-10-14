@@ -5,7 +5,7 @@ using UnityEngine;
 using Zenject;
 
 [RequireComponent(typeof(Rigidbody))]
-public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
+public class MainCharacter : MonoBehaviour, ICanDie, ICanBeInvincible
 {
     [SerializeField] private AnimationsEvents _animationsEvents;
     
@@ -25,26 +25,27 @@ public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
         _levelEnd = levelEnd;
         _levelEnd.OnLevelEndEvent += StartWinGameAnimation;
 
-        _animationsEvents.OnLevelStartEvents += StopMovement;
-        _animationsEvents.OnLevelStartEndEvents += ResetMovement;
+        //_animationsEvents.OnLevelStartEvents += StopMovement;
+        //_animationsEvents.OnLevelStartEndEvents += ResetMovement;
     }
 
-    protected override void Init()
+    private void Start()
+    {
+        Init();
+    }
+
+    private void Init()
     {
         _animationState = GetComponent<AnimationState>();
         _characterRigidbody = GetComponent<Rigidbody>();
-        OnPauseEvent += SetGravityOff;
-        OnUnpauseEvent += SetGravityOn;
     }
 
     private void OnDestroy()
     {
-        OnPauseEvent -= SetGravityOff;
-        OnUnpauseEvent -= SetGravityOn;
         _levelEnd.OnLevelEndEvent -= StartWinGameAnimation;
         
-        _animationsEvents.OnLevelStartEvents -= StopMovement;
-        _animationsEvents.OnLevelStartEndEvents -= ResetMovement;
+        //_animationsEvents.OnLevelStartEvents -= StopMovement;
+        //_animationsEvents.OnLevelStartEndEvents -= ResetMovement;
     }
 
     private void SetGravityOff()
@@ -74,7 +75,7 @@ public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
 
     public void Death()
     {
-        StopMovement();
+        //StopMovement();
         _animationState.TriggerDeath();
     }
 
@@ -85,18 +86,17 @@ public class MainCharacter : PausableActor, ICanDie, ICanBeInvincible
     
     private void StartWinGameAnimation()
     {
-        StopMovement();
+        //StopMovement();
         _animationState.TriggerWinGame();
     }
 
-    private void StopMovement()
-    {        
-        Pause();
-    }
+    //private void StopMovement()
+    //{        
 
-    private void ResetMovement()
-    {
-        Unpause();
-    }
+    //}
+
+    //private void ResetMovement()
+    //{
+    //}
 }
 

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(InputHandler))]
-public class SoundWave : BaseBehaviour
+public class SoundWave : MonoBehaviour
 {
     [Header("Ray settings")]
     [Space(3)]
@@ -77,7 +77,7 @@ public class SoundWave : BaseBehaviour
 
     #region Launching a wave
 
-    protected override void OnUpdate()
+    private void Update()
     {
         CountingTime();
         Flight(_playerInput.Fire);        

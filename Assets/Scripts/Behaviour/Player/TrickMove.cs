@@ -4,7 +4,7 @@ using Interfaces;
 using UnityEngine;
 using Zenject;
 
-public class TrickMove : BaseBehaviour
+public class TrickMove : MonoBehaviour
 {
     [Header("Trick Settings")] 
     [SerializeField] private float _cooldownTime;
@@ -40,7 +40,7 @@ public class TrickMove : BaseBehaviour
         }
     }
 
-    protected override void OnUpdate()
+    private void Update()
     {
         if (_playersInput.Trick && !_isOnCooldown)
         {

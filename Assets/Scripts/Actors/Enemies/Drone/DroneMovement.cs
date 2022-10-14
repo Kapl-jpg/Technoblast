@@ -5,7 +5,7 @@ using  DG.Tweening;
 using Interfaces;
 using Zenject;
 
-public class DroneMovement : MonoBehaviour, ICanBePaused
+public class DroneMovement : MonoBehaviour
 {
     [SerializeField] private GameObject points;
     
@@ -18,15 +18,11 @@ public class DroneMovement : MonoBehaviour, ICanBePaused
     private List<Vector3> _targetPoints;
 
     private Sequence _runningSequence;
-    private int _numberPoint;
-    
-    public bool IsPaused { get; }
 
-    [Inject]
-    private void Construct(IPauseDirector pauseDirector)
+    private int _numberPoint;
+
+    private void Start()
     {
-        pauseDirector.RegisterICanBePausedActor(this);
-        
         if (stay || points.transform.childCount <= 0)
             return;
 
@@ -61,15 +57,5 @@ public class DroneMovement : MonoBehaviour, ICanBePaused
         }
         
         _runningSequence.SetLoops(-1, loopAgain ? LoopType.Restart : LoopType.Yoyo);
-    }
-    
-    public void Pause()
-    {
-        _runningSequence.Pause();
-    }
-
-    public void Unpause()
-    {
-        _runningSequence.Play();
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(InputHandler))]
-public class CharacterMovement : BaseBehaviour
+public class CharacterMovement : MonoBehaviour
 {
     [Header("Speed")] [SerializeField] private float timeToMaximumSpeed;
 
@@ -34,7 +34,7 @@ public class CharacterMovement : BaseBehaviour
         _animationState = GetComponent<AnimationState>();
     }
 
-    protected override void OnUpdate()
+    private void Update()
     {
         HandleJump();
         HandleAnimation();
@@ -42,7 +42,6 @@ public class CharacterMovement : BaseBehaviour
     
     private void FixedUpdate()
     {
-        if(!_actor.IsPaused) 
             HandleCharacterMovement();
     }
 
