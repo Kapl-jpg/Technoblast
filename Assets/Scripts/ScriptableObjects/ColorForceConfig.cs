@@ -17,10 +17,10 @@ public class ColorForceConfig : ScriptableObject
     [SerializeField] private Material _orangeColorMaterial;
 
     [Header("Sound Sources"), Space(20)]
-    [SerializeField] private AudioClip _cyanAudioClip;
-    [SerializeField] private AudioClip _greyAudioClip;
-    [SerializeField] private AudioClip _purpleAudioClip;
-    [SerializeField] private AudioClip _orangeAudioClip;
+    [SerializeField] private AudioClip[] _cyanAudioClip;
+    [SerializeField] private AudioClip[] _greyAudioClip;
+    [SerializeField] private AudioClip[] _purpleAudioClip;
+    [SerializeField] private AudioClip[] _orangeAudioClip;
 
     [Header("ColorWave"), Space(20)]
     [SerializeField] [ColorUsage(true,true)] private Color _cyanWaveColor;
@@ -37,9 +37,9 @@ public class ColorForceConfig : ScriptableObject
             case(ForceColor.Grey):
                 return new JumpableObjectData(_greyColorForce, _greyColorMaterial, _greyAudioClip,_greyWaveColor);
             case(ForceColor.Orange):
-                return new JumpableObjectData(_orangeColorForce, _orangeColorMaterial, _orangeAudioClip,_orangeWaveColor);
+                return new JumpableObjectData(_orangeColorForce, _orangeColorMaterial, _orangeAudioClip, _orangeWaveColor);
             case(ForceColor.Purple):
-                return new JumpableObjectData(_purpleColorForce, _purpleColorMaterial, _purpleAudioClip,_purpleWaveColor);
+                return new JumpableObjectData(_purpleColorForce, _purpleColorMaterial, _purpleAudioClip, _purpleWaveColor);
             default:
                 return null;
         }

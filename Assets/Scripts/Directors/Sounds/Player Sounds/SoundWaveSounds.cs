@@ -1,5 +1,6 @@
 using Interfaces;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Directors
 {
@@ -28,7 +29,9 @@ namespace Directors
 
         private void PlayJumpableObjectSound(JumpableObjectData jumpableObjectData)
         {
-            SetAudioAndPlay(jumpableObjectData.ObjectHitAudio);
+            var random = new Random();
+            var randomSound = random.Next(0, jumpableObjectData.ObjectHitAudio.Length);
+            SetAudioAndPlay(jumpableObjectData.ObjectHitAudio[randomSound]);
         }
 
         private void PlayMissHitSound()

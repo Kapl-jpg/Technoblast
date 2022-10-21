@@ -1247,9 +1247,12 @@ MonoBehaviour:
   _moveVolume: 1
   _jumpVolume: 1
   _landVolume: 1
-  _moveSound: {fileID: 8300000, guid: 6ce98f61640f60048ba0022e591754d5, type: 3}
-  _jumpSound: {fileID: 8300000, guid: e14554afad78bbd40b470b4386ffecc6, type: 3}
-  _landSound: {fileID: 8300000, guid: ac4b7d5973b797d4bb28ad8fb325556a, type: 3}
+  _moveSound:
+  - {fileID: 8300000, guid: 8c5cc27939378ea4b9a0bf53a7f1c72f, type: 3}
+  _jumpSound:
+  - {fileID: 8300000, guid: c20db02e06984c2449fdf34eda897b14, type: 3}
+  _landSound:
+  - {fileID: 8300000, guid: 00026dccd0f3dc64fab9b62bdb20307d, type: 3}
 --- !u!114 &5689947222827597219
 MonoBehaviour:
   m_ObjectHideFlags: 0
