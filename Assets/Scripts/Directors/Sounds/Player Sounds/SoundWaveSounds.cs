@@ -18,8 +18,7 @@ namespace Directors
             
             _playerSoundWave.JumpableObjectHitEvent += PlayJumpableObjectSound;
             _playerSoundWave.JumpableObjectMissEvent += PlayMissHitSound;
-        }
-        
+        }        
         
         public void LastBreath()
         {

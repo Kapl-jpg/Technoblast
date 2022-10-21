@@ -27,6 +27,8 @@ public class CharacterMovement : MonoBehaviour
 
     public bool Death { get; set; }
 
+    public bool StopCharacter { get; set; }
+
     private void Start()
     {
         _playerInput = GetComponent<InputHandler>();
@@ -42,7 +44,7 @@ public class CharacterMovement : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if(!Death)
+        if(!Death && !StopCharacter)
             HandleCharacterMovement();
         else
             _currentRigidbody.velocity = Vector3.zero;
