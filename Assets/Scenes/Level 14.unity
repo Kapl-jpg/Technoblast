@@ -368,12 +368,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7576701709571151484, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
       propertyPath: m_Name
-      value: Monitor
+      value: Projectile Wave
       objectReference: {fileID: 0}
     - target: {fileID: 8810889638040452847, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a26fea3177e8b434ea0dfc156101d783, type: 3}
+    - target: {fileID: 8810889638040452847, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af513333469de024dafab15a62199a6d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a402c67c2dd6cb543925e29e8bce2deb, type: 3}
 --- !u!1 &202595423 stripped
