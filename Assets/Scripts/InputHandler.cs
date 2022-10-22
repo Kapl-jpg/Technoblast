@@ -79,7 +79,7 @@ public class InputHandler : MonoBehaviour
     
     private void HandleJumpInput()
     {
-        Jump = Input.GetKeyDown(KeyCode.W);
+        Jump = Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.Space);
     }
 
     private void HandleFireInput()
@@ -106,7 +106,7 @@ public class InputHandler : MonoBehaviour
     private void HandleTrickInput()
     {
         if (!IsGrounded)
-            Trick = Input.GetKeyDown(KeyCode.S);
+            Trick = Input.GetKeyDown(KeyCode.S)||Input.GetKeyDown(KeyCode.LeftShift);
     }
 
     private void HandlePauseState()
