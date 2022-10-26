@@ -185,10 +185,6 @@ MonoBehaviour:
   rayLeftDistance: 3
   rayRightDistance: 3
   sphereRadius: 0.4
-  upBoxCollider: {fileID: 0}
-  downBoxCollider: {fileID: 0}
-  leftBoxCollider: {fileID: 0}
-  rightBoxCollider: {fileID: 0}
   startPoint: {fileID: 1510674363807352435}
   angle: -0.75
   fireCooldown: 0.2
@@ -224,8 +220,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6321ba828bd7f40b1d497b1c757520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveParticleSystem: {fileID: 3563876450219574695, guid: 29e530c29e0680c46a320db154e2f701, type: 3}
-  waveCount: 5
+  wavePrefab: {fileID: 0}
+  waveParent: {fileID: 0}
+  waveSpeed: 50
+  wavesCount: 50
+  waveLaunchCount: 3
+  delay: 0.04
+  disableTime: 0.08
 --- !u!114 &1074295077372207880
 MonoBehaviour:
   m_ObjectHideFlags: 0
