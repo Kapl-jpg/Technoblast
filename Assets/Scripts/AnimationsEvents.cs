@@ -4,14 +4,17 @@ using Zenject;
 
 public class AnimationsEvents : MonoBehaviour
 {
-    [SerializeField] private MainCharacter _mainCharacter;
+    [SerializeField] private MainCharacter mainCharacter;
 
     private SceneChanger _sceneChanger;
+
+    private CharacterMovement _characterMovement;
     
     [Inject]
-    private void Construct(SceneChanger sceneChanger)
+    private void Construct(SceneChanger sceneChanger,CharacterMovement characterMovement)
     {
         _sceneChanger = sceneChanger;
+        _characterMovement = characterMovement;
     }
 
     public event Action OnLevelStartEvents; 
@@ -22,16 +25,19 @@ public class AnimationsEvents : MonoBehaviour
     public void LevelStartEvents()
     {
         OnLevelStartEvents?.Invoke();
+        StopCharacterMove();
     }
 
     public void LevelStartEndEvents()
     {
         OnLevelStartEndEvents?.Invoke();
+        CharacterCanMove();
     }
     
-    public void WinGameSoundEvents()
+    public void WinGameEvents()
     {
         OnWinGameEvents?.Invoke();
+        StopCharacterMove();
     }
     
     public void DeathSoundEvents()
@@ -41,11 +47,21 @@ public class AnimationsEvents : MonoBehaviour
     
     public void StartDeathEvents()
     {
-        _mainCharacter.StartDeathEvents();
+        mainCharacter.StartDeathEvents();
     }
 
     public void LoadNextScene()
     {
         _sceneChanger.LoadNextScene();
+    }
+
+    private void StopCharacterMove()
+    {
+        _characterMovement.StopCharacter = true;
+    }
+
+    private void CharacterCanMove()
+    {
+        _characterMovement.StopCharacter = false;
     }
 }
