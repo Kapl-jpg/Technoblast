@@ -27,7 +27,7 @@ public class CharacterMovement : MonoBehaviour
 
     public bool Death { get; set; }
 
-    public bool StopCharacter { get; set; }
+    public bool StopCharacter { get; set; } = false;
 
     private void Start()
     {
@@ -41,13 +41,21 @@ public class CharacterMovement : MonoBehaviour
         HandleJump();
         HandleAnimation();
     }
-    
+
     private void FixedUpdate()
     {
-        if(!Death && !StopCharacter)
+        print(StopCharacter);
+        _currentRigidbody.useGravity = !StopCharacter;
+
+        if (!Death && !StopCharacter)
+        {
             HandleCharacterMovement();
+        }
         else
-            _currentRigidbody.velocity = Vector3.zero;
+        {
+            _currentRigidbody.velocity = new Vector3(0,0,0);
+        }
+
     }
 
     private void HandleCharacterMovement()
