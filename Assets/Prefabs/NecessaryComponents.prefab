@@ -5497,16 +5497,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e614f0fc374fc6af141e43a0a118a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 6696602932514444282}
-  _levelStartVolume: 0.75
-  _winGameVolume: 0.75
-  _deathVolume: 0.75
-  _levelStartSound: {fileID: 8300000, guid: 836d284d2a5e0c24497e1ae13aa752d4, type: 3}
-  _winGameSound: {fileID: 8300000, guid: 578894079acec7f47a32618c91d4419c, type: 3}
-  _deathSound:
+  audioSource: {fileID: 6696602932514444282}
+  levelStartVolume: 0.75
+  winGameVolume: 0.75
+  deathVolume: 0.75
+  levelStartSound: {fileID: 8300000, guid: 836d284d2a5e0c24497e1ae13aa752d4, type: 3}
+  winGameSound: {fileID: 8300000, guid: 578894079acec7f47a32618c91d4419c, type: 3}
+  deathSound:
   - {fileID: 8300000, guid: 0f1dd87689cb0d342801f148d215c920, type: 3}
   - {fileID: 8300000, guid: 221af0beb953d65469a1e9a8568e961d, type: 3}
-  _animationEvents: {fileID: 611164693528083395}
+  animationEvents: {fileID: 611164693528083395}
 --- !u!1001 &1086650291122747368
 PrefabInstance:
   m_ObjectHideFlags: 0

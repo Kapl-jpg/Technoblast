@@ -4,7 +4,7 @@ using Zenject;
 
 public class AnimationsEvents : MonoBehaviour
 {
-    [SerializeField] private MainCharacter _mainCharacter;
+    [SerializeField] private MainCharacter mainCharacter;
 
     private SceneChanger _sceneChanger;
     
@@ -41,7 +41,7 @@ public class AnimationsEvents : MonoBehaviour
     
     public void StartDeathEvents()
     {
-        _mainCharacter.StartDeathEvents();
+        mainCharacter.StartDeathEvents();
     }
 
     public void LoadNextScene()

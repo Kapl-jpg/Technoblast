@@ -91,10 +91,12 @@ public class CharacterMovement : MonoBehaviour
     {
         AccelerationTime();
 
-        _currentRigidbody.velocity +=
+        var velocity = _currentRigidbody.velocity;
+        velocity +=
             new Vector3(
                 Mathf.Clamp(CalculateAcceleration() * _currentTimeAcceleration * direction.x, -maxSpeed, maxSpeed) -
-                _currentRigidbody.velocity.x, 0);
+                velocity.x, 0);
+        _currentRigidbody.velocity = velocity;
     }
 
     private void SlowingDown()
