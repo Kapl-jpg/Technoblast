@@ -27,7 +27,7 @@ public class CharacterMovement : MonoBehaviour
 
     public bool Death { get; set; }
 
-    public bool StopCharacter { get; set; } = false;
+    public bool StopCharacter { get; set; }
 
     private void Start()
     {
@@ -52,7 +52,7 @@ public class CharacterMovement : MonoBehaviour
         }
         else
         {
-            _currentRigidbody.velocity = new Vector3(0,0,0);
+            _currentRigidbody.velocity = Vector3.zero;
         }
     }
 
@@ -70,7 +70,7 @@ public class CharacterMovement : MonoBehaviour
         {
             if (_playerInput.IsGrounded)
                 SlowingDown();
-            
+
             _currentTimeAcceleration = 0;
         }
     }
@@ -80,17 +80,17 @@ public class CharacterMovement : MonoBehaviour
         _animationState.SetSpeedX(Mathf.Abs(_currentRigidbody.velocity.x));
         _animationState.SetSpeedY(_currentRigidbody.velocity.y);
         _animationState.SetGrounded(_playerInput.IsGrounded);
-        if(!_animationState.GetWaveSide())
+        if (!_animationState.GetWaveSide())
             _animationState.SetDirection(SetDirectionX());
     }
 
     private int SetDirectionX()
     {
-            if (_currentRigidbody.velocity.x > 0)
-                _directionAxisX = 1;
-            if (_currentRigidbody.velocity.x < 0)
-                _directionAxisX = -1;
-            return _directionAxisX;
+        if (_currentRigidbody.velocity.x > 0)
+            _directionAxisX = 1;
+        if (_currentRigidbody.velocity.x < 0)
+            _directionAxisX = -1;
+        return _directionAxisX;
     }
 
     private void Run(Vector3 direction)
