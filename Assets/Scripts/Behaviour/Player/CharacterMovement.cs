@@ -44,8 +44,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        print(StopCharacter);
-        _currentRigidbody.useGravity = !StopCharacter;
+        _currentRigidbody.useGravity = !StopCharacter && !Death;
 
         if (!Death && !StopCharacter)
         {
@@ -55,7 +54,6 @@ public class CharacterMovement : MonoBehaviour
         {
             _currentRigidbody.velocity = new Vector3(0,0,0);
         }
-
     }
 
     private void HandleCharacterMovement()
