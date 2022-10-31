@@ -15,6 +15,7 @@ public class ColorForceConfig : ScriptableObject
     [SerializeField] private Material _greyColorMaterial;
     [SerializeField] private Material _purpleColorMaterial;
     [SerializeField] private Material _orangeColorMaterial;
+    [SerializeField] private Material _redColorMaterial;
 
     [Header("Sound Sources"), Space(20)]
     [SerializeField] private AudioClip[] _cyanAudioClip;
@@ -32,14 +33,16 @@ public class ColorForceConfig : ScriptableObject
     {
         switch (color)
         {
-            case(ForceColor.Cyan):
+            case ForceColor.Cyan:
                 return new JumpableObjectData(_cyanColorForce, _cyanColorMaterial, _cyanAudioClip,_cyanWaveColor);
-            case(ForceColor.Grey):
+            case ForceColor.Grey:
                 return new JumpableObjectData(_greyColorForce, _greyColorMaterial, _greyAudioClip,_greyWaveColor);
-            case(ForceColor.Orange):
+            case ForceColor.Orange:
                 return new JumpableObjectData(_orangeColorForce, _orangeColorMaterial, _orangeAudioClip, _orangeWaveColor);
-            case(ForceColor.Purple):
+            case ForceColor.Purple:
                 return new JumpableObjectData(_purpleColorForce, _purpleColorMaterial, _purpleAudioClip, _purpleWaveColor);
+            case ForceColor.Red:
+                return new JumpableObjectData(_greyColorForce, _redColorMaterial, _greyAudioClip, _greyWaveColor);
             default:
                 return null;
         }
