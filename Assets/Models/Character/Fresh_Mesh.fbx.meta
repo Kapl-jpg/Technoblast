@@ -3,7 +3,47 @@ guid: 0b827357042d9de4083d96274243d961
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Base
+    second: {fileID: 2100000, guid: ed2a146c652a1c24d843806abfcdd67c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Cian
+    second: {fileID: 2100000, guid: d693ab11b5852af418d6e0dd56f20041, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Face
+    second: {fileID: 2100000, guid: 100126b0171723d458c51e2c8c78f28a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Green
+    second: {fileID: 2100000, guid: d0bc1f076f29ac64f8603763fca0f40c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Hat
+    second: {fileID: 2100000, guid: 6420a3eee0b27424eaec7c69bb40eef0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Pink
+    second: {fileID: 2100000, guid: 416d5ae039a23524aa086ac53469cee8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Red
+    second: {fileID: 2100000, guid: f521e3ff46608af4aa595aca0edeeeff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Yellow
+    second: {fileID: 2100000, guid: 848e3a0da16f4f944a6c9e468d840550, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
