@@ -5,24 +5,23 @@ public class HighlightShaderScript : MonoBehaviour
 {
     [SerializeField] private TrickMove _trickMove;
     [SerializeField] private GameObject _objectWithMaterial;
-    [SerializeField] private float _defaultHightlightValue;
-    [SerializeField] private float _trickHightLightValue;
 
-    private readonly string _powerPropertyName = "_Power";
     private Material _hightigthMaterial;
     private float _hightlightTime;
-    
+    private static readonly int Trick = Shader.PropertyToID("_Trick");
+
     private void Start()
     {
-        _hightigthMaterial = _objectWithMaterial.GetComponent<Renderer>().sharedMaterial;
-        SetMaterialPower(_defaultHightlightValue);
+        var materials = _objectWithMaterial.GetComponent<SkinnedMeshRenderer>().sharedMaterials;
+        _hightigthMaterial = materials[materials.Length - 1];
+        SetMaterialPower(0);
         _hightlightTime = _trickMove.InvincibilityTime;
         _trickMove.OnTrickStartEvent += HighlightMaterial;
     }
 
     private void SetMaterialPower(float value)
     {
-        _hightigthMaterial.SetFloat(_powerPropertyName, value);
+        _hightigthMaterial.SetFloat(Trick, value);
     }
     
     private void HighlightMaterial()
@@ -32,8 +31,8 @@ public class HighlightShaderScript : MonoBehaviour
 
     private IEnumerator HighlightMaterialAsync()
     {
-        SetMaterialPower(_trickHightLightValue);
+        SetMaterialPower(1);
         yield return new WaitForSeconds(_hightlightTime);
-        SetMaterialPower(_defaultHightlightValue);
+        SetMaterialPower(0);
     }
 }

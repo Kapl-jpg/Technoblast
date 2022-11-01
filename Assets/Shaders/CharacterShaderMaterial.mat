@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HighlightMaterial
+  m_Name: CharacterShaderMaterial
   m_Shader: {fileID: -6465566751694194690, guid: ab3bbd5fa60f9aa4ba06421c19ed077b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -76,6 +76,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_1b7edc9e44e347a8ab130272cbb01ead_Texture_1:
+        m_Texture: {fileID: 2800000, guid: ffd7d2522fdf8a94f9128bd227d09a89, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_825ebb5b4dba4eea8ff56e860548bf8c_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 00d4296f5a502e44b9e9b72e8e2cb222, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_efd972497b49465cba27bd0fdc12629d_Texture_1:
+        m_Texture: {fileID: 2800000, guid: fb3ff87a7a254244bb8b58ebfb239496, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -114,7 +126,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Power: 10
+    - _Power: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -122,6 +134,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _Trick: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
