@@ -2228,7 +2228,7 @@ GameObject:
   - component: {fileID: 2936830402329045468}
   - component: {fileID: -6483650841057439362}
   m_Layer: 6
-  m_Name: Turret_Grey
+  m_Name: Turret_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2278,7 +2278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colorForceConfig: {fileID: 11400000, guid: 28ce2bc8796c23d4f8fa57c5126c3ccd, type: 2}
-  _color: 1
+  _color: 4
   _emissionElementMeshRenderer: []
 --- !u!114 &6649197199088876387
 MonoBehaviour:
