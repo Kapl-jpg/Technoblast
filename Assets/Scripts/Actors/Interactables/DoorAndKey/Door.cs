@@ -6,20 +6,36 @@ using UnityEngine;
 [RequireComponent( typeof(Collider))]
 public class Door : OpenableActor
 {
-    [SerializeField] private Material _openMaterial;
-    [SerializeField] private GameObject _latticeReference;
+    [SerializeField] private GameObject[] doorEmissionElement;
+    [SerializeField] private GameObject[] buttonEmissionElements;
+    
+    [SerializeField] private Material redNeonMaterial;
+    [SerializeField] private Material greenNeonMaterial;
+
+    private Material[] _doorMaterial;
+    private Material[] _buttonMaterials;
 
     private Collider _collider;
-    private Material _latticeMaterial;
-    private Material _defaultMaterial;
-
     public event Action OnDoorOpenEvent;
     public event Action OnDoorCloseEvent;
 
     private void Start()
     {
         _collider = GetComponent<Collider>();
-        _defaultMaterial =_latticeReference.GetComponent<Renderer>().material;
+        
+        _doorMaterial = GetMaterial(doorEmissionElement,_doorMaterial);
+        _buttonMaterials = GetMaterial(buttonEmissionElements, _buttonMaterials);
+    }
+
+    private Material[] GetMaterial(GameObject[] currentObjects, Material[] currentMaterial)
+    {
+        currentMaterial = new Material[currentObjects.Length];
+        for (var i = 0; i < currentObjects.Length; i++)
+        {
+            currentMaterial[i] = currentObjects[i].GetComponent<Renderer>().material;
+        }
+
+        return currentMaterial;
     }
 
     public override void OpenOnTime(float time)
@@ -38,14 +54,16 @@ public class Door : OpenableActor
     {
         OnDoorOpenEvent?.Invoke();
         EnableCollider(false);
-        SetNewMaterial(_openMaterial);
+        SetNewMaterial(doorEmissionElement,greenNeonMaterial);
+        SetNewMaterial(buttonEmissionElements,redNeonMaterial);
     }
     
     private void Close()
     {
         OnDoorCloseEvent?.Invoke();
         EnableCollider(true);
-        SetNewMaterial(_defaultMaterial);
+        SetNewMaterial(doorEmissionElement,redNeonMaterial);
+        SetNewMaterial(buttonEmissionElements,greenNeonMaterial);
     }
     
     private void EnableCollider(bool state)
@@ -53,8 +71,11 @@ public class Door : OpenableActor
         _collider.enabled = state;
     }
     
-    private void SetNewMaterial(Material material)
+    private void SetNewMaterial(GameObject[] currentEmissionElement, Material nextMaterial)
     {
-        _latticeReference.GetComponent<Renderer>().material = material;
+        foreach (var element in currentEmissionElement)
+        {
+            element.GetComponent<Renderer>().material = nextMaterial;
+        }
     }
 }

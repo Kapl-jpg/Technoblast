@@ -806,8 +806,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7c9455b430ba5449b0f6973e87fe23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _openMaterial: {fileID: 2100000, guid: eb70cd4d1fdb4e140bc32af3e7a8775e, type: 2}
-  _latticeReference: {fileID: 1430084544661575158}
+  doorEmissionElement:
+  - {fileID: 1430084544661575158}
+  buttonEmissionElements:
+  - {fileID: 7749488385786423546}
+  - {fileID: 2727150460609201217}
+  - {fileID: 1596414289969539056}
+  - {fileID: 2712281477170932545}
+  - {fileID: 1981559385113503559}
+  - {fileID: 1626958896759209088}
+  redNeonMaterial: {fileID: 2100000, guid: 13b3af3522d6a9940ae71bc1a999a11f, type: 2}
+  greenNeonMaterial: {fileID: 2100000, guid: eb70cd4d1fdb4e140bc32af3e7a8775e, type: 2}
 --- !u!114 &7578993702823280594
 MonoBehaviour:
   m_ObjectHideFlags: 0
