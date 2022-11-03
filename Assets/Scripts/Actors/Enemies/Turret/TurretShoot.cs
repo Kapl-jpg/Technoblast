@@ -37,13 +37,11 @@ public class TurretShoot : MonoBehaviour
         
         var turretBullets = new GameObject("TurretBullets");
         
-        var turretData = GetComponent<Platform>().ObjectData.ObjectMaterial;
-        prefabBullet.GetComponent<BulletColor>().InitColor(turretData);
-
         for (var i = 0; i < countBullets; i++)
         {
-            
             var instance = Instantiate(prefabBullet, Vector3.zero, Quaternion.identity);
+            var color = GetComponent<Platform>().Color;
+            instance.GetComponent<BulletColor>().Init(color);
             instance.transform.parent = turretBullets.transform;
             SetFields(instance);
             _poolBullets.Add(instance);
