@@ -56,6 +56,8 @@ public class TurretShoot : MonoBehaviour
         bullet.GetComponent<Bullet>().StartSize = startSize;
         bullet.GetComponent<Bullet>().FinalSize = finalSize;
         bullet.GetComponent<Bullet>().MagnificationTime = magnificationTime;
+        bullet.GetComponent<Bullet>().Radius = rangeAttack;
+        bullet.GetComponent<Bullet>().StartPosition = startPoint.position;
     }
     
     #endregion
@@ -104,6 +106,7 @@ public class TurretShoot : MonoBehaviour
             bullet.SetActive(true);
             bullet.transform.position = startPoint.position;
             bullet.GetComponent<Bullet>().Direction = _characterMovement.transform.position - transform.position;
+            bullet.GetComponent<Bullet>().Appearance = true;
             return;
         }
     }
