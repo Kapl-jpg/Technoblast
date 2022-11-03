@@ -6,6 +6,12 @@ public abstract class JumpableObject : MonoBehaviour, IJumpableObject
     [SerializeField] protected ForceColor _color;
     [SerializeField] protected MeshRenderer[] _emissionElementMeshRenderer;
 
+    public ForceColor Color
+    {
+        get => _color;
+        set => _color = value;
+    }
+
     protected JumpableObjectData _objectData;
     
     public JumpableObjectData ObjectData
@@ -30,7 +36,7 @@ public abstract class JumpableObject : MonoBehaviour, IJumpableObject
         SetColor();
     }
 
-    private void SetColor()
+    protected void SetColor()
     {
         if (_emissionElementMeshRenderer == null) return;
         
