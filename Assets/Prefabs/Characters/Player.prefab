@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b7b1bf6a55cf348b59c5e28825265c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationsEvents: {fileID: 483925346688563793}
 --- !u!114 &3235312572473534405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +225,7 @@ MonoBehaviour:
   wavesCount: 50
   waveLaunchCount: 3
   delay: 0.04
-  disableTime: 0.08
+  disableTime: 0.06
 --- !u!114 &1074295077372207880
 MonoBehaviour:
   m_ObjectHideFlags: 0
