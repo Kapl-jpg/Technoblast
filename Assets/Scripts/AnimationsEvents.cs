@@ -8,13 +8,13 @@ public class AnimationsEvents : MonoBehaviour
 
     private SceneChanger _sceneChanger;
 
-    private CharacterMovement _characterMovement;
+    private InputHandler _inputHandler;
     
     [Inject]
-    private void Construct(SceneChanger sceneChanger,CharacterMovement characterMovement)
+    private void Construct(SceneChanger sceneChanger,InputHandler inputHandler)
     {
         _sceneChanger = sceneChanger;
-        _characterMovement = characterMovement;
+        _inputHandler = inputHandler;
     }
 
     public event Action OnLevelStartEvents; 
@@ -57,11 +57,11 @@ public class AnimationsEvents : MonoBehaviour
 
     private void StopCharacterMove()
     {
-        _characterMovement.StopCharacter = true;
+        _inputHandler.StayCharacter = true;
     }
 
     private void CharacterCanMove()
     {
-        _characterMovement.StopCharacter = false;
+        _inputHandler.StayCharacter = false;
     }
 }

@@ -16,13 +16,20 @@ public class InputHandler : MonoBehaviour
     public bool IsGrounded { get; private set; }
     public event Action OnLandedEvent;
     private float _airTime;
-    
+
+    public bool Death { get; set; }
+
+    public bool StayCharacter { get; set; }
+
     public bool Trick { get; private set; }
 
     public bool Pause { get; private set; } = false;
     
     private void Update()
     {
+        if(Death || StayCharacter) 
+            return;
+        
         CheckInputStates();
     }
 

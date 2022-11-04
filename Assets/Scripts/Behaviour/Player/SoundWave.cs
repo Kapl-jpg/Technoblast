@@ -30,8 +30,6 @@ public class SoundWave : MonoBehaviour
     [SerializeField]
     private bool drawRays = true;
 
-    private float _currentDistance;
-
     private LaunchWaveVisual _launchWaveVisual;
     private InputHandler _playerInput;
     private Rigidbody _currentRigidbody;
@@ -138,16 +136,12 @@ public class SoundWave : MonoBehaviour
         switch (direction)
         {
             case var v when v.Equals(Vector3.down):
-                _currentDistance = rayDownDistance;
                 return DownRay();
             case var v when v.Equals(Vector3.up):
-                _currentDistance = rayUpDistance;
                 return UpRay();
             case var v when v.Equals(Vector3.left):
-                _currentDistance = rayLeftDistance;
                 return LeftRay();
             case var v when v.Equals(Vector3.right):
-                _currentDistance = rayRightDistance;
                 return RightRay();
         }
 

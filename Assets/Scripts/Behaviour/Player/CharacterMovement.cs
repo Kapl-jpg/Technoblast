@@ -25,7 +25,6 @@ public class CharacterMovement : MonoBehaviour
 
     private AnimationState _animationState;
 
-    public bool Death { get; set; }
 
     public bool StopCharacter { get; set; } = false;
 
@@ -44,9 +43,9 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _currentRigidbody.useGravity = !StopCharacter && !Death;
+        _currentRigidbody.useGravity = !_playerInput.StayCharacter && !_playerInput.Death;
 
-        if (!Death && !StopCharacter)
+        if (!_playerInput.Death && !_playerInput.StayCharacter)
         {
             HandleCharacterMovement();
         }
