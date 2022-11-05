@@ -24,10 +24,10 @@ public class ColorForceConfig : ScriptableObject
     [SerializeField] private AudioClip[] _orangeAudioClip;
 
     [Header("ColorWave"), Space(20)]
-    [SerializeField] [ColorUsage(true,true)] private Color _cyanWaveColor;
-    [SerializeField] [ColorUsage(true,true)] private Color _greyWaveColor;
-    [SerializeField] [ColorUsage(true,true)] private Color _purpleWaveColor;
-    [SerializeField] [ColorUsage(true,true)] private Color _orangeWaveColor;
+    [SerializeField] [ColorUsage(false,true)] private Color _cyanWaveColor;
+    [SerializeField] [ColorUsage(false,true)] private Color _greyWaveColor;
+    [SerializeField] [ColorUsage(false,true)] private Color _purpleWaveColor;
+    [SerializeField] [ColorUsage(false,true)] private Color _orangeWaveColor;
     
     public JumpableObjectData GetData(ForceColor color)
     {
