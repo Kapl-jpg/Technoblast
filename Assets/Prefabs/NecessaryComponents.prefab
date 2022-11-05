@@ -5200,6 +5200,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7518251330826188932, guid: 66fc7ccc12f8d6f43bedcae5d7535310, type: 3}
     - target: {fileID: -8951788318370201076, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
+      propertyPath: disableTime
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: -8951788318370201076, guid: 6cd3ad606b23ec240829daa6cb6981fc, type: 3}
       propertyPath: waveLaunchCount
       value: 2
       objectReference: {fileID: 0}
