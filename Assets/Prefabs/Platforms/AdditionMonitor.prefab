@@ -25,12 +25,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60792858434076909}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4296654294087853340}
-  m_RootOrder: 0
+  m_Father: {fileID: 216012488744582839}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7338350656040169147
 MeshFilter:
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 895454439768059125}
   m_Layer: 0
-  m_Name: LP_Balka
+  m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 392869119644979424}
   m_Layer: 0
-  m_Name: LP_Text_Space
+  m_Name: Text Space
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024587389577235034}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4858327, y: -9.05448, z: 7.2842}
+  m_LocalPosition: {x: -3.406, y: 0.028999865, z: -0.0050001144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4227219892161939655}
@@ -229,8 +229,8 @@ Transform:
   - {fileID: 8609393529309889938}
   - {fileID: 4601932476298170504}
   - {fileID: 7456324742643496780}
-  m_Father: {fileID: 5651669939400433414}
-  m_RootOrder: 3
+  m_Father: {fileID: 8796412984207547435}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168031981976184962
 GameObject:
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 8679051166836370188}
   - component: {fileID: 5946875200185472803}
   m_Layer: 0
-  m_Name: LP_MainB_LP_All_LP_Main
+  m_Name: Body (Shift)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,9 +260,11 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5397170933663418134}
+  - {fileID: 2960088197188070443}
   m_Father: {fileID: 4296654294087853340}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8679051166836370188
 MeshFilter:
@@ -325,7 +327,7 @@ GameObject:
   - component: {fileID: 2619076982588356880}
   - component: {fileID: 3596544622672875511}
   m_Layer: 0
-  m_Name: LP_Balka_LP_All_LP_Chain
+  m_Name: Beam Chains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,7 +408,7 @@ GameObject:
   - component: {fileID: 7621193468777854545}
   - component: {fileID: 141460426025608267}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (4)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,7 +651,7 @@ GameObject:
   - component: {fileID: 5766974906068541565}
   - component: {fileID: 3769250375936713558}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -892,7 +894,7 @@ GameObject:
   - component: {fileID: 2948838005387119946}
   - component: {fileID: 3892363167307516317}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (8)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -973,7 +975,7 @@ GameObject:
   - component: {fileID: 3242675317835654490}
   - component: {fileID: 7605182497242088566}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (2)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1054,7 +1056,7 @@ GameObject:
   - component: {fileID: 8381806249001268550}
   - component: {fileID: 5436131611555299883}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (2)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1135,7 +1137,7 @@ GameObject:
   - component: {fileID: 7484608691175546000}
   - component: {fileID: 3408418179872081296}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (5)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1216,7 +1218,7 @@ GameObject:
   - component: {fileID: 6469482665162584251}
   - component: {fileID: 221445793979112038}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1378,7 +1380,7 @@ GameObject:
   - component: {fileID: 6813572405609980388}
   - component: {fileID: 2639480186726167493}
   m_Layer: 0
-  m_Name: LP_MainB_LP_All_LP_Main (1)
+  m_Name: Body (Space)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1394,9 +1396,10 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: -0.876, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 392869119644979424}
   m_Father: {fileID: 4296654294087853340}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6813572405609980388
 MeshFilter:
@@ -1457,7 +1460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4296654294087853340}
   m_Layer: 0
-  m_Name: LP_MainB
+  m_Name: Titles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1474,7 +1477,6 @@ Transform:
   m_LocalPosition: {x: -0.07983286, y: -8.2074795, z: 7.2892003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2960088197188070443}
   - {fileID: 216012488744582839}
   - {fileID: 8796412984207547435}
   m_Father: {fileID: 5651669939400433414}
@@ -1573,7 +1575,7 @@ GameObject:
   - component: {fileID: 229032344240371018}
   - component: {fileID: 7845640011416715549}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (1)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1735,7 +1737,7 @@ GameObject:
   - component: {fileID: 7836273591248839786}
   - component: {fileID: 6924935437015541898}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (6)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1814,7 +1816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5397170933663418134}
   m_Layer: 0
-  m_Name: LP_Text_Shift
+  m_Name: Text Shift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1828,7 +1830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4732521190967614892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07983286, y: -8.2074795, z: 7.2892003}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1906905754194730816}
@@ -1839,8 +1841,8 @@ Transform:
   - {fileID: 6090859057145173865}
   - {fileID: 8357270194297332972}
   - {fileID: 7254614670009218259}
-  m_Father: {fileID: 5651669939400433414}
-  m_RootOrder: 2
+  m_Father: {fileID: 216012488744582839}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4751063061478382964
 GameObject:
@@ -1854,7 +1856,7 @@ GameObject:
   - component: {fileID: 4863280849004818572}
   - component: {fileID: 330125325517503136}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (1)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2016,7 +2018,7 @@ GameObject:
   - component: {fileID: 2733023800923737328}
   - component: {fileID: 8908196474094078221}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (3)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2097,7 +2099,7 @@ GameObject:
   - component: {fileID: 74242330858073322}
   - component: {fileID: 7081414912739029498}
   m_Layer: 0
-  m_Name: LP_Balka_LP_Balka_LP_All
+  m_Name: Main Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2178,7 +2180,7 @@ GameObject:
   - component: {fileID: 7418399622568898039}
   - component: {fileID: 1674563670015845379}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (9)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2259,7 +2261,7 @@ GameObject:
   - component: {fileID: 8879002473459477973}
   - component: {fileID: 6332266298408683758}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2419,7 +2421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4681482971397194933}
   m_Layer: 0
-  m_Name: Chain
+  m_Name: Chains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2453,7 +2455,7 @@ Transform:
   - {fileID: 7413057545095421783}
   - {fileID: 3698770830907407023}
   m_Father: {fileID: 5651669939400433414}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7184766057606629505
 GameObject:
@@ -2467,7 +2469,7 @@ GameObject:
   - component: {fileID: 6876526014317240790}
   - component: {fileID: 3355518321358808754}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (7)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2727,8 +2729,6 @@ Transform:
   m_Children:
   - {fileID: 895454439768059125}
   - {fileID: 4296654294087853340}
-  - {fileID: 5397170933663418134}
-  - {fileID: 392869119644979424}
   - {fileID: 4681482971397194933}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -3069,7 +3069,7 @@ GameObject:
   - component: {fileID: 5828670622464531959}
   - component: {fileID: 1928613892252085628}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3150,7 +3150,7 @@ GameObject:
   - component: {fileID: 7793766316229467280}
   - component: {fileID: 334979072446310773}
   m_Layer: 0
-  m_Name: LP_Chain_01_LP_All (3)
+  m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
