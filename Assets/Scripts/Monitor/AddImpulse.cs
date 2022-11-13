@@ -7,7 +7,7 @@ public class AddImpulse : MonoBehaviour
     [SerializeField] private float force;
     [SerializeField] private float delay;
     
-    void Start()
+    private void Start()
     {
         StartCoroutine(AddForce());
     }
