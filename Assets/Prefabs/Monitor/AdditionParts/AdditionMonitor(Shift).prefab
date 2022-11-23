@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2921952013414369597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 5420168618692931555}
   - {fileID: 7880359955892780490}
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbodies:
   - {fileID: 8361315577376619010}
-  force: 500
+  force: 200
   delay: 2
 --- !u!1 &7205083539402092324
 GameObject:
