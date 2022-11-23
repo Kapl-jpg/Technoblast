@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3800128982581488955}
   - component: {fileID: 3800128982581489348}
   m_Layer: 0
-  m_Name: BackgroundSoundPlayer
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a17447dbee64af68fd3a23dc8431711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundsContainer: {fileID: 11400000, guid: 9558f856d61cd9249a1ac7daae818e71, type: 2}
 --- !u!82 &3800128982581489348
 AudioSource:
   m_ObjectHideFlags: 0
@@ -59,7 +58,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -4,68 +4,37 @@ namespace Directors
 {
     public class BackgroundSoundsPlayer : MonoBehaviour
     {
-        [SerializeField] private SoundsContainer _soundsContainer;
-        
-        public static BackgroundSoundsPlayer Instance => _instance;
-        private static BackgroundSoundsPlayer _instance;
+        public static GameObject MusicManager;
 
-        public AudioClip CurrentAudioClip => _audioSource.clip;
-        
-        private AudioSource _audioSource;
+        public static AudioSource AudioSource;
 
-        private void Awake()
+        public void CheckManager()
         {
-            Config();
-        }
-
-        private void Config()
-        {
-            if (_instance == null)
+            if (MusicManager == null)
             {
-                _instance = this;
-                DontDestroyOnLoad(this);
-                
-                _audioSource = GetComponent<AudioSource>();
-                PlayFirstSoundTheme();
+                DontDestroyOnLoad(gameObject);
+                MusicManager = gameObject;
+                SetAudioSource(MusicManager);
             }
             else
             {
                 Destroy(gameObject);
             }
         }
-
-        private void PlayFirstSoundTheme()
+        
+        private void SetAudioSource(GameObject musicManager)
         {
-            if (_soundsContainer.IsAvailableClips())
-            {
-                var firstSoundTheme = _soundsContainer.GetFirstAvailableAudioClip();
-                StartPlayingSoundTheme(firstSoundTheme);
-            }
-        }
-
-        private void StartPlayingSoundTheme(AudioClip soundTheme)
-        {
-            _audioSource.clip = soundTheme;
-            _audioSource.loop = true;
-            _audioSource.Play();
+            AudioSource = musicManager.GetComponent<AudioSource>();
         }
         
-        public bool PlayNextSoundTheme()
+        public void SetLevelAudioClip(AudioClip levelClip)
         {
-            var nextSoundTheme = _soundsContainer.GetNextAvailableAudioClip(_audioSource.clip);
-            var soundThemeExist = nextSoundTheme != null;
-            
-            if (soundThemeExist)
+            if (!AudioSource.isPlaying || AudioSource.clip != levelClip || AudioSource.clip == null)
             {
-                StartPlayingSoundTheme(nextSoundTheme);
+                AudioSource.clip = levelClip;
+                AudioSource.loop = true;
+                AudioSource.Play();
             }
-
-            return soundThemeExist;
-        }
-        
-        public void PlaySoundTheme(AudioClip soundTheme)
-        {
-            StartPlayingSoundTheme(soundTheme);
         }
     }
 }
