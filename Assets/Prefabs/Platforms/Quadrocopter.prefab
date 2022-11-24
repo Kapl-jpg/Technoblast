@@ -401,6 +401,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3757241547345471729}
   - component: {fileID: 990294853652409555}
+  - component: {fileID: 3825138599257152341}
+  - component: {fileID: 7717593334291507428}
   m_Layer: 0
   m_Name: Quadrocopter
   m_TagString: Untagged
@@ -415,9 +417,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4571074368065368651}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 1148196296894388573}
   - {fileID: 7500532469948100535}
@@ -448,6 +450,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &3825138599257152341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571074368065368651}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.29, y: 0.07, z: 0.29}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7717593334291507428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571074368065368651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e88fe1347387846bfb6e6320be737c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorForceConfig: {fileID: 11400000, guid: 28ce2bc8796c23d4f8fa57c5126c3ccd, type: 2}
+  _color: 3
+  _emissionElementMeshRenderer:
+  - {fileID: 2119047992433422017}
+  - {fileID: 2816313915325005203}
+  - {fileID: 9097024208665155594}
+  - {fileID: 3999896195288831090}
+  - {fileID: 658896247460137858}
 --- !u!1 &4806765742270333677
 GameObject:
   m_ObjectHideFlags: 0
