@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 using Zenject;
@@ -18,9 +19,13 @@ public class MainCharacter : MonoBehaviour, ICanDie, ICanBeInvincible
     private ILevelEnd _levelEnd;
 
     [Inject]
-    private void Construct(ILevelEnd levelEnd, InputHandler inputHandler)
+    private void Construct(InputHandler inputHandler)
     {
         _inputHandler = inputHandler;
+    }
+
+    public void SetLevelEnd(ILevelEnd levelEnd)
+    {
         _levelEnd = levelEnd;
         _levelEnd.OnLevelEndEvent += StartWinGameAnimation;
     }
@@ -33,11 +38,6 @@ public class MainCharacter : MonoBehaviour, ICanDie, ICanBeInvincible
     private void Init()
     {
         _animationState = GetComponent<AnimationState>();
-    }
-
-    private void OnDestroy()
-    {
-        _levelEnd.OnLevelEndEvent -= StartWinGameAnimation;
     }
 
     public void MakeInvincibleForSeconds(float invincibilityTime)
@@ -68,4 +68,3 @@ public class MainCharacter : MonoBehaviour, ICanDie, ICanBeInvincible
         _animationState.TriggerWinGame();
     }
 }
-

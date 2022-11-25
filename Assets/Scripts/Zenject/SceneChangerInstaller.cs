@@ -1,11 +1,12 @@
-using Directors;
+using UnityEngine;
 using Zenject;
 
 public class SceneChangerInstaller : MonoInstaller
 {
+        [SerializeField] private SceneChanger sceneChanger;
+
         public override void InstallBindings()
         {
-                var sceneChanger = new SceneChanger();
-                Container.Bind<SceneChanger>().FromInstance(sceneChanger).AsSingle().NonLazy();        
+                Container.Bind<SceneChanger>().FromInstance(sceneChanger).AsSingle().NonLazy();
         }
 }

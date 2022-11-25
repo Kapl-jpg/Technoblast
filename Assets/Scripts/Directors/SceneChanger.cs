@@ -6,14 +6,13 @@ using Zenject;
 public class SceneChanger : MonoBehaviour
 {
     private WriteInFile _writeInFile;
+    public int IndexNextScene { get; set; }
 
     [Inject]
     private void Construct(WriteInFile writeInFile)
     {
         _writeInFile = writeInFile;
     }
-
-    public int IndexScene { get; set; }
 
     public void RestartLevel()
     {
@@ -23,6 +22,11 @@ public class SceneChanger : MonoBehaviour
     public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadSceneAnimation()
+    {
+        SceneManager.LoadScene(IndexNextScene);
     }
 
     public void LoadMainMenuScene()
