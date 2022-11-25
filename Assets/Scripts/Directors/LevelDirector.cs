@@ -44,6 +44,5 @@ namespace Directors.UI
         {
             _statSaver.SaveLevelStateData(new LevelStateData(_levelStateData.SprayCanCounter, _timer.CurrentTimerValue, ++_levelStateData.GlobalDeathCounter));
         }
-
     }
 }

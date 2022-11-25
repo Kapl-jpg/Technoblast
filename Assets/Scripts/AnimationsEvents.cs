@@ -50,9 +50,9 @@ public class AnimationsEvents : MonoBehaviour
         mainCharacter.StartDeathEvents();
     }
 
-    public void LoadNextScene()
+    public void LoadSceneAnimation()
     {
-        _sceneChanger.LoadNextScene();
+        _sceneChanger.LoadSceneAnimation();
     }
 
     private void StopCharacterMove()

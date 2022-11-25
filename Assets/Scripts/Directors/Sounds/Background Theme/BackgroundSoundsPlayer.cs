@@ -4,36 +4,36 @@ namespace Directors
 {
     public class BackgroundSoundsPlayer : MonoBehaviour
     {
-        public static GameObject MusicManager;
+        private static GameObject _musicManager;
 
-        public static AudioSource AudioSource;
+        private static AudioSource _audioSource;
 
         public void CheckManager()
         {
-            if (MusicManager == null)
+            if (_musicManager == null)
             {
                 DontDestroyOnLoad(gameObject);
-                MusicManager = gameObject;
-                SetAudioSource(MusicManager);
+                _musicManager = gameObject;
+                SetAudioSource(_musicManager);
             }
             else
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
         
         private void SetAudioSource(GameObject musicManager)
         {
-            AudioSource = musicManager.GetComponent<AudioSource>();
+            _audioSource = musicManager.GetComponent<AudioSource>();
         }
         
         public void SetLevelAudioClip(AudioClip levelClip)
         {
-            if (!AudioSource.isPlaying || AudioSource.clip != levelClip || AudioSource.clip == null)
+            if (!_audioSource.isPlaying || _audioSource.clip != levelClip || _audioSource.clip == null)
             {
-                AudioSource.clip = levelClip;
-                AudioSource.loop = true;
-                AudioSource.Play();
+                _audioSource.clip = levelClip;
+                _audioSource.loop = true;
+                _audioSource.Play();
             }
         }
     }
