@@ -15,6 +15,7 @@ public class TrickMove : MonoBehaviour
     [Header("Interactive Objects Layer")]
     [SerializeField] private LayerMask _layerOfInteraction;
 
+    [SerializeField] private float repeatInteractableTime;
     private bool _isOnCooldown;
     private RaycastHit[] _raycastHits = new RaycastHit[1];
 
@@ -53,7 +54,7 @@ public class TrickMove : MonoBehaviour
         OnTrickStartEvent?.Invoke();
         StartCoroutine(StartCooldownAsync());
         MakeInvinsialbe();
-        TryInteractWithObjects();
+        StartCoroutine(TryInteractWithObjects());
     }
 
     private IEnumerator StartCooldownAsync()
@@ -70,7 +71,18 @@ public class TrickMove : MonoBehaviour
         _invincibility.MakeInvincibleForSeconds(_invincibilityTime);
     }
 
-    private bool TryInteractWithObjects()
+    private IEnumerator TryInteractWithObjects()
+    {
+        if (!CheckInteractableObject())
+        {
+            OnTrickMissEvent?.Invoke();
+        }
+        yield return new WaitForSeconds(repeatInteractableTime);
+        CheckInteractableObject();
+        yield return null;
+    }
+
+    private bool CheckInteractableObject()
     {
         var result = Physics.SphereCastNonAlloc(transform.position, _radiusOfInteraction, Vector3.forward,
             _raycastHits, _radiusOfInteraction, _layerOfInteraction);
@@ -82,8 +94,7 @@ public class TrickMove : MonoBehaviour
                 return true;
             }
         }
-        
-        OnTrickMissEvent?.Invoke();
+
         return false;
     }
 }

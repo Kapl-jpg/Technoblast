@@ -34,6 +34,11 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void LoadSceneIndexNumber(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+
     public void LoadLevelByIndex()
     {
         SceneManager.LoadScene(_writeInFile.ReadLevelFormXml());
