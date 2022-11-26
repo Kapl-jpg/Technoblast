@@ -730,7 +730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2d3400298b479fa7ea3b7f06fdd07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChanger: {fileID: 0}
+  sceneChanger: {fileID: 938222598}
 --- !u!114 &1184307987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,6 +1085,7 @@ GameObject:
   - component: {fileID: 1621503280}
   - component: {fileID: 1621503279}
   - component: {fileID: 1621503278}
+  - component: {fileID: 1621503281}
   m_Layer: 5
   m_Name: BackToMenuButton
   m_TagString: Untagged
@@ -1205,6 +1206,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621503276}
   m_CullTransparentMesh: 1
+--- !u!114 &1621503281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621503276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a526f028fc0dd79438308d5b814bdd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexMainHubText: 1
 --- !u!1 &1845337387
 GameObject:
   m_ObjectHideFlags: 0
