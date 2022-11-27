@@ -16,6 +16,7 @@ public class Door : OpenableActor
     private Material[] _buttonMaterials;
 
     private Collider _collider;
+    private bool _open;
     public event Action OnDoorOpenEvent;
     public event Action OnDoorCloseEvent;
 
@@ -52,18 +53,22 @@ public class Door : OpenableActor
 
     public override void Open()
     {
+        if (_open) return;
+        
         OnDoorOpenEvent?.Invoke();
         EnableCollider(false);
-        SetNewMaterial(doorEmissionElement,greenNeonMaterial);
-        SetNewMaterial(buttonEmissionElements,redNeonMaterial);
+        SetNewMaterial(doorEmissionElement, greenNeonMaterial);
+        SetNewMaterial(buttonEmissionElements, redNeonMaterial);
+        _open = true;
     }
-    
+
     private void Close()
     {
         OnDoorCloseEvent?.Invoke();
         EnableCollider(true);
         SetNewMaterial(doorEmissionElement,redNeonMaterial);
         SetNewMaterial(buttonEmissionElements,greenNeonMaterial);
+        _open = false;
     }
     
     private void EnableCollider(bool state)
