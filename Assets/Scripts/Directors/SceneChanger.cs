@@ -5,11 +5,11 @@ using Zenject;
 
 public class SceneChanger : MonoBehaviour
 {
-    private WriteInFile _writeInFile;
+    private DataFile _writeInFile;
     public int IndexNextScene { get; set; }
 
     [Inject]
-    private void Construct(WriteInFile writeInFile)
+    private void Construct(DataFile writeInFile)
     {
         _writeInFile = writeInFile;
     }
@@ -41,7 +41,7 @@ public class SceneChanger : MonoBehaviour
 
     public void LoadLevelByIndex()
     {
-        SceneManager.LoadScene(_writeInFile.ReadLevelFormXml());
+        //SceneManager.LoadScene();
     }
 
     public void QuitGame()

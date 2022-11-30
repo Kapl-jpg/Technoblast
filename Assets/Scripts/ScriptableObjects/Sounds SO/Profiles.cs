@@ -13,6 +13,8 @@ namespace ScriptableObjects.Sounds_SO
         public AudioMixer AudioMixer => _audioMixer;
         [SerializeField] private Volume[] _volumeControl;
 
+        [SerializeField] private float multiplyVolume = 3;
+
         public void SetProfile(Profiles profile)
         {
             Settings.Profile = profile;
@@ -30,7 +32,7 @@ namespace ScriptableObjects.Sounds_SO
 
             for (int i = 0; i < _volumeControl.Length; i++)
             {
-                if(_volumeControl[i].Name == name)
+                if (_volumeControl[i].Name == name)
                 {
                     if (_saveInPlayerPrefs)
                     {
@@ -42,10 +44,10 @@ namespace ScriptableObjects.Sounds_SO
                     }
 
                     _volumeControl[i].TempVolume = _volumeControl[i].CurrentVolume;
-                    
+
                     if (AudioMixer)
                     {
-                        var soundVolume = Mathf.Log(_volumeControl[i].CurrentVolume) * 20f;
+                        var soundVolume = Mathf.Log(_volumeControl[i].CurrentVolume) * multiplyVolume;
                         AudioMixer.SetFloat(_volumeControl[i].Name, soundVolume);
                     }
 
@@ -77,7 +79,8 @@ namespace ScriptableObjects.Sounds_SO
 
                 _volumeControl[i].TempVolume = _volumeControl[i].CurrentVolume;
 
-                _audioMixer.SetFloat(_volumeControl[i].Name, Mathf.Log(_volumeControl[i].CurrentVolume) * 20f);
+                _audioMixer.SetFloat(_volumeControl[i].Name,
+                    Mathf.Log(_volumeControl[i].CurrentVolume) * multiplyVolume);
             }
         }
 
@@ -89,12 +92,12 @@ namespace ScriptableObjects.Sounds_SO
                 return;
             }
 
-            for (int i = 0; i < _volumeControl.Length; i++)
+            foreach (var item in _volumeControl)
             {
-                if (_volumeControl[i].Name == name)
+                if (item.Name == name)
                 {
-                    _audioMixer.SetFloat(_volumeControl[i].Name, Mathf.Log(volume) * 20f);
-                    _volumeControl[i].TempVolume = volume;
+                    _audioMixer.SetFloat(item.Name, Mathf.Log(volume) * multiplyVolume);
+                    item.TempVolume = volume;
                     break;
                 }
             }
@@ -108,27 +111,27 @@ namespace ScriptableObjects.Sounds_SO
                 return;
             }
 
-            var volume = 0f;
-            for (int i = 0; i < _volumeControl.Length; i++)
+            float volume;
+            foreach (var item in _volumeControl)
             {
-                volume = _volumeControl[i].TempVolume;
+                volume = item.TempVolume;
                 if (_saveInPlayerPrefs)
                 {
-                    PlayerPrefs.SetFloat(_prefPrefix+_volumeControl[i].Name, volume);
+                    PlayerPrefs.SetFloat(_prefPrefix + item.Name, volume);
                 }
 
-                _audioMixer.SetFloat(_volumeControl[i].Name, Mathf.Log(volume) * 20f);
-                _volumeControl[i].CurrentVolume = volume;
+                _audioMixer.SetFloat(item.Name, Mathf.Log(volume) * multiplyVolume);
+                item.CurrentVolume = volume;
             }
         }
     }
-    
+
     [Serializable]
     public class Volume
     {
         public string Name;
-        public float CurrentVolume =1f;
-        public float TempVolume =1f;
+        public float CurrentVolume = 1f;
+        public float TempVolume = 1f;
     }
 
     public class Settings

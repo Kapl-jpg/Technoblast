@@ -5,7 +5,7 @@ public class WriteInFileInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        var writeInFile = new WriteInFile();
-        Container.Bind<WriteInFile>().FromInstance(writeInFile).AsSingle().NonLazy();
+        var writeInFile = new DataFile();
+        Container.Bind<DataFile>().FromInstance(writeInFile).AsSingle().NonLazy();
     }
 }
