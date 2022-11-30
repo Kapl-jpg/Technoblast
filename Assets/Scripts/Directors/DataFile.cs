@@ -61,6 +61,8 @@ public class DataFile : MonoBehaviour
 
     public void WriteLevel(int levelNumber)
     {
+        GetData();
+        
         if (!FileIsEmpty(_filePath))
             _settingsData = ReadSettingsData(_filePath);
 
@@ -72,13 +74,11 @@ public class DataFile : MonoBehaviour
 
     public int ReadLevel()
     {
-        if (!FileIsEmpty(_filePath))
-        {
-            _settingsData = ReadSettingsData(_filePath);
-            return _settingsData.levelNumber;
-        }
-
-        return 0;
+        GetData();
+        
+        if (FileIsEmpty(_filePath)) return 0;
+        _settingsData = ReadSettingsData(_filePath);
+        return _settingsData.levelNumber;
     }
     
     #endregion

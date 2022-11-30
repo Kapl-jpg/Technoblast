@@ -1074,7 +1074,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1300675184}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: LoadLevelByIndex
+        m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1833,6 +1833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0476a4a167d04889a5fe9316e5fd91f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  excludeIndexScene: 000000000100000020000000
 --- !u!1 &1312537018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2873,7 +2874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2d3400298b479fa7ea3b7f06fdd07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChanger: {fileID: 0}
+  sceneChanger: {fileID: 1300675184}
 --- !u!114 &2107198958
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Application = UnityEngine.Application;
@@ -5,13 +7,19 @@ using Zenject;
 
 public class SceneChanger : MonoBehaviour
 {
-    private DataFile _writeInFile;
+    private DataFile _dataFile;
+    [SerializeField] private int[] excludeIndexScene;
     public int IndexNextScene { get; set; }
 
     [Inject]
     private void Construct(DataFile writeInFile)
     {
-        _writeInFile = writeInFile;
+        _dataFile = writeInFile;
+    }
+
+    private void Start()
+    {
+        SaveLevelNumber();
     }
 
     public void RestartLevel()
@@ -39,9 +47,17 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
-    public void LoadLevelByIndex()
+    private void SaveLevelNumber()
     {
-        //SceneManager.LoadScene();
+        if (excludeIndexScene.Any(index => SceneManager.GetActiveScene().buildIndex == index))
+            return;
+
+        _dataFile.WriteLevel(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ContinueGame()
+    {
+        SceneManager.LoadScene(_dataFile.ReadLevel());
     }
 
     public void QuitGame()
