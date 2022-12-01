@@ -188,6 +188,9 @@ MonoBehaviour:
   angle: -0.75
   fireCooldown: 0.2
   missWaveColor: {r: 1, g: 1, b: 1, a: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1535
   drawRays: 0
 --- !u!114 &1849545154027300407
 MonoBehaviour:

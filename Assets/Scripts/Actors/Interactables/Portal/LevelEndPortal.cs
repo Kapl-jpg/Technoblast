@@ -1,4 +1,5 @@
 using System;
+using Directors;
 using Interfaces;
 using UnityEngine;
 using Zenject;
@@ -8,6 +9,10 @@ public class LevelEndPortal : MonoBehaviour, IInteractable, ILevelEnd
     [SerializeField] private int indexNextScene;
     
     [SerializeField] private bool _isActiveAtStart;
+    [SerializeField] private StatSaver statSaver;
+
+    [SerializeField] private bool clearStat = false;
+    
     public bool IsActive { get; private set; }
 
     private MainCharacter _mainCharacter;
@@ -32,6 +37,9 @@ public class LevelEndPortal : MonoBehaviour, IInteractable, ILevelEnd
         {
             _sceneChanger.IndexNextScene = indexNextScene;
             _mainCharacter.SetLevelEnd(gameObject.GetComponent<ILevelEnd>());
+            
+            if(clearStat)
+                statSaver?.ClearLevelStateData();
             OnLevelEndEvent?.Invoke();
         }
     }
