@@ -4,30 +4,26 @@ using UnityEngine;
 [RequireComponent(typeof(InputHandler))]
 public class SoundWave : MonoBehaviour
 {
-    [Header("Ray settings")]
-    [Space(3)]
+    [Header("Ray settings")] [Space(3)] [SerializeField]
+    private float rayUpDistance;
 
-    [SerializeField] private float rayUpDistance;
     [SerializeField] private float rayDownDistance;
     [SerializeField] private float rayLeftDistance;
     [SerializeField] private float rayRightDistance;
 
-    [Header("Sphere collider")]
-
-    [SerializeField]
+    [Header("Sphere collider")] [SerializeField]
     private float sphereRadius = 0.4f;
 
-    [Space(15)][SerializeField] private Transform startPoint;
-    [Range(-1, 1)][SerializeField] private float angle;
+    [Space(15)] [SerializeField] private Transform startPoint;
+    [Range(-1, 1)] [SerializeField] private float angle;
 
-    [SerializeField]
-    private float fireCooldown;
+    [SerializeField] private float fireCooldown;
 
     [SerializeField] private Color missWaveColor;
 
-    [Header("Draw in scene")]
-    [Space(3)]
-    [SerializeField]
+    [SerializeField] private LayerMask layerMask;
+    
+    [Header("Draw in scene")] [Space(3)] [SerializeField]
     private bool drawRays = true;
 
     private LaunchWaveVisual _launchWaveVisual;
@@ -68,6 +64,7 @@ public class SoundWave : MonoBehaviour
             case var v when v.Equals(Vector3.right):
                 return rayRightDistance;
         }
+
         return 0;
     }
 
@@ -78,17 +75,20 @@ public class SoundWave : MonoBehaviour
     private void Update()
     {
         CountingTime();
-        Flight(_playerInput.Fire);        
+        Flight(_playerInput.Fire);
     }
 
     public void Flight(Vector3 direction)
     {
         if (direction == Vector3.zero) return;
 
+        if (_playerInput.IsGrounded) return;
+
         if (_currentTime < fireCooldown)
             return;
 
-        if (Physics.SphereCast(gameObject.transform.position, sphereRadius, CurrentRay(direction).direction, out var hit, SphereDistance(direction))&&
+        if (Physics.SphereCast(gameObject.transform.position, sphereRadius, CurrentRay(direction).direction,
+                out var hit, SphereDistance(direction),layerMask) &&
             hit.collider.TryGetComponent<IJumpableObject>(out var objectData))
         {
             objectData.GetData();
@@ -98,8 +98,20 @@ public class SoundWave : MonoBehaviour
         }
         else
         {
-            JumpableObjectMissEvent?.Invoke();
-            _launchWaveVisual.Launch(CurrentRay(direction).direction, missWaveColor);
+            if (Physics.SphereCast(gameObject.transform.position, sphereRadius, CurrentRay(direction).direction,
+                 out var col, SphereDistance(direction),layerMask) &&
+             col.collider.TryGetComponent<IJumpableObject>(out var jumpableObject))
+            {
+                jumpableObject.GetData();
+                JumpableObjectHitEvent?.Invoke(jumpableObject.GetData());
+                AddForce(GetForceDirection(direction), jumpableObject.GetData().ObjectForce);
+                _launchWaveVisual.Launch(CurrentRay(direction).direction, jumpableObject.GetData().WaveColor);
+            }
+            else
+            {
+                JumpableObjectMissEvent?.Invoke();
+                _launchWaveVisual.Launch(CurrentRay(direction).direction, missWaveColor);
+            }
         }
 
         _animationState.SetLaunchWave(direction, _playerInput.IsGrounded, _currentRigidbody.velocity.x);
@@ -196,6 +208,10 @@ public class SoundWave : MonoBehaviour
         Debug.DrawRay(position, new Vector3(-CosValue(), SinValue()) * rayLeftDistance, Color.yellow);
         Debug.DrawRay(position, Vector3.down * rayDownDistance, Color.yellow);
         Debug.DrawRay(position, Vector3.up * rayUpDistance, Color.yellow);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(new Vector3(DownRay().GetPoint(rayDownDistance).x, DownRay().GetPoint(rayDownDistance).y),
+            sphereRadius);
     }
 
     #endregion
