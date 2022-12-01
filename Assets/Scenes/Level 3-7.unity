@@ -2094,19 +2094,19 @@ Transform:
   - {fileID: 1642119647}
   - {fileID: 2048330882}
   - {fileID: 1139380346}
+  - {fileID: 1161797185}
   - {fileID: 1860830702}
   - {fileID: 943408034}
   - {fileID: 892689126}
   - {fileID: 191121802}
   - {fileID: 514467508}
-  - {fileID: 1161797185}
   - {fileID: 1297627710}
   - {fileID: 634499619}
   - {fileID: 2138584665}
   - {fileID: 1977787772}
   - {fileID: 902948148}
-  - {fileID: 957383851}
   - {fileID: 1680262788}
+  - {fileID: 957383851}
   m_Father: {fileID: 896494417}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2923,6 +2923,14 @@ PrefabInstance:
     - target: {fileID: 5730793925734118323, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
       propertyPath: offset.y
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794594670672588848, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
+      propertyPath: levelAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e2cb1e58f2d61904f899f6430f8d796c, type: 3}
+    - target: {fileID: 6873599838732641895, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
+      propertyPath: m_text
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
@@ -3806,7 +3814,7 @@ Transform:
   - {fileID: 426244553}
   - {fileID: 69623102}
   m_Father: {fileID: 744393142}
-  m_RootOrder: 42
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &1226330558 stripped
 Transform:

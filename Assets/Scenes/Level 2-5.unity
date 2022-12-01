@@ -887,6 +887,14 @@ PrefabInstance:
       propertyPath: offset.x
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 6794594670672588848, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
+      propertyPath: levelAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a471cf61c693d544181fa40a1dce4e2d, type: 3}
+    - target: {fileID: 6873599838732641895, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
 --- !u!4 &454795285 stripped
@@ -1555,7 +1563,6 @@ Transform:
   - {fileID: 854546814}
   - {fileID: 371051587}
   - {fileID: 354905512}
-  - {fileID: 565581809}
   - {fileID: 1454428852}
   - {fileID: 2113934539}
   - {fileID: 436569166}
@@ -1563,11 +1570,12 @@ Transform:
   - {fileID: 1539674351}
   - {fileID: 1175033437}
   - {fileID: 39507539}
+  - {fileID: 1976572870}
   - {fileID: 1445603186}
   - {fileID: 873481064}
   - {fileID: 1120005280}
   - {fileID: 796620524}
-  - {fileID: 1976572870}
+  - {fileID: 565581809}
   - {fileID: 2072868942}
   - {fileID: 1729980014}
   - {fileID: 587620193}
