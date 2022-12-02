@@ -15,7 +15,7 @@ public class AnimationState : CharacterAnimatorController
     private static readonly int DirectionAxisX = Animator.StringToHash("DirectionAxisX");
     private static readonly int Death = Animator.StringToHash("Death");
     private static readonly int WinGame = Animator.StringToHash("WinGame");
-
+    private static readonly int FallAxisX = Animator.StringToHash("FallAxisX");
 
     public void TriggerDeath()
     {
@@ -30,6 +30,11 @@ public class AnimationState : CharacterAnimatorController
     public bool GetWaveSide()
     {
         return Animator.GetBool(WaveSide);
+    }
+
+    public void SetFallSpeedX(float speed)
+    {
+        Animator.SetFloat(FallAxisX, speed);
     }
 
     public void SetDirection(float direction)
@@ -77,6 +82,17 @@ public class AnimationState : CharacterAnimatorController
         }
     }
 
+    public void CheckWaves()
+    {
+        var waveSide = Animator.GetBool(WaveSide);
+        var direction = Animator.GetInteger(DirectionAxisX);
+        var fallAxisX = Animator.GetFloat(FallAxisX);
+        if ((waveSide && direction == -1 && fallAxisX < 0) || (waveSide && direction == 1 && fallAxisX > 0))
+        {
+            ResetWaves(true);
+        }
+    }
+
     public void SetTrick(bool trick)
     {
         Animator.SetBool(Trick, trick);
@@ -86,6 +102,7 @@ public class AnimationState : CharacterAnimatorController
 
     private void SetWaveSide()
     {
+        
         Animator.SetBool(WaveSide, true);
         Animator.SetBool(WaveDown, false);
         Animator.SetBool(WaveUp,false);
