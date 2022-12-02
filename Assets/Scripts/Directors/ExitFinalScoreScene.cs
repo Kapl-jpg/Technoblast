@@ -1,10 +1,11 @@
+using Directors;
 using UnityEngine;
 using Zenject;
 
 public class ExitFinalScoreScene : MonoBehaviour
 {
     [SerializeField] private int indexMainHubText;
-    
+    [SerializeField] private StatSaver statSaver;
     private SceneChanger _sceneChanger;
 
     [Inject]
@@ -15,7 +16,8 @@ public class ExitFinalScoreScene : MonoBehaviour
 
     private void Update()
     {
-        if(Input.anyKey)
-            _sceneChanger.LoadSceneIndexNumber(indexMainHubText);
+        if (!Input.anyKey) return;
+        _sceneChanger.LoadSceneIndexNumber(indexMainHubText);
+        statSaver.ClearLevelStateData();
     }
 }

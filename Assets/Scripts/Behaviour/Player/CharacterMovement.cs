@@ -81,6 +81,8 @@ public class CharacterMovement : MonoBehaviour
         _animationState.SetGrounded(_playerInput.IsGrounded);
         if(!_animationState.GetWaveSide())
             _animationState.SetDirection(SetDirectionX());
+        _animationState.SetFallSpeedX(_currentRigidbody.velocity.x);
+        _animationState.CheckWaves();
     }
 
     private int SetDirectionX()
