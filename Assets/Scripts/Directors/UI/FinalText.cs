@@ -28,7 +28,7 @@ public class FinalText : MonoBehaviour
                 textToSet = globalData.GlobalDeathCounter.ToString();
                 break;
             case(FinalStat.Cans):
-                textToSet = globalData.SprayCanCounter.ToString() + "/10";
+                textToSet = globalData.SprayCanCounter.ToString() + "/20";
                 break;
             case(FinalStat.Time):
                 var updateTimer = new UpdateTimerUI();
