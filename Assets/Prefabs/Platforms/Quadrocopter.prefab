@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6086452128418198381}
   - component: {fileID: 8438153746701684019}
   - component: {fileID: 210309564506079410}
+  - component: {fileID: 4240552151096250465}
   m_Layer: 3
   m_Name: QuadrocopterParent
   m_TagString: Untagged
@@ -121,6 +122,24 @@ MonoBehaviour:
   secondsMove: 0
   loopAgain: 0
   stay: 0
+--- !u!114 &4240552151096250465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767607661308354}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ba82df34fdc7841b4c5eb257390ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 1
+  waitTime: 2
+  speed: 0.5
+  offset: 0.5
+  moveDown: 1
+  waitStart: 0
 --- !u!1 &1504985030208556499
 GameObject:
   m_ObjectHideFlags: 0
