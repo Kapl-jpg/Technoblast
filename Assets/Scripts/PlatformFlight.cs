@@ -5,7 +5,7 @@ public class PlatformFlight : MonoBehaviour
     [SerializeField] private float amplitude;
     [SerializeField] private float waitTime;
     [SerializeField] private float speed;
-
+    [SerializeField] private AnimationCurve curve;
     private Vector3 _upPoint;
     private Vector3 _downPoint;
 
@@ -38,7 +38,7 @@ public class PlatformFlight : MonoBehaviour
             CountingTime();            
         }
 
-        transform.position = Vector3.Lerp(_upPoint,_downPoint, offset);
+        transform.position = Vector3.Lerp(_upPoint,_downPoint, curve.Evaluate(offset));
     }
 
     private bool Wait()
