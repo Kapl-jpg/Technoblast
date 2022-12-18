@@ -32,6 +32,14 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void StartGame(int cutsceneNumber)
+    {
+        if (_dataFile.ReadCutscene() == 0)
+            SceneManager.LoadScene(cutsceneNumber);
+        else
+            LoadNextScene();
+    }
+
     public void LoadSceneAnimation()
     {
         SceneManager.LoadScene(IndexNextScene);
