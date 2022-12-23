@@ -135,7 +135,32 @@ public class DataFile : MonoBehaviour
     }
 
     #endregion
-    
+
+    #region Cutscene
+
+    public void WriteCutscene()
+    {
+        GetData();
+        
+        if (!FileIsEmpty(_filePath))
+            _settingsData = ReadSettingsData(_filePath);
+
+        _settingsData.cutscene = 1;
+        
+        var json = JsonUtility.ToJson(_settingsData);
+        File.WriteAllText(_filePath,json);
+    }
+
+    public int ReadCutscene()
+    {
+        GetData();
+        
+        if (FileIsEmpty(_filePath)) return 0;
+        _settingsData = ReadSettingsData(_filePath);
+        return _settingsData.cutscene;
+    }
+
+    #endregion
     private static SettingsData ReadSettingsData(string path)
     {
         var jsonString = File.ReadAllText(path);
@@ -149,4 +174,5 @@ public class SettingsData
     public int levelNumber;
     public int musicVolume;
     public int soundVolume;
+    public int cutscene;
 }
