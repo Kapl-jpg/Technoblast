@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 3495421935193965268}
   - component: {fileID: 2955075818216228562}
   - component: {fileID: 6283838017532946505}
+  - component: {fileID: 6317457022710072961}
   m_Layer: 3
   m_Name: Glass_bottom_low
   m_TagString: Untagged
@@ -749,7 +750,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3962221661816651964, guid: e81ec32fbecfbac43b37948dd30c9661, type: 3}
+  - {fileID: 2100000, guid: e3a4435d9740bc84497a1f8d2aab6a84, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -771,6 +772,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6317457022710072961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666894818336667899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff125bb2b45d5254dbb5719edc783604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerNumber: 15
 --- !u!1 &5255293433892557767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1266,7 @@ GameObject:
   - component: {fileID: 6303406992960353342}
   - component: {fileID: 6600140098361056876}
   - component: {fileID: 2627528109436761611}
+  - component: {fileID: 8596955156972969251}
   m_Layer: 3
   m_Name: Glass_top_low
   m_TagString: Untagged
@@ -1300,7 +1315,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3962221661816651964, guid: e81ec32fbecfbac43b37948dd30c9661, type: 3}
+  - {fileID: 2100000, guid: e3a4435d9740bc84497a1f8d2aab6a84, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1322,6 +1337,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8596955156972969251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068000256789911908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff125bb2b45d5254dbb5719edc783604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerNumber: 15
 --- !u!1 &9075585608763542935
 GameObject:
   m_ObjectHideFlags: 0
