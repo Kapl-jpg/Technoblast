@@ -202,7 +202,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 210309564506079410, guid: aafcdcc185f2ce648b6ffcc0460ab3ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 210309564506079410, guid: aafcdcc185f2ce648b6ffcc0460ab3ff, type: 3}
       propertyPath: secondsMove
@@ -218,7 +218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4053501684901193546, guid: aafcdcc185f2ce648b6ffcc0460ab3ff, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4053501684901193546, guid: aafcdcc185f2ce648b6ffcc0460ab3ff, type: 3}
       propertyPath: curve.Array.size
