@@ -17,7 +17,8 @@ public class ExitFinalScoreScene : MonoBehaviour
     private void Update()
     {
         if (!Input.anyKey) return;
-        _sceneChanger.LoadSceneIndexNumber(indexMainHubText);
         statSaver.ClearLevelStateData();
+        _sceneChanger.ClearSpayCounter();
+        _sceneChanger.LoadSceneIndexNumber(indexMainHubText);
     }
 }

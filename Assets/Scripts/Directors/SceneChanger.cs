@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -66,6 +65,11 @@ public class SceneChanger : MonoBehaviour
     public void ContinueGame()
     {
         SceneManager.LoadScene(_dataFile.ReadLevel());
+    }
+
+    public void ClearSpayCounter()
+    {
+        _dataFile.WriteSprayCount(0);
     }
 
     public void QuitGame()

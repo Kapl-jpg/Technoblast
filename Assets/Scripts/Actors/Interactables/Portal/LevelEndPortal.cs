@@ -10,8 +10,8 @@ public class LevelEndPortal : MonoBehaviour, IInteractable, ILevelEnd
     
     [SerializeField] private bool _isActiveAtStart;
     [SerializeField] private StatSaver statSaver;
-
     [SerializeField] private bool clearStat = false;
+    [SerializeField] private bool clearSprayCounter = false;
     
     public bool IsActive { get; private set; }
 
@@ -37,9 +37,13 @@ public class LevelEndPortal : MonoBehaviour, IInteractable, ILevelEnd
         {
             _sceneChanger.IndexNextScene = indexNextScene;
             _mainCharacter.SetLevelEnd(gameObject.GetComponent<ILevelEnd>());
-            
-            if(clearStat)
+
+            if (clearStat)
+            {
                 statSaver?.ClearLevelStateData();
+                _sceneChanger.ClearSpayCounter();
+            }
+
             OnLevelEndEvent?.Invoke();
         }
     }

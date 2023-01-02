@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace Directors.UI
 {
@@ -9,6 +10,7 @@ namespace Directors.UI
     {
         [SerializeField] private InventoryComponent _inventory;
 
+        private DataFile _dataFile;
         private int _currentSprayCanCounter;
         public int CurrentSprayCanCounter
         {
@@ -21,9 +23,16 @@ namespace Directors.UI
         
         private TextMeshProUGUI _sprayCanCounterText;
 
+        [Inject]
+        private void Construct(DataFile dataFile)
+        {
+            _dataFile = dataFile;
+        }
+        
         private void Start()
         {
             _sprayCanCounterText = GetComponent<TextMeshProUGUI>();
+            _currentSprayCanCounter = _dataFile.ReadSprayCount();
             _inventory.OnItemAddedEvent += IncreaseCounter;
             SetText($"{_currentSprayCanCounter}");
         }
@@ -32,6 +41,7 @@ namespace Directors.UI
         {
             _currentSprayCanCounter++;
             SetText($"{_currentSprayCanCounter}");
+            _dataFile.WriteSprayCount(_currentSprayCanCounter);
         }
 
         private void SetText(string text)

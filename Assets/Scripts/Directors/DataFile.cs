@@ -161,6 +161,37 @@ public class DataFile : MonoBehaviour
     }
 
     #endregion
+
+    #region Spray count
+
+    public void WriteSprayCount(int sprayCount)
+    {
+        GetData();
+        
+        if (!FileIsEmpty(_filePath))
+            _settingsData = ReadSettingsData(_filePath);
+
+        _settingsData.sprayCount = sprayCount;
+
+        var json = JsonUtility.ToJson(_settingsData);
+        File.WriteAllText(_filePath, json);
+    }
+
+    public int ReadSprayCount()
+    {
+        GetData();
+
+        if (!FileIsEmpty(_filePath))
+        {
+            _settingsData = ReadSettingsData(_filePath);
+            return _settingsData.sprayCount;
+        }
+
+        return 0;
+    }
+
+    #endregion
+    
     private static SettingsData ReadSettingsData(string path)
     {
         var jsonString = File.ReadAllText(path);
@@ -175,4 +206,5 @@ public class SettingsData
     public int musicVolume;
     public int soundVolume;
     public int cutscene;
+    public int sprayCount;
 }
