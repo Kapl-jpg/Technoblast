@@ -1371,6 +1371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsFlight: 1.5
   amplitude: 0.2
+  maxOffsetTime: 0.2
 --- !u!1001 &469352091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3245,6 +3246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsFlight: 1.5
   amplitude: 0.2
+  maxOffsetTime: 0.2
 --- !u!1001 &992616849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3908,6 +3910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsFlight: 1.5
   amplitude: 0.2
+  maxOffsetTime: 0.2
 --- !u!1001 &1134649557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3998,6 +4001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsFlight: 1.5
   amplitude: 0.2
+  maxOffsetTime: 0.2
 --- !u!1 &1184181001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2052920962724783988, guid: 2b4d6217320266f45ad8b48e71e353eb, type: 3}
@@ -4017,6 +4021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsFlight: 1.5
   amplitude: 0.2
+  maxOffsetTime: 0.2
 --- !u!1001 &1192459000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4305,6 +4310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsFlight: 1.5
   amplitude: 0.2
+  maxOffsetTime: 0.2
 --- !u!1001 &1346510074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5589,6 +5595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsFlight: 1.5
   amplitude: 0.2
+  maxOffsetTime: 0.2
 --- !u!1001 &1843952140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5738,6 +5745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsFlight: 1.5
   amplitude: 0.2
+  maxOffsetTime: 0.2
 --- !u!4 &1854846583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1672700308731051470, guid: 2b4d6217320266f45ad8b48e71e353eb, type: 3}
@@ -6451,6 +6459,10 @@ PrefabInstance:
       propertyPath: offset.y
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6794594670672588848, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
+      propertyPath: levelAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b3709c4579ecfc44da1143d892e3112d, type: 3}
     - target: {fileID: 6873599838732641895, guid: dc6414d65ecd4814db420320e24e6f98, type: 3}
       propertyPath: m_text
       value: 4
