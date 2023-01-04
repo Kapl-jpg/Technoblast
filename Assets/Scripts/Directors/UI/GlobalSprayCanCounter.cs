@@ -41,7 +41,6 @@ namespace Directors.UI
         {
             _currentSprayCanCounter++;
             SetText($"{_currentSprayCanCounter}");
-            _dataFile.WriteSprayCount(_currentSprayCanCounter);
         }
 
         private void SetText(string text)

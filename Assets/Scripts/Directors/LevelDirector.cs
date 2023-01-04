@@ -14,12 +14,14 @@ namespace Directors.UI
         [SerializeField] private StatSaver _statSaver;
 
         private LevelStateData _levelStateData;
+        private DataFile _dataFile;
         
         [Inject]
-        private void Construct(ILevelEnd levelEnd, ICanDie playerDie)
+        private void Construct(ILevelEnd levelEnd, ICanDie playerDie,DataFile dataFile)
         {
             levelEnd.OnLevelEndEvent += SaveLevelEndValues;
             playerDie.OnDeathEvent += SaveTimerValue;
+            _dataFile = dataFile;
         }
         
         private void Awake()
@@ -37,6 +39,7 @@ namespace Directors.UI
         
         public void SaveLevelEndValues()
         {
+            _dataFile.WriteSprayCount(_sprayCanCounter.CurrentSprayCanCounter);
             _statSaver.SaveLevelStateData(new LevelStateData(_sprayCanCounter.CurrentSprayCanCounter, _timer.CurrentTimerValue, _levelStateData.GlobalDeathCounter));
         }
         
