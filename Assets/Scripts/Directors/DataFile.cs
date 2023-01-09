@@ -100,7 +100,7 @@ public class DataFile : MonoBehaviour
     {
         GetData();
 
-        if (FileIsEmpty(_filePath)) return 0;
+        if (FileIsEmpty(_filePath)) return 4;
         _settingsData = ReadSettingsData(_filePath);
         return _settingsData.soundVolume;
 
@@ -124,14 +124,10 @@ public class DataFile : MonoBehaviour
     public int ReadMusicVolume()
     {
         GetData();
-
-        if (!FileIsEmpty(_filePath))
-        {
+        
+        if (FileIsEmpty(_filePath)) return 4;
             _settingsData = ReadSettingsData(_filePath);
             return _settingsData.musicVolume;
-        }
-
-        return 0;
     }
 
     #endregion
