@@ -79,6 +79,10 @@ public class TrickMove : MonoBehaviour
         }
         yield return new WaitForSeconds(repeatInteractableTime);
         CheckInteractableObject();
+        yield return new WaitForSeconds(repeatInteractableTime);
+        CheckInteractableObject();
+        yield return new WaitForSeconds(repeatInteractableTime);
+        CheckInteractableObject();
         yield return null;
     }
 
